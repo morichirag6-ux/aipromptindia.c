@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Start India - Free AI Tutorials & Prompts for Beginners</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Custom gradient text */
+        .gradient-text {
+            background-image: linear-gradient(to right, #f97316, #db2777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* Hero background pattern */
+        .hero-pattern {
+            background-color: #fffaf0;
+            background-image: 
+                radial-gradient(circle at 100% 0, #fff 0, #fff 20%, transparent 20%),
+                radial-gradient(circle at 0 100%, #fff 0, #fff 20%, transparent 20%),
+                radial-gradient(circle at 100% 100%, #fff 0, #fff 20%, transparent 20%),
+                radial-gradient(circle at 0 0, #fff 0, #fff 20%, transparent 20%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 0, 100% 0, 0 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* Custom Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+            transition: visibility 0.5s, opacity 0.5s linear;
+            opacity: 0;
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+            transform: translateY(-20px);
+        }
+        .modal-overlay:not(.hidden) .modal-content {
+            transform: translateY(0);
+        }
+
+        /* Prevent body scroll when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Style for active nav link */
+        .nav-link.active {
+            @apply text-orange-500 font-semibold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md fixed w-full z-40 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-robot text-orange-500 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl tracking-tight">AI Start <span class="text-green-600">India</span></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" id="nav-home" onclick="showPage('home')" class="nav-link text-gray-600 hover:text-orange-500 transition">Home</a>
+                    <a href="#" id="nav-tools" onclick="showPage('tools')" class="nav-link text-gray-600 hover:text-orange-500 transition">Top Tools</a>
+                    <a href="#" id="nav-tutorials" onclick="showPage('tutorials')" class="nav-link text-gray-600 hover:text-orange-500 transition">Tutorials</a>
+                    <a href="#" id="nav-prompts" onclick="showPage('prompts')" class="nav-link text-gray-600 hover:text-orange-500 transition">Prompts</a>
+                    <a href="#" id="nav-templates" onclick="showPage('templates')" class="nav-link text-gray-600 hover:text-orange-500 transition">Templates</a>
+                    <a href="#" id="nav-contact" onclick="showPage('contact')" class="nav-link text-gray-600 hover:text-orange-500 transition">Contact Us</a>
+                    <button class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition shadow-md">
+                        Subscribe Free
+                    </button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-orange-500 focus:outline-none">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <a href="#" onclick="showPage('home'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Home</a>
+            <a href="#" onclick="showPage('tools'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Top Tools</a>
+            <a href="#" onclick="showPage('tutorials'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Tutorials</a>
+            <a href="#" onclick="showPage('prompts'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Prompts</a>
+            <a href="#" onclick="showPage('templates'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Templates</a>
+            <a href="#" onclick="showPage('contact'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Contact Us</a>
+        </div>
+    </nav>
+
+    <div id="home" class="page-content">
+
+        <header class="hero-pattern pt-32 pb-20 lg:pt-40 lg:pb-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-block bg-orange-100 text-orange-600 text-sm font-semibold px-3 py-1 rounded-full mb-4">
+                    🇮🇳 Built for Beginners in India
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                    Master <span class="gradient-text">AI Tools</span> & Supercharge Your Career
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+                    Free guides, copy-paste prompts, and Hindi/English tutorials to help you use ChatGPT, Gemini, and Midjourney like a pro.
+                </pre>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" onclick="showPage('tutorials')" class="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        Start Learning <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#" onclick="showPage('prompts')" class="bg-white text-gray-700 border border-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-copy"></i> Get Prompts
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">What We Do: Your AI Launchpad</h2>
+                    <p class="text-gray-600 mt-4 max-w-3xl mx-auto">We make complex AI simple. Our mission is to give every beginner in India the skills to thrive in the new digital world.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <div class="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-lg transition border border-gray-100">
+                        <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Easy Tutorials</h3>
+                        <p class="text-gray-600 text-sm">Step-by-step guides (with pop-up details!) that take you from zero to hero. No jargon, just clear instructions.</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-lg transition border border-gray-100">
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa-solid fa-rocket text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Top Tool Guides</h3>
+                        <p class="text-gray-600 text-sm">We review and link to the best free AI tools, from ChatGPT to Gamma, so you know exactly where to start.</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-lg transition border border-gray-100">
+                        <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa-solid fa-magic-sparkles text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Copy-Paste Prompts</h3>
+                        <p class="text-gray-600 text-sm">A huge library of ready-to-use prompts for work, school, and fun. Just copy, paste, and get amazing results.</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-lg transition border border-gray-100">
+                        <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa-solid fa-file-lines text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Free Templates</h3>
+                        <p class="text-gray-600 text-sm">Downloadable cheat sheets and PDF guides to help you master prompt engineering and AI styles.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div> 
+    <div id="tools" class="page-content hidden">
+        <header class="bg-gradient-to-r from-gray-800 to-gray-700 text-white pt-32 pb-16 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fa-solid fa-rocket text-4xl text-orange-400 mb-4"></i>
+                <h1 class="text-4xl font-bold tracking-tight">Top AI Tools</h1>
+                <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">A curated list of the best and easiest AI tools, hand-picked for Indian beginners.</p>
+            </div>
+        </header>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-comment-dots text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">ChatGPT</h3>
+                        <p class="text-gray-600 mb-4 text-sm">The most popular AI chatbot. Great for writing, coding, and answering questions. A must-have.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Free Tier</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">Mobile App</span>
+                        </div>
+                        <a href="https://chat.openai.com" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-brain text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Google Gemini</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Google's powerful chatbot. Excellent for internet search, summarizing, and integrating with Gmail/Docs.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Free</span>
+                            <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Search</span>
+                        </div>
+                        <a href="https://gemini.google.com" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-palette text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Canva AI</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Design tool with "Magic Write". Create social media posts, presentations, and images instantly.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Freemium</span>
+                            <span class="px-2 py-1 bg-pink-100 text-pink-700 text-xs rounded">Design</span>
+                        </div>
+                        <a href="https://www.canva.com" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Replit AI</h3>
+                        <p class="text-gray-600 mb-4 text-sm">An online code editor with a powerful AI "Ghostwriter" that helps you build websites and apps faster.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Freemium</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Coding</span>
+                        </div>
+                        <a href="https://replit.com" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-display text-pink-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Gamma</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Create beautiful presentations and websites just by writing a simple text prompt. No design skills needed.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Free Credits</span>
+                            <span class="px-2 py-1 bg-pink-100 text-pink-700 text-xs rounded">Design</span>
+                        </div>
+                        <a href="https://gamma.app" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-microphone-lines text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">ElevenLabs</h3>
+                        <p class="text-gray-600 mb-4 text-sm">The most realistic AI voice generator. Clone your own voice or use pre-built ones for videos and podcasts.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Free Tier</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded">Audio</span>
+                        </div>
+                        <a href="https://elevenlabs.io" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-search-location text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Perplexity AI</h3>
+                        <p class="text-gray-600 mb-4 text-sm">A powerful AI search engine that gives you direct answers with sources. Better than Google for research.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Free Tier</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Research</span>
+                        </div>
+                        <a href="https://www.perplexity.ai" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-gray-700 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-paint-brush text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Midjourney</h3>
+                        <p class="text-gray-600 mb-4 text-sm">The most powerful and artistic image generator. Used by professionals. (Requires Discord).</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Paid</span>
+                            <span class="px-2 py-1 bg-pink-100 text-pink-700 text-xs rounded">High-Quality</span>
+                        </div>
+                        <a href="https://www.midjourney.com" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-video text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Pictory.ai</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Turn any blog post or script into a professional video with AI voiceovers in minutes. Great for social media.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Freemium</span>
+                            <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Video Gen</span>
+                        </div>
+                        <a href="https://pictory.ai" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-user-tie text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Synthesia</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Create professional videos with AI avatars. Perfect for office training and marketing. (Paid)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Paid</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Avatars</span>
+                        </div>
+                        <a href="https://www.synthesia.io" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-podcast text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Descript</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Edit video and audio by just editing the text transcript. It feels like magic. Great for podcasts/interviews.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Freemium</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded">Audio</span>
+                        </div>
+                        <a href="https://www.descript.com" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition border border-gray-100">
+                        <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-feather-alt text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Writesonic</h3>
+                        <p class="text-gray-600 mb-4 text-sm">An AI writer that helps you create SEO-friendly articles, blog posts, and ads with just a few clicks.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Free Tier</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Writing</span>
+                        </div>
+                        <a href="https://writesonic.com" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="tutorials" class="page-content hidden">
+        <header class="bg-gradient-to-r from-orange-50 to-orange-100 text-gray-800 pt-32 pb-16 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fa-solid fa-graduation-cap text-4xl text-orange-500 mb-4"></i>
+                <h1 class="text-4xl font-bold tracking-tight">AI Tutorials for Beginners</h1>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Simple, step-by-step guides to help you master AI. Click "Start Reading" for a pop-up guide.</p>
+            </div>
+        </header>
+
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl font-bold text-gray-900">Tutorial Library</h2>
+                        <p class="text-gray-600 mt-2">We're adding new guides every week, focusing on practical skills for India.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <span class="inline-block bg-orange-100 text-orange-600 text-sm font-semibold px-3 py-2 rounded-full">
+                            13+ FREE GUIDES
+                        </span>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">1</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">How to write your First "Perfect" Prompt</h3>
+                                <p class="text-gray-500 text-sm">Learn the basic 4-part formula for getting great results every time.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-1')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">2</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">How to ask AI to "Act Like an Expert"</h3>
+                                <p class="text-gray-500 text-sm">This one simple trick will 10x your AI's writing quality.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-2')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">3</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">Using AI to Prepare for a Job Interview</h3>
+                                <p class="text-gray-500 text-sm">Generate interview questions and practice your answers.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-3')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">4</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">How to Create Stunning Images with AI</h3>
+                                <p class="text-gray-500 text-sm">A beginner's guide to writing prompts for tools like Midjourney or DALL-E.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-4')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">5</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">Using AI to Write a Good Resume (CV)</h3>
+                                <p class="text-gray-500 text-sm">Turn your experience into a professional resume that gets noticed.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-5')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">6</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">AI for Small Business Owners in India</h3>
+                                <p class="text-gray-500 text-sm">Write product descriptions and marketing emails in minutes.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-6')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">7</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">How to Plan a Holiday (Goa, Manali) with AI</h3>
+                                <p class="text-gray-500 text-sm">Create a full day-by-day itinerary with budget and restaurant ideas.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-7')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">8</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">How to create a LinkedIn Profile Summary</h3>
+                                <p class="text-gray-500 text-sm">Write a summary that attracts recruiters and highlights your skills.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-8')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">9</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">Using AI to Summarize YouTube Videos</h3>
+                                <p class="text-gray-500 text-sm">Get the key points from a 1-hour video in 30 seconds (no tools needed!).</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-9')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">10</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">Idea Generator for Bloggers & YouTubers</h3>
+                                <p class="text-gray-500 text-sm">Never run out of content ideas again with this simple prompt.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-10')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">11</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">How to Write a Professional Email to a Manager</h3>
+                                <p class="text-gray-500 text-sm">Ask for leave or submit a report with a perfect, polite email.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-11')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">12</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">Explain Like I'm 5 (The "Feynman" Technique)</h3>
+                                <p class="text-gray-500 text-sm">Use AI to understand complex topics like 'Blockchain' or 'Quantum Physics'.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-12')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 text-orange-600 font-bold text-lg w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">13</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">How to Use AI for Code Debugging</h3>
+                                <p class="text-gray-500 text-sm">Save hours of frustration by pasting your broken code into an AI.</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('tutorial-13')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="prompts" class="page-content hidden">
+        <header class="bg-gradient-to-r from-purple-50 to-purple-100 text-gray-800 pt-32 pb-16 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fa-solid fa-magic-sparkles text-4xl text-purple-600 mb-4"></i>
+                <h1 class="text-4xl font-bold tracking-tight">The Prompt Library</h1>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">The secret to AI is asking the right questions. Just copy, paste, and edit these amazing prompts.</p>
+            </div>
+        </header>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-hands-praying text-gray-400"></i> Festival Greeting
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Writing</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "Write a warm and respectful [Diwali] greeting for my professional colleagues and clients. Keep it short, inclusive of all faiths, and focus on themes of 'light' and 'prosperity'. (My name is [Your Name])"
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="Write a warm and respectful [Diwali] greeting for my professional colleagues and clients. Keep it short, inclusive of all faiths, and focus on themes of 'light' and 'prosperity'. (My name is [Your Name])" class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-book text-gray-400"></i> Exam Question Generator
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Education</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "Act as an expert [History] professor. I am preparing for my 12th Standard exam. My topic is [The Indian Independence Movement from 1920-1947].
+                            <br><br>
+                            Generate 10 'short answer' questions and 5 'long-form' essay questions that are likely to come in the exam."
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="Act as an expert [History] professor. I am preparing for my 12th Standard exam. My topic is [The Indian Independence Movement from 1920-1947]. Generate 10 'short answer' questions and 5 'long-form' essay questions that are likely to come in the exam." class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-envelope text-gray-400"></i> Polite Email Writer
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Work</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "Write a polite and professional email to my manager, [Manager's Name].
+                            <br><br>
+                            I need to request a leave of [3 days] from [Start Date] to [End Date] because of [a personal family function].
+                            <br><br>
+                            Assure them that I will complete all my urgent work before I leave."
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="Write a polite and professional email to my manager, [Manager's Name]. I need to request a leave of [3 days] from [Start Date] to [End Date] because of [a personal family function]. Assure them that I will complete all my urgent work before I leave." class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-code text-gray-400"></i> Code Explainer
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Coding</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "I am a beginner [Python] developer. I have this piece of code that is not working.
+                            <br><br>
+                            1. Explain what this code is supposed to do.<br>
+                            2. Find the error in the code.<br>
+                            3. Provide the corrected, working code.<br>
+                            <br>
+                            [Paste your broken code here]"
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="I am a beginner [Python] developer. I have this piece of code that is not working. 1. Explain what this code is supposed to do. 2. Find the error in the code. 3. Provide the corrected, working code. [Paste your broken code here]" class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-image text-gray-400"></i> Image Generation
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Midjourney/Canva</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "Create a photo-realistic image of a plate of [Biryani] on a wooden table, with a blurred background. Style: commercial food photography, high-detail, warm lighting."
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="Create a photo-realistic image of a plate of [Biryani] on a wooden table, with a blurred background. Style: commercial food photography, high-detail, warm lighting." class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-utensils text-gray-400"></i> Quick Recipe Generator
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Gemini/GPT</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "I have [chicken, tomatoes, onions, and rice] in my kitchen. Give me a simple 30-minute recipe I can make for dinner. Include step-by-step instructions and a shopping list for any minor ingredients I might be missing."
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="I have [chicken, tomatoes, onions, and rice] in my kitchen. Give me a simple 30-minute recipe I can make for dinner. Include step-by-step instructions and a shopping list for any minor ingredients I might be missing." class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-plane-departure text-gray-400"></i> Travel Itinerary Maker
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Perplexity/Gemini</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "I am planning a 5-day family trip to [Jaipur]. My budget is [Medium]. We are interested in [history, culture, and food]. Create a day-by-day itinerary. For each day, provide 2-3 activities, a lunch and dinner restaurant suggestion (local cuisine)."
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="I am planning a 5-day family trip to [Jaipur]. My budget is [Medium]. We are interested in [history, culture, and food]. Create a day-by-day itinerary. For each day, provide 2-3 activities, a lunch and dinner restaurant suggestion (local cuisine)." class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-thumbs-up text-gray-400"></i> Social Media Post
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Marketing</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "Act as a social media expert. Write 5 engaging [Instagram] posts for my [local coffee shop].
+                            <br><br>
+                            - The tone should be: [friendly, funny, and warm].
+                            - Each post should be short (under 50 words).
+                            - Include a call-to-action (e.g., 'Tag a friend!').
+                            - Provide 5 relevant local hashtags (e.g., #[YourCity]Foodie)."
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="Act as a social media expert. Write 5 engaging [Instagram] posts for my [local coffee shop]. - The tone should be: [friendly, funny, and warm]. - Each post should be short (under 50 words). - Include a call-to-action (e.g., 'Tag a friend!'). - Provide 5 relevant local hashtags (e.g., #[YourCity]Foodie)." class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-xl p-6 hover:border-orange-300 transition bg-gray-50">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-dumbbell text-gray-400"></i> Fitness Plan
+                            </h4>
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded text-gray-600">Health</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-100 text-gray-600 text-sm mb-4 font-mono leading-relaxed">
+                            "Act as a certified fitness trainer. Create a 4-week workout plan for me.
+                            <br><br>
+                            - My Goal: [e.g., Lose weight / build muscle].
+                            - My Fitness Level: [e.g., Beginner].
+                            - Time available: [e.g., 30 minutes, 3 days a week].
+                            - Equipment: [e.g., Only dumbbells / No equipment].
+                            <br><br>
+                            Give me the plan in a simple table format."
+                        </div>
+                        <button onclick="copyToClipboard(this)" data-prompt="Act as a certified fitness trainer. Create a 4-week workout plan for me. - My Goal: [e.g., Lose weight / build muscle]. - My Fitness Level: [e.g., Beginner]. - Time available: [e.g., 30 minutes, 3 days a week]. - Equipment: [e.g., Only dumbbells / No equipment]. Give me the plan in a simple table format." class="w-full py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium flex justify-center items-center gap-2">
+                            <i class="fa-regular fa-copy"></i> Copy Prompt
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="templates" class="page-content hidden">
+        <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-32 pb-16 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fa-solid fa-file-lines text-4xl text-blue-400 mb-4"></i>
+                <h1 class="text-4xl font-bold tracking-tight">AI Templates & Resources</h1>
+                <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">Downloadable cheat sheets, PDF guides, and advanced prompt-frameworks to level up your skills.</p>
+            </div>
+        </header>
+
+        <section class="py-20 bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold">Downloadable Guides</h2>
+                    <p class="text-gray-400 mt-2">Get our free PDFs, packed with tips, and use them offline anytime.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <a href="file:///C:/Users/High-Tech/Documents/web/New%20folder/The%20Ultimate%20AI%20Prompt%20Cheat%20Sheet.pdf" download="file:///C:/Users/High-Tech/Documents/web/New%20folder/The%20Ultimate%20AI%20Prompt%20Cheat%20Sheet.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-book-open text-4xl text-orange-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">The Ultimate Prompt Cheat Sheet</h3>
+                        <p class="text-gray-400 text-sm mt-1">A 1-page PDF with 20 powerful prompt starters.</p>
+                    </a>
+                    
+                    <a href="file:///C:/Users/High-Tech/Documents/web/New%20folder/AI%20Image%20Style%20Guide.pdf" download="file:///C:/Users/High-Tech/Documents/web/New%20folder/AI%20Image%20Style%20Guide.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-image text-4xl text-pink-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-pink-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">AI Image Style Guide</h3>
+                        <p class="text-gray-400 text-sm mt-1">Keywords for 'Photorealistic', 'Cartoon', '3D', etc.</p>
+                    </a>
+                    
+                    <a href="Prompt-Engineering-101.pdf" download="Prompt-Engineering-101.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-circle-nodes text-4xl text-purple-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">Prompt Engineering 101</h3>
+                        <p class="text-gray-400 text-sm mt-1">Master the art of talking to AI.</p>
+                    </a>
+                    
+                    <a href="AI-for-Job-Seekers.pdf" download="AI-for-Job-Seekers.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-briefcase text-4xl text-green-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">AI for Job Seekers</h3>
+                        <p class="text-gray-400 text-sm mt-1">Resume keywords & interview prep.</p>
+                    </a>
+                    
+                    <a href="Small-Business-AI-Guide.pdf" download="Small-Business-AI-Guide.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-store text-4xl text-cyan-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-cyan-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">Small Business AI Guide</h3>
+                        <p class="text-gray-400 text-sm mt-1">Marketing & product descriptions.</p>
+                    </a>
+                    
+                    <a href="AI-for-Content-Creators.pdf" download="AI-for-Content-Creators.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-feather-alt text-4xl text-yellow-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-yellow-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">AI for Content Creators</h3>
+                        <p class="text-gray-400 text-sm mt-1">Video scripts & blog post ideas.</p>
+                    </a>
+
+                    <a href="Compare-and-Contrast-Template.pdf" download="Compare-and-Contrast-Template.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-arrows-left-right-to-line text-4xl text-red-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">The 'Compare & Contrast' Template</h3>
+                        <p class="text-gray-400 text-sm mt-1">Let AI compare options for you (e.g., 'iPhone vs Samsung').</p>
+                    </a>
+                    
+                    <a href="Persuasive-Argument-Template.pdf" download="Persuasive-Argument-Template.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-bullhorn text-4xl text-teal-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-teal-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">The 'Persuasive Argument' Template</h3>
+                        <p class="text-gray-400 text-sm mt-1">Convince your boss, client, or family.</p>
+                    </a>
+                    
+                    <a href="SWOT-Analysis-Template.pdf" download="SWOT-Analysis-Template.pdf" class="block bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition group">
+                        <div class="h-32 bg-gray-700 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-600 transition relative">
+                            <i class="fa-solid fa-chart-simple text-4xl text-indigo-400"></i>
+                            <div class="absolute bottom-3 right-3 bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-download"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">The 'SWOT Analysis' Template</h3>
+                        <p class="text-gray-400 text-sm mt-1">Analyze any business or idea in seconds.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="contact" class="page-content hidden">
+        <header class="bg-gradient-to-r from-green-50 to-green-100 text-gray-800 pt-32 pb-16 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fa-solid fa-paper-plane text-4xl text-green-600 mb-4"></i>
+                <h1 class="text-4xl font-bold tracking-tight">Contact Us</h1>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Have questions, feedback, or want to partner with us? We'd love to hear from you.</p>
+            </div>
+        </header>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
+                        <form action="#" method="POST" onsubmit="event.preventDefault(); showContactSuccess();">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" name="first-name" id="first-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500">
+                                </div>
+                                <div>
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" name="last-name" id="last-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500">
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" name="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500">
+                            </div>
+                            <div class="mt-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea name="message" id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-orange-500 focus:border-orange-500"></textarea>
+                            </div>
+                            <div class="mt-8 text-center">
+                                <button type="submit" class="bg-orange-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-orange-600 transition shadow-lg transform hover:-translate-y-1">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="bg-gray-50 border-t border-gray-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fa-solid fa-robot text-orange-500 text-2xl mr-2"></i>
+                <span class="font-bold text-xl tracking-tight">AI Start <span class="text-green-600">India</span></span>
+            </div>
+            <p class="text-gray-600 mb-6">Making AI accessible for everyone in India. 🇮🇳</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-orange-500 transition"><i class="fa-brands fa-twitter text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-500 transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-500 transition"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-500 transition"><i class="fa-brands fa-youtube text-2xl"></i></a>
+            </div>
+            <p class="text-sm text-gray-400 mt-8">&copy; 2024 AI Start India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="toast">Copied to clipboard!</div>
+
+    <div id="tutorial-1" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">The "Perfect" Prompt Formula</h3>
+                <button onclick="closeModal('tutorial-1')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>A "prompt" is just an instruction. To get a good answer, you need to give good instructions. Use this 4-part formula:</p>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li><strong>Role:</strong> Who should the AI be? (e.g., "Act as a travel agent...")</li>
+                    <li><strong>Task:</strong> What should it do? (e.g., "...plan a 3-day trip...")</li>
+                    <li><strong>Context:</strong> What details does it need? (e.g., "...to Manali, for a family of 4, on a budget...")</li>
+                    <li><strong>Format:</strong> How should it reply? (e.g., "...in a day-by-day table.")</li>
+                </ol>
+                <p class="font-bold text-gray-800">Example Prompt:</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Act as an expert career coach. Write a short, professional summary for my LinkedIn profile. I am a final-year engineering student skilled in Python and Java, looking for my first job. Write it in 3 sentences."
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tutorial-2" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Act Like an Expert (Personas)</h3>
+                <button onclick="closeModal('tutorial-2')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>If you ask a general question, you get a general answer. The fastest way to get a great answer is to tell the AI *who* to be.</p>
+                <p>This is called giving it a "persona" or "role".</p>
+                <p class="font-bold text-gray-800">Weak Prompt:</p>
+                <div class="bg-red-50 p-4 rounded-lg font-mono text-sm text-red-700">
+                    "Tell me how to write a good blog post."
+                </div>
+                <p class="font-bold text-gray-800">Strong Prompt:</p>
+                <div class="bg-green-50 p-4 rounded-lg font-mono text-sm text-green-700">
+                    "Act as an expert SEO and content marketing specialist with 10 years of experience. Give me a step-by-step guide on how to write a blog post that will rank on Google. Include tips on keyword research, headline writing, and structure."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-3" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Prepare for a Job Interview</h3>
+                <button onclick="closeModal('tutorial-3')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>Use AI as your personal interview coach. You can ask it to be the interviewer and test you.</p>
+                <p class="font-bold text-gray-800">Step 1: Get Questions</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "I am interviewing for a [Junior Python Developer] role at [TCS]. Act as the hiring manager and give me 10 likely technical questions and 5 behavioral questions (like 'Tell me about a time...')."
+                </div>
+                <p class="font-bold text-gray-800">Step 2: Practice Answers</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Here is my answer to 'Tell me about a time you solved a problem': [Your answer].
+                    <br><br>
+                    Critique my answer. Tell me if it's good, and how I can make it stronger using the STAR (Situation, Task, Action, Result) method."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-4" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Create Stunning AI Images</h3>
+                <button onclick="closeModal('tutorial-4')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>Image prompts are different from text prompts. They are about *description*. The more details, the better.</p>
+                <p class="font-bold text-gray-800">Formula for Images:</p>
+                <p>(Subject) + (Action/Setting) + (Style) + (Details)</p>
+                <p class="font-bold text-gray-800">Weak Prompt:</p>
+                <div class="bg-red-50 p-4 rounded-lg font-mono text-sm text-red-700">
+                    "A picture of a woman."
+                </div>
+                <p class="font-bold text-gray-800">Strong Prompt (Midjourney/DALL-E):</p>
+                <div class="bg-green-50 p-4 rounded-lg font-mono text-sm text-green-700">
+                    "Close-up photo of a young, happy Indian woman wearing a traditional blue sari, standing in a field of yellow mustard flowers, beautiful smile, realistic photography, golden hour lighting, high-detail, 4K"
+                </div>
+                <p class="font-bold text-gray-800">Strong Prompt (Canva/Simpler):</p>
+                <div class="bg-green-50 p-4 rounded-lg font-mono text-sm text-green-700">
+                    "A watercolor painting of a sad robot sitting in the rain on a city street."
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tutorial-5" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">How to Write a Resume (CV)</h3>
+                <button onclick="closeModal('tutorial-5')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>AI can't *know* your experience, but it can *polish* it. The trick is to feed it your details and the job description.</p>
+                <p class="font-bold text-gray-800">The Prompt:</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Act as a professional resume writer. I am applying for a [Job Title, e.g., 'Marketing Manager'] role.
+                    <br><br>
+                    Here is the Job Description: [Paste Job Description]
+                    <br><br>
+                    Here are my bullet points of experience:
+                    - [Your old bullet point, e.g., 'I ran social media ads']
+                    - [Your old bullet point, e.g., 'I wrote blog posts']
+                    <br><br>
+                    Rewrite my bullet points to be more professional and add metrics. Use keywords from the job description."
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tutorial-6" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">AI for Small Business (India)</h3>
+                <button onclick="closeModal('tutorial-6')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>Stop wasting time on writing. Use AI to write your product descriptions.</p>
+                <p class="font-bold text-gray-800">The Prompt:</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Act as an e-commerce expert for an Indian market. Write a compelling product description for my [Product, e.g., 'Handmade leather wallet'].
+                    <br><br>
+                    - Key Features: [e.g., '100% genuine leather', '8 card slots', 'comes in black and brown']
+                    - Target Audience: [e.g., 'Men, professionals, as a gift']
+                    - Tone: [e.g., 'Luxury, professional, trustworthy']
+                    <br><br>
+                    Write a 3-sentence description and 5 bullet points."
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tutorial-7" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Plan a Holiday with AI</h3>
+                <button onclick="closeModal('tutorial-7')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>Use this prompt to get a full itinerary. The more details, the better!</p>
+                <p class="font-bold text-gray-800">The Prompt (use Gemini/Perplexity for search):</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "I am planning a 3-day trip to Goa in December with my friends (we are 25 years old). We are on a budget.
+                    <br><br>
+                    - Interests: [Beaches, nightlife, cheap local food]
+                    - Don't Include: [Museums, churches]
+                    <br><br>
+                    Create a day-by-day itinerary. For each day, suggest 2-3 activities, one budget-friendly place for lunch, and one area for nightlife. Also, tell me the best way to travel (scooty, taxi, etc.)."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-8" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Create a LinkedIn Profile Summary</h3>
+                <button onclick="closeModal('tutorial-8')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>Your LinkedIn 'About' section is the most important part of your profile. AI can write a powerful one for you.</p>
+                <p class="font-bold text-gray-800">The Prompt (Provide Context):</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Act as a professional career coach. Write a compelling LinkedIn 'About' summary for me.
+                    <br><br>
+                    - My Role: [e.g., Final year B.Tech student]
+                    - My Skills: [e.g., Python, Java, SQL, public speaking]
+                    - My Experience: [e.g., Internship at TCS, built a 'Library Management' app]
+                    - My Goal: [e.g., Seeking a full-time 'Software Development' role]
+                    <br><br>
+                    Keep it under 150 words, write in the first person ('I am...'), and make it sound confident and professional. End with a call to action to connect."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-9" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Summarize YouTube Videos</h3>
+                <button onclick="closeModal('tutorial-9')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>You don't need special tools for this! Most AI chatbots (like Gemini) can't browse videos. But they *can* read transcripts.</p>
+                <p class="font-bold text-gray-800">Step 1: Get the Transcript</p>
+                <p>On YouTube, click the '...' (More) button below the video, then 'Show transcript'.</p>
+                <p class="font-bold text-gray-800">Step 2: Copy & Paste</p>
+                <p>Copy the entire transcript (it's okay if it has timestamps).</p>
+                <p class="font-bold text-gray-800">Step 3: The Prompt</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "I am pasting a YouTube video transcript below. Please read it and give me:
+                    <br>
+                    1. A short, 1-paragraph summary of the video.
+                    <br>
+                    2. The 5 main key ideas or takeaways as bullet points.
+                    <br><br>
+                    [Paste the full transcript here]"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-10" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Idea Generator for Content Creators</h3>
+                <button onclick="closeModal('tutorial-10')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>"Creator's block" is a real problem. AI can give you endless ideas tailored to your audience.</p>
+                <p class="font-bold text-gray-800">The "Magic" Prompt:</p>
+                <p>This prompt works by setting up the AI as an expert and giving it constraints.</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Act as an expert content strategist for Indian YouTubers.
+                    <br><br>
+                    - My Channel Niche: [e.g., Budget travel in India]
+                    - My Target Audience: [e.g., College students, young professionals]
+                    - My Goal: [e.g., Get more views and subscribers]
+                    <br><br>
+                    Generate 10 viral video ideas for me. For each idea, provide a catchy, click-worthy title and a 2-sentence summary of the video's content."
+                </div>
+                <p>You can replace 'YouTuber' with 'Blogger', 'Instagram Influencer', etc.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-11" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Write a Professional Email to a Manager</h3>
+                <button onclick="closeModal('tutorial-11')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>This is perfect for students or new employees who are nervous about sounding professional.</p>
+                <p class="font-bold text-gray-800">The Prompt:</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Act as a professional business communications expert.
+                    <br><br>
+                    I need to write an email to my manager, Mr. Sharma.
+                    <br><br>
+                    - Goal: [e.g., Ask for 2 days leave, from... to...]
+                    - Reason: [e.g., I have a high fever and need to rest.]
+                    - Context: [e.g., I have already informed my teammate Ravi to handle urgent tasks.]
+                    <br><br>
+                    Write a polite, formal, and short email for me. Include a subject line."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-12" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">Explain Like I'm 5 (Complex Topics)</h3>
+                <button onclick="closeModal('tutorial-12')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>Use AI to learn *anything*. The "Explain Like I'm 5" (or ELI5) technique is a famous way to get simple answers.</p>
+                <p class="font-bold text-gray-800">The Simple Prompt:</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Explain [Quantum Computing] to me like I am 5 years old."
+                </div>
+                <p class="font-bold text-gray-800">The Advanced Prompt (Better):</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-G
+mono text-sm text-gray-700">
+                    "Act as a science teacher. Explain the concept of [Blockchain] to a 10th-grade student.
+                    <br><br>
+                    - Use a simple analogy (like a school register book).
+                    - Avoid all technical jargon.
+                    - Explain *why* it is useful (e.g., security)."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tutorial-13" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-8 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold">How to Use AI for Code Debugging</h3>
+                <button onclick="closeModal('tutorial-13')" class="text-gray-400 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="text-gray-600 space-y-4">
+                <p>This is one of the most powerful uses of AI for developers. It can spot errors you missed.</p>
+                <p class="font-bold text-gray-800">The Prompt:</p>
+                <div class="bg-gray-100 p-4 rounded-lg font-mono text-sm text-gray-700">
+                    "Act as an expert [JavaScript] developer and code debugger.
+                    <br><br>
+                    I have the following code. It is supposed to [e.g., 'make the button show an alert when clicked'] but it is not working.
+                    <br><br>
+                    [...Paste your full HTML/JS code here...]
+                    <br><br>
+                    1. Find the bug in my code.
+                    2. Explain the bug to me in simple terms.
+                    3. Provide the complete, corrected code block."
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+
+        mobileMenuButton.addEventListener("click", toggleMobileMenu);
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle("hidden");
+            if (mobileMenu.classList.contains("hidden")) {
+                mobileMenuIcon.classList.remove("fa-times");
+                mobileMenuIcon.classList.add("fa-bars");
+            } else {
+                mobileMenuIcon.classList.remove("fa-bars");
+                mobileMenuIcon.classList.add("fa-times");
+            }
+        }
+
+        // --- Copy to Clipboard ---
+        function copyToClipboard(button) {
+            const promptText = button.getAttribute("data-prompt");
+            
+            // Create a temporary textarea to hold the text
+            const textarea = document.createElement("textarea");
+            textarea.value = promptText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                // Use execCommand for broader browser compatibility in this environment
+                document.execCommand('copy');
+                showToast(); // Show the toast notification
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                // Fallback for browsers where execCommand might fail
+                alert('Failed to copy. Please copy the text manually.');
+            }
+            
+            // Clean up the temporary textarea
+            document.body.removeChild(textarea);
+        }
+
+        // --- Show Toast Notification ---
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.innerText = "Copied to clipboard!";
+            toast.className = "show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        // --- MODAL SCRIPT ---
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }
+        }
+
+        // Close modal when clicking on the overlay
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(event) {
+                if (event.target === overlay) {
+                    closeModal(overlay.id);
+                }
+            });
+        });
+
+        // --- PAGE NAVIGATION SCRIPT ---
+        const allPages = document.querySelectorAll('.page-content');
+        const allNavLinks = document.querySelectorAll('.nav-link');
+
+        function showPage(pageId) {
+            // Hide all pages
+            allPages.forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show the requested page
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+            }
+
+            // Update active nav link
+            allNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.id === `nav-${pageId}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // --- Contact Form Success ---
+        function showContactSuccess() {
+            // In a real app, you'd handle form submission here.
+            // For this demo, we'll just show a toast.
+            const toast = document.getElementById("toast");
+            toast.innerText = "Message sent! (Demo)";
+            toast.className = "show";
+            setTimeout(function(){ 
+                toast.className = toast.className.replace("show", ""); 
+                toast.innerText = "Copied to clipboard!"; // Reset text
+            }, 3000);
+
+            // Clear the form (optional)
+            document.querySelector('#contact form').reset();
+        }
+
+        // Show the home page by default
+        showPage('home');
+
+    </script>
+</body>
+</html>
