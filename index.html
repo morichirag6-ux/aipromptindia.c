@@ -74,6 +74,26 @@
         .nav-link.active {
             @apply text-orange-500 font-semibold;
         }
+
+        /* Basic prose styles for policy page */
+        .prose h2 {
+            @apply text-2xl font-bold mt-8 mb-4;
+        }
+        .prose h3 {
+            @apply text-xl font-semibold mt-6 mb-3;
+        }
+        .prose p {
+            @apply mb-4 leading-relaxed;
+        }
+        .prose ul {
+            @apply list-disc list-inside mb-4 pl-4;
+        }
+        .prose li {
+            @apply mb-2;
+        }
+        .prose a {
+            @apply text-orange-500 hover:underline;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -85,13 +105,17 @@
                     <i class="fa-solid fa-robot text-orange-500 text-2xl mr-2"></i>
                     <span class="font-bold text-xl tracking-tight">AI Start <span class="text-green-600">India</span></span>
                 </div>
-                
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#" id="nav-home" onclick="showPage('home')" class="nav-link text-gray-600 hover:text-orange-500 transition">Home</a>
+		    <a href="#" id="nav-playground" onclick="showPage('playground')" class="nav-link text-gray-600 hover:text-orange-500 transition">AI Playground</a>
+	            <a href="#" id="nav-magic" onclick="showPage('magic')" class="nav-link text-gray-600 hover:text-orange-500 transition">
+    AI Magic
+</a>
                     <a href="#" id="nav-tools" onclick="showPage('tools')" class="nav-link text-gray-600 hover:text-orange-500 transition">Top Tools</a>
                     <a href="#" id="nav-tutorials" onclick="showPage('tutorials')" class="nav-link text-gray-600 hover:text-orange-500 transition">Tutorials</a>
                     <a href="#" id="nav-prompts" onclick="showPage('prompts')" class="nav-link text-gray-600 hover:text-orange-500 transition">Prompts</a>
                     <a href="#" id="nav-templates" onclick="showPage('templates')" class="nav-link text-gray-600 hover:text-orange-500 transition">Templates</a>
+		    <a href="#" id="nav-about" onclick="showPage('about')" class="nav-link text-gray-600 hover:text-orange-500 transition">About</a>
                     <a href="#" id="nav-contact" onclick="showPage('contact')" class="nav-link text-gray-600 hover:text-orange-500 transition">Contact Us</a>
                     <button class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition shadow-md">
                         Subscribe Free
@@ -107,10 +131,15 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <a href="#" onclick="showPage('home'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Home</a>
+	    <a href="#" onclick="showPage('playground'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">AI Playground</a>
+<a href="#" onclick="showPage('magic'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">
+    AI Magic
+</a>
             <a href="#" onclick="showPage('tools'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Top Tools</a>
             <a href="#" onclick="showPage('tutorials'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Tutorials</a>
             <a href="#" onclick="showPage('prompts'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Prompts</a>
             <a href="#" onclick="showPage('templates'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Templates</a>
+	    <a href="#" onclick="showPage('about'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">About</a>
             <a href="#" onclick="showPage('contact'); toggleMobileMenu();" class="nav-link block px-4 py-3 text-gray-600 hover:bg-orange-50">Contact Us</a>
         </div>
     </nav>
@@ -184,6 +213,760 @@
             </div>
         </section>
     </div> 
+<div id="playground" class="page-content hidden">
+    <!-- HERO -->
+    <header class="bg-gradient-to-r from-fuchsia-50 via-purple-50 to-blue-50 text-gray-900 pt-32 pb-16 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <i class="fa-solid fa-flask text-4xl text-purple-600 mb-4"></i>
+            <h1 class="text-4xl font-bold tracking-tight">AI Playground</h1>
+            <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                A creative lab where you can copy-paste ready prompts to generate images, videos, scripts, emails, and more.
+                Just pick a block, copy the text, and try it in ChatGPT, Gemini, Midjourney, DALL·E, or your favorite AI tool.
+            </p>
+        </div>
+    </header>
+
+    <!-- IMAGE PROMPT STUDIO -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                        <i class="fa-solid fa-image text-purple-600"></i>
+                    </span>
+                    Image Prompt Studio 🎨
+                </h2>
+                <p class="text-sm text-gray-500 hidden md:block">Use with Midjourney / DALL·E / Leonardo / Canva AI</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Food Photography -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-1">Street Food Photography</h3>
+                    <p class="text-xs text-gray-500 mb-3">Perfect for food pages & Zomato-style posts.</p>
+                    <div class="bg-white border border-gray-100 rounded-lg p-4 text-xs text-gray-700 font-mono leading-relaxed mb-4">
+                        "Create a photo-realistic image of a plate of <strong>[pani puri]</strong> on a busy Indian street food stall at evening time,
+                        warm golden lighting, shallow depth of field, vibrant colors, high detail, 4K commercial food photography."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Create a photo-realistic image of a plate of [pani puri] on a busy Indian street food stall at evening time, warm golden lighting, shallow depth of field, vibrant colors, high detail, 4K commercial food photography."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Image Prompt
+                    </button>
+                </div>
+
+                <!-- Festival Poster -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-1">Diwali Sale Poster</h3>
+                    <p class="text-xs text-gray-500 mb-3">Use for Canva / Midjourney to design banners.</p>
+                    <div class="bg-white border border-gray-100 rounded-lg p-4 text-xs text-gray-700 font-mono leading-relaxed mb-4">
+                        "Modern flat design Diwali sale poster, bright purple and orange colors, glowing diyas, shopping bags,
+                        big bold text 'DIWALI SALE – UP TO 50% OFF', clean layout, for Instagram story, high resolution."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Modern flat design Diwali sale poster, bright purple and orange colors, glowing diyas, shopping bags, big bold text 'DIWALI SALE – UP TO 50% OFF', clean layout, for Instagram story, high resolution."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Image Prompt
+                    </button>
+                </div>
+
+                <!-- Logo / Branding -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-1">Minimal Logo Concept</h3>
+                    <p class="text-xs text-gray-500 mb-3">Great for logo idea brainstorming.</p>
+                    <div class="bg-white border border-gray-100 rounded-lg p-4 text-xs text-gray-700 font-mono leading-relaxed mb-4">
+                        "Minimal logo design for a chai café called 'Chai Waala Co.', simple line art tea cup with steam,
+                        warm brown and cream color palette, clean and modern, flat vector style, logo on white background."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Minimal logo design for a chai café called 'Chai Waala Co.', simple line art tea cup with steam, warm brown and cream color palette, clean and modern, flat vector style, logo on white background."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Image Prompt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO PROMPT STUDIO -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fa-solid fa-video text-blue-600"></i>
+                    </span>
+                    Video Prompt Studio 🎬
+                </h2>
+                <p class="text-xs md:text-sm text-gray-500">Use with Pictory / Runway / Synthesia / Reels / Shorts</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Avatar Video Script -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-1">Avatar Explainer Video</h3>
+                    <p class="text-xs text-gray-500 mb-3">Use in Synthesia / HeyGen as script.</p>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs text-gray-700 font-mono leading-relaxed mb-4">
+                        "Act as a friendly Indian finance teacher. Write a 45-second video script explaining what UPI is and
+                        how it works for everyday people. Use simple Hindi + English mix, give one real-life example
+                        (paying at a chai stall), and end with a short safety tip."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a friendly Indian finance teacher. Write a 45-second video script explaining what UPI is and how it works for everyday people. Use simple Hindi + English mix, give one real-life example (paying at a chai stall), and end with a short safety tip."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Script Prompt
+                    </button>
+                </div>
+
+                <!-- Reel / Short Script -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-1">Reel / YouTube Short Script</h3>
+                    <p class="text-xs text-gray-500 mb-3">Great for vertical content.</p>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs text-gray-700 font-mono leading-relaxed mb-4">
+                        "Act as a viral Instagram creator. Write a 25-second reel script on the topic
+                        '3 AI tools that every student in India should try'.<br>
+                        - First 3 seconds: strong hook.<br>
+                        - Then share 3 tools with 1 line benefit each.<br>
+                        - End with a call to action: 'Follow for more AI hacks'."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a viral Instagram creator. Write a 25-second reel script on the topic '3 AI tools that every student in India should try'. First 3 seconds: strong hook. Then share 3 tools with 1 line benefit each. End with a call to action: 'Follow for more AI hacks'."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Script Prompt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE & AFTER AI -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 mb-8">
+                <span class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                    <i class="fa-solid fa-wand-magic-sparkles text-emerald-600"></i>
+                </span>
+                Before & After AI ✨
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Email Example -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-4">Professional Email Glow-Up</h3>
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <p class="text-xs uppercase text-gray-500 mb-1">Before</p>
+                            <div class="bg-white border border-red-100 rounded-lg p-3 text-gray-700">
+                                Sir I want leave tomorrow. I have some work. Please approve.
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase text-gray-500 mb-1">Prompt</p>
+                            <div class="bg-white border border-gray-100 rounded-lg p-3 font-mono text-xs text-gray-700">
+                                "Rewrite this email to be more polite and professional, keep it short:<br>
+                                'Sir I want leave tomorrow. I have some work. Please approve.'"
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase text-gray-500 mb-1">After</p>
+                            <div class="bg-white border border-emerald-100 rounded-lg p-3 text-gray-700">
+                                Dear Sir,<br>
+                                I hope you are doing well. I would like to request leave for tomorrow due to a personal commitment.
+                                I will ensure that all urgent work is completed today.<br><br>
+                                Regards,<br>
+                                [Your Name]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Description Example -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-4">Product Description Upgrade</h3>
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <p class="text-xs uppercase text-gray-500 mb-1">Before</p>
+                            <div class="bg-white border border-red-100 rounded-lg p-3 text-gray-700">
+                                Cotton t-shirt, blue color, size M to XL, good quality.
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase text-gray-500 mb-1">Prompt</p>
+                            <div class="bg-white border border-gray-100 rounded-lg p-3 font-mono text-xs text-gray-700">
+                                "Act as an e-commerce copywriter. Rewrite this product description for an Indian audience
+                                and make it more attractive but honest. Keep it under 80 words, and add 3 bullet points.<br>
+                                Text: 'Cotton t-shirt, blue color, size M to XL, good quality.'"
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase text-gray-500 mb-1">After</p>
+                            <div class="bg-white border border-emerald-100 rounded-lg p-3 text-gray-700">
+                                Upgrade your everyday look with this soft, breathable cotton T-shirt in classic navy blue.
+                                Perfect for office, college, or casual weekends.<br><br>
+                                • 100% combed cotton – gentle on skin<br>
+                                • Available in sizes M to XL<br>
+                                • Easy to style with jeans or chinos
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI EXPERIMENT LAB -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 mb-6">
+                <span class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                    <i class="fa-solid fa-flask-vial text-indigo-600"></i>
+                </span>
+                AI Experiment Lab 🧪
+            </h2>
+            <p class="text-gray-600 text-sm mb-8">Play with style words and see how the same topic changes completely.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Explain Like I'm 5 -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-2">Explain Like I'm 5</h3>
+                    <p class="text-xs text-gray-500 mb-3">Great for learning new topics.</p>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed mb-4">
+                        "Explain <strong>[Blockchain]</strong> to me like I am 5 years old. Use a simple story and no technical words."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Explain [Blockchain] to me like I am 5 years old. Use a simple story and no technical words."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Experiment Prompt
+                    </button>
+                </div>
+
+                <!-- Expert Professor -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-2">Act Like a Professor</h3>
+                    <p class="text-xs text-gray-500 mb-3">Same topic, more advanced.</p>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed mb-4">
+                        "Act as a university professor. Explain <strong>[Blockchain]</strong> to me as if I am a 3rd-year computer science student.
+                        Use headings, bullet points, and one real-world example."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a university professor. Explain [Blockchain] to me as if I am a 3rd-year computer science student. Use headings, bullet points, and one real-world example."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Experiment Prompt
+                    </button>
+                </div>
+
+                <!-- Hinglish + Jokes -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-2">Hinglish + Jokes Mode</h3>
+                    <p class="text-xs text-gray-500 mb-3">Fun style for reels & content.</p>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed mb-4">
+                        "Explain <strong>[Blockchain]</strong> in simple Hinglish, like you are talking to a friend.
+                        Add 2–3 light jokes and keep it under 200 words."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Explain [Blockchain] in simple Hinglish, like you are talking to a friend. Add 2–3 light jokes and keep it under 200 words."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Experiment Prompt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- READY-MADE AI PROJECTS -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 mb-8">
+                <span class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                    <i class="fa-solid fa-list-check text-orange-600"></i>
+                </span>
+                Ready-Made AI Projects 📚
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project: Start a YouTube Channel -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-3">Project 1: Start a YouTube Channel in a Weekend</h3>
+                    <ol class="list-decimal list-inside text-sm text-gray-700 space-y-2 mb-4">
+                        <li>Find your niche with an AI prompt.</li>
+                        <li>Generate 10 video ideas.</li>
+                        <li>Create a script for the first video.</li>
+                        <li>Write title, description, and tags.</li>
+                    </ol>
+                    <div class="bg-white border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "Act as a YouTube growth expert. I want to start a channel about <strong>[budget travel in India]</strong>.<br>
+                        1) Suggest 5 possible sub-niches.<br>
+                        2) For the best sub-niche, give me 10 video ideas with catchy titles.<br>
+                        3) Pick one idea and create a 2-minute script outline for it."
+                    </div>
+                </div>
+
+                <!-- Project: Instagram for Small Business -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6 hover:shadow-md transition">
+                    <h3 class="font-semibold text-gray-900 mb-3">Project 2: Launch Instagram for Your Small Business</h3>
+                    <ol class="list-decimal list-inside text-sm text-gray-700 space-y-2 mb-4">
+                        <li>Create a 7-day content plan.</li>
+                        <li>Generate captions and hashtags.</li>
+                        <li>Design posts using Canva + AI text.</li>
+                    </ol>
+                    <div class="bg-white border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "Act as a social media manager for an Indian audience. I run a small <strong>[home bakery in Surat]</strong>.
+                        Create a 7-day Instagram content calendar. For each day, give:<br>
+                        - Post type (Reel / Photo / Story)<br>
+                        - Theme or idea<br>
+                        - Caption text<br>
+                        - 3–5 relevant hashtags."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMPT TEMPLATES PLAYGROUND -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 mb-6">
+                <span class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center">
+                    <i class="fa-solid fa-puzzle-piece text-teal-600"></i>
+                </span>
+                Prompt Templates Playground 🧩
+            </h2>
+            <p class="text-sm text-gray-600 mb-8">Fill in the brackets <strong>[like this]</strong> and paste into any chatbot.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Generic Template -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Universal Helper Template</h3>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "Act as a <strong>[role]</strong>.<br>
+                        I am trying to <strong>[goal]</strong>.<br>
+                        My situation: <strong>[details]</strong>.<br>
+                        Give me <strong>[number]</strong> <strong>[ideas/steps/examples]</strong> in a <strong>[tone]</strong> style."
+                    </div>
+                </div>
+
+                <!-- Study Template -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Study / Exam Template</h3>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "Act as a tutor for <strong>[subject]</strong> for a <strong>[class/level]</strong> student in India.<br>
+                        The topic is: <strong>[chapter or concept]</strong>.<br>
+                        1) Explain it in simple steps.<br>
+                        2) Give 5 practice questions with answers.<br>
+                        3) Suggest a 3-day revision plan."
+                    </div>
+                </div>
+
+                <!-- Business Template -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Business / Marketing Template</h3>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "Act as a marketing expert for small businesses in India.<br>
+                        My business: <strong>[type]</strong> in <strong>[city]</strong>.<br>
+                        My target audience: <strong>[who you serve]</strong>.<br>
+                        Suggest 10 social media content ideas and 5 promotional campaign ideas for the next 30 days."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FESTIVAL & TRENDING PROMPTS -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 mb-6">
+                <span class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
+                    <i class="fa-solid fa-fireworks text-yellow-600"></i>
+                </span>
+                Festival & Trending Prompts 🎉
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Diwali Greeting -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Diwali Greetings for Clients</h3>
+                    <div class="bg-white border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed mb-4">
+                        "Write 5 professional yet warm Diwali greetings for my <strong>[clients / office team / customers]</strong>.
+                        Keep each under 40 words, inclusive of all religions, and focus on light, prosperity, and gratitude."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Write 5 professional yet warm Diwali greetings for my [clients / office team / customers]. Keep each under 40 words, inclusive of all religions, and focus on light, prosperity, and gratitude."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Festival Prompt
+                    </button>
+                </div>
+
+                <!-- Cricket / Trend -->
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Cricket / Trending Topic Post</h3>
+                    <div class="bg-white border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed mb-4">
+                        "Act as a social media manager. Write 3 fun Instagram captions connecting <strong>[your brand or niche]</strong>
+                        with a trending cricket match in India. Mix Hinglish, add 2–3 emojis, and keep each caption under 30 words."
+                    </div>
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a social media manager. Write 3 fun Instagram captions connecting [your brand or niche] with a trending cricket match in India. Mix Hinglish, add 2–3 emojis, and keep each caption under 30 words."
+                        class="w-full py-2 text-sm bg-white border border-gray-300 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50">
+                        <i class="fa-regular fa-copy"></i> Copy Trending Prompt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI FOR ONE SKILL -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 mb-6">
+                <span class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center">
+                    <i class="fa-solid fa-bullseye text-rose-600"></i>
+                </span>
+                AI for One Skill 🎯
+            </h2>
+            <p class="text-sm text-gray-600 mb-8">Choose a skill and use AI as your personal coach.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Coding -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Improve Coding</h3>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "Act as a friendly Python teacher. I am a beginner and I want to understand this error:<br>
+                        [paste your error + code]<br>
+                        Explain what the error means in simple words and show me the corrected code."
+                    </div>
+                </div>
+
+                <!-- English / Communication -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Improve English</h3>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "I want to improve my English writing for office emails. I will paste my email below.<br>
+                        1) Correct grammar and tone.<br>
+                        2) Explain my mistakes in simple Hindi + English mix.<br>
+                        3) Give me 3 alternative subject lines."
+                    </div>
+                </div>
+
+                <!-- Public Speaking -->
+                <div class="bg-white border border-gray-100 rounded-xl p-6">
+                    <h3 class="font-semibold text-gray-900 mb-2">Improve Public Speaking</h3>
+                    <div class="bg-gray-50 border border-gray-100 rounded-lg p-4 text-xs font-mono text-gray-700 leading-relaxed">
+                        "Act as a public speaking coach. I have to give a 3-minute talk on <strong>[topic]</strong> in my office/college.<br>
+                        Create a simple speech with:<br>
+                        - Hook<br>
+                        - 3 main points<br>
+                        - Short conclusion with quote or call-to-action."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Now It’s Your Turn 🚀</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+                Pick any block from this AI Playground, copy the prompt, paste it into your favorite AI tool, and start experimenting.
+                When you’re ready to go deeper, explore our tutorials and prompt library.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button
+                    onclick="showPage('tutorials')"
+                    class="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition shadow-md flex items-center justify-center gap-2">
+                    Explore Tutorials <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button
+                    onclick="showPage('prompts')"
+                    class="bg-white text-gray-800 border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition flex items-center justify-center gap-2">
+                    Open Prompt Library
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+<div id="magic" class="page-content hidden">
+    <!-- HERO -->
+    <header class="bg-gradient-to-r from-purple-50 via-pink-50 to-orange-50 pt-32 pb-16 shadow-inner">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <i class="fa-solid fa-wand-magic-sparkles text-4xl text-purple-600 mb-4"></i>
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+                AI Magic Examples ✨
+            </h1>
+            <p class="mt-4 text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+                See what happens when you give AI the <strong>right prompt</strong>.  
+                Just copy these prompts into ChatGPT, Gemini, Midjourney, etc. and watch the magic.
+            </p>
+            <p class="mt-3 text-xs md:text-sm text-gray-500">
+                Tip: Click <strong>“Copy Prompt”</strong> → paste into your favourite AI tool → customize for your own use.
+            </p>
+        </div>
+    </header>
+
+    <!-- GRID OF EXAMPLES -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">
+                    1 Prompt → Different Kind of Results
+                </h2>
+                <p class="mt-2 text-gray-500 text-sm md:text-base">
+                    Images, videos, reels, WhatsApp messages, code help, study notes and more.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- IMAGE PROMPT -->
+                <div class="border border-gray-200 rounded-2xl bg-gray-50 p-6 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-100 flex items-center justify-center">
+                                <i class="fa-solid fa-image text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm md:text-base">Turn Text → AI Image</h3>
+                                <p class="text-xs text-gray-500">Use with Midjourney / DALL·E / Canva</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-wide bg-pink-100 text-pink-700 px-2 py-1 rounded-full">
+                            Image
+                        </span>
+                    </div>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Type This Prompt 👇</p>
+                    <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs font-mono text-gray-700 mb-3 leading-relaxed">
+                        "Create a <strong>photo-realistic image</strong> of a busy <strong>Indian street food stall in Mumbai at night</strong>,
+                        with warm yellow lights, people standing and eating, steam rising from the food, cinematic look,
+                        high detail, 4K, depth of field."
+                    </div>
+
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Create a photo-realistic image of a busy Indian street food stall in Mumbai at night, with warm yellow lights, people standing and eating, steam rising from the food, cinematic look, high detail, 4K, depth of field."
+                        class="w-full mb-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 text-xs font-medium flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Get This Kind of Result ✨</p>
+                    <div class="bg-purple-50 border border-purple-100 rounded-lg p-3 text-xs text-purple-900 leading-relaxed">
+                        A cinematic, realistic picture that looks like a professional food photography shot of a Mumbai street stall
+                        — perfect for Instagram, blog thumbnails, or YouTube cover images.
+                    </div>
+                </div>
+
+                <!-- YOUTUBE / VIDEO SCRIPT PROMPT -->
+                <div class="border border-gray-200 rounded-2xl bg-gray-50 p-6 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center">
+                                <i class="fa-solid fa-film text-red-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm md:text-base">Turn Idea → YouTube Script</h3>
+                                <p class="text-xs text-gray-500">Use with ChatGPT / Gemini</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-wide bg-red-100 text-red-700 px-2 py-1 rounded-full">
+                            Video
+                        </span>
+                    </div>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Type This Prompt 👇</p>
+                    <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs font-mono text-gray-700 mb-3 leading-relaxed">
+                        "Act as a viral Indian YouTuber.  
+                        Write a <strong>60-second script</strong> for a YouTube Short on the topic
+                        <strong>'3 AI tools every student in India should use in 2025'</strong>.  
+                        Start with a strong hook in the first 3 seconds, keep the tone fun and fast-paced,
+                        and end with a call-to-action to follow the channel."
+                    </div>
+
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a viral Indian YouTuber. Write a 60-second script for a YouTube Short on the topic '3 AI tools every student in India should use in 2025'. Start with a strong hook in the first 3 seconds, keep the tone fun and fast-paced, and end with a call-to-action to follow the channel."
+                        class="w-full mb-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 text-xs font-medium flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Get This Kind of Result 🎬</p>
+                    <div class="bg-red-50 border border-red-100 rounded-lg p-3 text-xs text-red-900 leading-relaxed">
+                        A ready-to-read short video script with hook, points and closing line that you can record directly
+                        with your phone — no need to think what to say next.
+                    </div>
+                </div>
+
+                <!-- REEL / INSTAGRAM CAPTION PROMPT -->
+                <div class="border border-gray-200 rounded-2xl bg-gray-50 p-6 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center">
+                                <i class="fa-brands fa-instagram text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm md:text-base">Turn Clip → Reel Caption</h3>
+                                <p class="text-xs text-gray-500">Use with any chatbot</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-wide bg-purple-100 text-purple-700 px-2 py-1 rounded-full">
+                            Social
+                        </span>
+                    </div>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Type This Prompt 👇</p>
+                    <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs font-mono text-gray-700 mb-3 leading-relaxed">
+                        "Act as a social media expert for Indian audiences.  
+                        I have a 10-second reel showing <strong>behind-the-scenes of making cutting chai at my cafe in Pune</strong>.  
+                        Write 5 caption options, under 1–2 lines each, with Hinglish flavour, and add 5 relevant hashtags
+                        like #[City]Foodie, #[City]Cafe."
+                    </div>
+
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a social media expert for Indian audiences. I have a 10-second reel showing behind-the-scenes of making cutting chai at my cafe in Pune. Write 5 caption options, under 1–2 lines each, with Hinglish flavour, and add 5 relevant hashtags like #[City]Foodie, #[City]Cafe."
+                        class="w-full mb-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 text-xs font-medium flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Get This Kind of Result 📲</p>
+                    <div class="bg-purple-50 border border-purple-100 rounded-lg p-3 text-xs text-purple-900 leading-relaxed">
+                        Multiple catchy, Hinglish-style captions + ready hashtags you can directly paste on Instagram and test
+                        which one performs better.
+                    </div>
+                </div>
+
+                <!-- WHATSAPP / SMALL BUSINESS PROMPT -->
+                <div class="border border-gray-200 rounded-2xl bg-gray-50 p-6 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                                <i class="fa-brands fa-whatsapp text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm md:text-base">Turn Offer → WhatsApp Broadcast</h3>
+                                <p class="text-xs text-gray-500">Perfect for small business owners</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-wide bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                            Business
+                        </span>
+                    </div>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Type This Prompt 👇</p>
+                    <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs font-mono text-gray-700 mb-3 leading-relaxed">
+                        "Act as a marketing copywriter.  
+                        Write a friendly <strong>WhatsApp broadcast message</strong> for my <strong>local bakery in Ahmedabad</strong>  
+                        announcing a <strong>Weekend Buy 1 Get 1 Free offer on brownies</strong>.  
+                        Keep it short, warm, and add a clear call-to-action to visit the shop this Saturday–Sunday."
+                    </div>
+
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a marketing copywriter. Write a friendly WhatsApp broadcast message for my local bakery in Ahmedabad announcing a Weekend Buy 1 Get 1 Free offer on brownies. Keep it short, warm, and add a clear call-to-action to visit the shop this Saturday–Sunday."
+                        class="w-full mb-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 text-xs font-medium flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Get This Kind of Result 💬</p>
+                    <div class="bg-green-50 border border-green-100 rounded-lg p-3 text-xs text-green-900 leading-relaxed">
+                        A ready WhatsApp message you can send to your customer list — sounds natural, not spammy,
+                        and clearly explains your offer.
+                    </div>
+                </div>
+
+                <!-- CODE HELPER PROMPT -->
+                <div class="border border-gray-200 rounded-2xl bg-gray-50 p-6 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gray-900 flex items-center justify-center">
+                                <i class="fa-solid fa-code text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm md:text-base">Turn Bug → Working Code</h3>
+                                <p class="text-xs text-gray-500">Use with any coding AI</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-wide bg-gray-900 text-white px-2 py-1 rounded-full">
+                            Coding
+                        </span>
+                    </div>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Type This Prompt 👇</p>
+                    <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs font-mono text-gray-700 mb-3 leading-relaxed">
+                        "Act as an expert full-stack developer.  
+                        I am trying to build a small <strong>JavaScript function</strong> that filters an array of products by price,
+                        but it is not working.  
+                        Here is my code:  
+                        [Paste your code here]  
+                        1) Find the bug and explain it in simple words.  
+                        2) Give me the corrected code.  
+                        3) Suggest 1 improvement to make the code cleaner."
+                    </div>
+
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as an expert full-stack developer. I am trying to build a small JavaScript function that filters an array of products by price, but it is not working. Here is my code: [Paste your code here] 1) Find the bug and explain it in simple words. 2) Give me the corrected code. 3) Suggest 1 improvement to make the code cleaner."
+                        class="w-full mb-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 text-xs font-medium flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Get This Kind of Result 💻</p>
+                    <div class="bg-gray-100 border border-gray-200 rounded-lg p-3 text-xs text-gray-800 leading-relaxed">
+                        A fixed version of your code + a simple explanation of what went wrong, so you learn while you fix.
+                    </div>
+                </div>
+
+                <!-- STUDENT / STUDY PROMPT -->
+                <div class="border border-gray-200 rounded-2xl bg-gray-50 p-6 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <i class="fa-solid fa-book-open text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-sm md:text-base">Turn Chapter → Study Notes</h3>
+                                <p class="text-xs text-gray-500">Perfect for Indian students</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-wide bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                            Study
+                        </span>
+                    </div>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Type This Prompt 👇</p>
+                    <div class="bg-white border border-gray-200 rounded-lg p-3 text-xs font-mono text-gray-700 mb-3 leading-relaxed">
+                        "Act as a 12th Standard [Subject Name] teacher in India.  
+                        I will paste a chapter below about <strong>[e.g., Human Nervous System]</strong>.  
+                        Read it and give me:  
+                        1) A 10-point summary in simple language.  
+                        2) 10 exam-style short questions with answers.  
+                        3) 3 long-answer questions I should practice."
+                    </div>
+
+                    <button
+                        onclick="copyToClipboard(this)"
+                        data-prompt="Act as a 12th Standard [Subject Name] teacher in India. I will paste a chapter below about [e.g., Human Nervous System]. Read it and give me: 1) A 10-point summary in simple language. 2) 10 exam-style short questions with answers. 3) 3 long-answer questions I should practice."
+                        class="w-full mb-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 text-xs font-medium flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i> Copy Prompt
+                    </button>
+
+                    <p class="text-[11px] uppercase text-gray-500 font-semibold mb-2">You Get This Kind of Result 🎓</p>
+                    <div class="bg-blue-50 border border-blue-100 rounded-lg p-3 text-xs text-blue-900 leading-relaxed">
+                        Ready-made notes + practice questions for your exam, based on your actual textbook content.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
     <div id="tools" class="page-content hidden">
         <header class="bg-gradient-to-r from-gray-800 to-gray-700 text-white pt-32 pb-16 shadow-inner">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -457,7 +1240,7 @@
                         <a href="https://www.krea.ai" target="_blank" class="text-orange-500 font-semibold hover:underline text-sm">Visit Site →</a>
                     </div>
                     
-                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -727,7 +1510,7 @@
                         <button onclick="openModal('tutorial-22')" class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Start Reading</button>
                     </div>
                     
-                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -1066,7 +1849,7 @@
                         </button>
                     </div>
 
-                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -1275,10 +2058,107 @@
                         <p class="text-gray-400 text-sm mt-1">A template for writing engaging video scripts.</p>
                     </a>
 
-                    </div>
+                </div>
             </div>
         </section>
     </div>
+<div id="about" class="page-content hidden">
+    <header class="bg-gradient-to-r from-sky-50 to-indigo-100 text-gray-900 pt-32 pb-16 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <i class="fa-solid fa-user-group text-4xl text-indigo-600 mb-4"></i>
+            <h1 class="text-4xl font-bold tracking-tight">About AI Start India</h1>
+            <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                AI Start India is a learning hub created for students, job seekers, creators, and small business owners in India who want to use AI in practical, simple ways.
+            </p>
+        </div>
+    </header>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+                <p class="text-gray-600 mb-4">
+                    Most people hear about “AI” and think it’s only for tech experts or big companies.  
+                    We believe the opposite: AI should help <strong>everyday people</strong> save time, earn more, and learn faster.
+                </p>
+                <p class="text-gray-600 mb-4">
+                    Our mission is to make AI:
+                </p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                    <li><strong>Simple</strong> – Explained in clear Hindi/English, with real-life examples.</li>
+                    <li><strong>Useful</strong> – Focused on jobs, studies, business, and content creation.</li>
+                    <li><strong>Affordable</strong> – We highlight free tools, free prompts, and free templates.</li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Who Is This For?</h3>
+                <div class="space-y-3 text-gray-600">
+                    <p>AI Start India is perfect for you if you are:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>A <strong>student</strong> who wants help with exams, notes, and projects.</li>
+                        <li>A <strong>job seeker</strong> who wants a better resume, LinkedIn, and interview prep.</li>
+                        <li>A <strong>small business owner</strong> who wants to write marketing content faster.</li>
+                        <li>A <strong>creator</strong> who wants ideas for YouTube, Instagram, or blogging.</li>
+                    </ul>
+                    <p class="mt-2">
+                        If you’ve ever thought, “I don’t know where to start with AI,”  
+                        this website is built exactly for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">How AI Start India Helps You</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-book-open text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Learn by Doing</h3>
+                    <p class="text-gray-600 text-sm">
+                        Our tutorials are short, practical, and action-based. You can follow along on your phone or laptop.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Ready-Made Prompts</h3>
+                    <p class="text-gray-600 text-sm">
+                        No need to think what to type. Just copy our prompts into ChatGPT, Gemini, or your favourite tool.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-file-arrow-down text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Downloadable PDFs</h3>
+                    <p class="text-gray-600 text-sm">
+                        Use our cheat sheets and frameworks offline – perfect for students, trainers, and busy professionals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-700 mb-4 font-medium">
+                    Ready to get started?
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="showPage('tutorials')" class="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition shadow-md flex items-center justify-center gap-2">
+                        Explore Tutorials <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button onclick="showPage('prompts')" class="bg-white text-gray-700 border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition flex items-center justify-center gap-2">
+                        Browse Prompt Library
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
     <div id="contact" class="page-content hidden">
         <header class="bg-gradient-to-r from-green-50 to-green-100 text-gray-800 pt-32 pb-16 shadow-inner">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -1322,6 +2202,76 @@
             </div>
         </section>
     </div>
+
+    <div id="privacy" class="page-content hidden">
+        <header class="bg-gradient-to-r from-gray-50 to-gray-100 text-gray-800 pt-32 pb-16 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fa-solid fa-shield-halved text-4xl text-blue-600 mb-4"></i>
+                <h1 class="text-4xl font-bold tracking-tight">Privacy Policy</h1>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Your privacy is important to us.</p>
+            </div>
+        </header>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose lg:prose-lg text-gray-700">
+                <p class="text-gray-500"><strong>Last Updated:</strong> November 17, 2024</p>
+                
+                <h2>Introduction</h2>
+                <p>Welcome to AI Start India ("we," "us," or "our"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website [aipromptindia.in - *replace with your domain*], including any other media form, media channel, mobile website, or mobile application related or connected thereto (collectively, the "Site").</p>
+                <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+
+                <h2>Information We Collect</h2>
+                <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
+
+                <h3>1. Personal Data You Provide to Us</h3>
+                <p>We collect personally identifiable information, such as your name and email address, that you voluntarily give to us when you:</p>
+                <ul>
+                    <li><strong>Subscribe to our newsletter:</strong> We collect your email address to send you tutorials, prompts, and updates.</li>
+                    <li><strong>Use our contact form:</strong> We collect your first name, last name, email address, and any message you send so that we can respond to your inquiry.</li>
+                </ul>
+
+                <h3>2. Data We Collect Automatically (Log Data & Cookies)</h3>
+                <p>Like most websites, we may automatically collect information your browser sends whenever you visit our Site. This Log Data may include information such as your computer's Internet Protocol ("IP") address, browser type, browser version, the pages of our Site that you visit, the time and date of your visit, the time spent on those pages, and other statistics.</p>
+                <p>We may use cookies and similar tracking technologies to track the activity on our Site and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
+
+                <h2>How We Use Your Information</h2>
+                <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:</p>
+                <ul>
+                    <li>Respond to your contact form inquiries.</li>
+                    <li>Send you our newsletter and other updates (if you have subscribed).</li>
+                    <li>Monitor and analyze usage and trends to improve our Site's content and offerings.</li>
+                    <li>Prevent fraudulent transactions, monitor against theft, and protect against criminal activity.</li>
+                </ul>
+
+                <h2>Disclosure of Your Information</h2>
+                <p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties.</p>
+                <p>This does not include trusted third-party service providers who assist us in operating our website, such as an email marketing service (e.g., Mailchimp, Substack) to manage our newsletter. These parties are obligated to keep your information confidential.</p>
+
+                <h2>Third-Party Links</h2>
+                <p>Our Site contains links to third-party websites and tools (e.g., ChatGPT, Gemini, Canva, etc.). These links are provided for your convenience to provide further information. We have no control over, and are not responsible for, the content, privacy policies, or practices of any third-party websites or services.</p>
+                <p>When you click on a link to an external site, you are leaving AI Start India, and this Privacy Policy no longer applies.</p>
+
+                <h2>Data Security</h2>
+                <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+
+                <h2>Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li><strong>Opt-out of communications:</strong> You may unsubscribe from our newsletter at any time by clicking the "Unsubscribe" link in the footer of any email you receive from us.</li>
+                    <li><strong>Access, update, or delete your information:</strong> You may contact us at any time to request to see, update, or delete the personal information we hold about you.</li>
+                </ul>
+
+                <h2>Children's Privacy</h2>
+                <p>Our Site is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information from our records.</p>
+                
+                <h2>Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. We will let you know via a prominent notice on our Site and update the "Last Updated" date at the top of this Privacy Policy.</p>
+
+                <h2>Contact Us</h2>
+                <p>If you have any questions or comments about this Privacy Policy, please contact us using the contact form on our Site or by emailing us at [<strong>contact@aistartindia.com</strong> - *or another email you create*].</p>
+            </div>
+        </section>
+    </div>
     <footer class="bg-gray-50 border-t border-gray-200 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex items-center justify-center mb-4">
@@ -1335,8 +2285,12 @@
                 <a href="#" class="text-gray-400 hover:text-orange-500 transition"><i class="fa-brands fa-linkedin text-2xl"></i></a>
                 <a href="#" class="text-gray-400 hover:text-orange-500 transition"><i class="fa-brands fa-youtube text-2xl"></i></a>
             </div>
-            <p class="text-sm text-gray-400 mt-8">&copy; 2024 AI Start India. All rights reserved.</p>
-        </div>
+            
+            <div class="mt-8 text-sm text-gray-400">
+                <p>&copy; 2024 AI Start India. All rights reserved.</p>
+                <a href="#" onclick="showPage('privacy')" class="hover:text-orange-500 underline transition">Privacy Policy</a>
+            </div>
+            </div>
     </footer>
 
     <div id="toast">Copied to clipboard!</div>
@@ -1951,10 +2905,23 @@
             // Update active nav link
             allNavLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.id === `nav-${pageId}`) {
-                    link.classList.add('active');
+                if (link.id === `nav-${pageId}` || (pageId === 'privacy' && link.id === 'nav-home')) {
+                    // Special case to keep 'Home' active or no link active for privacy
+                } else if (link.id === `nav-${pageId}`) {
+                     link.classList.add('active');
+                }
+                
+                // When showing privacy, no nav link should be active
+                if(pageId === 'privacy') {
+                    link.classList.remove('active');
                 }
             });
+
+            // Re-apply active class for the correct page
+            const activeNavLink = document.getElementById(`nav-${pageId}`);
+            if (activeNavLink) {
+                activeNavLink.classList.add('active');
+            }
             
             // Scroll to top
             window.scrollTo(0, 0);
