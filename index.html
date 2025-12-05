@@ -86,6 +86,7 @@
           </div>
         </a>
 
+        <!-- Desktop nav -->
         <div class="hidden md:flex items-center gap-5 text-sm">
           <a href="index.html" class="text-orange-400 font-semibold">Home</a>
           <a href="b2b-leads.html" class="text-slate-300 hover:text-orange-400 transition">B2B Leads</a>
@@ -114,6 +115,52 @@
             WhatsApp Help
           </a>
         </div>
+
+        <!-- Mobile nav toggle -->
+        <div class="flex items-center gap-2 md:hidden">
+          <a
+            href="https://wa.me/910000000000"
+            target="_blank"
+            class="inline-flex items-center gap-1 text-[11px] font-semibold bg-gradient-to-r from-emerald-400 to-sky-400 hover:from-emerald-300 hover:to-sky-300 text-slate-950 px-2.5 py-1.5 rounded-full shadow-md shadow-emerald-400/40 transition"
+          >
+            <i class="fa-brands fa-whatsapp text-xs"></i>
+            Help
+          </a>
+          <button
+            type="button"
+            class="p-2 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-800 transition"
+            onclick="toggleMobileNav()"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa-solid fa-bars" id="mobile-nav-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div
+      id="mobile-nav"
+      class="md:hidden hidden bg-slate-950/95 border-t border-slate-800"
+    >
+      <div class="max-w-6xl mx-auto px-4 pb-3 pt-2 space-y-1 text-sm">
+        <a href="index.html" class="block py-1.5 text-orange-400 font-semibold">Home</a>
+        <a href="b2b-leads.html" class="block py-1.5 text-slate-300 hover:text-orange-400">B2B Leads</a>
+        <a href="b2c.html" class="block py-1.5 text-slate-300 hover:text-orange-400">B2C Leads</a>
+        <a href="crm-notes.html" class="block py-1.5 text-slate-300 hover:text-orange-400">CRM Notes</a>
+        <a href="roleplay.html" class="block py-1.5 text-slate-300 hover:text-orange-400">Role-Play</a>
+        <a href="linkedin-builder.html" class="block py-1.5 text-slate-300 hover:text-orange-400">LinkedIn Builder</a>
+        <a href="daily-missions.html" class="block py-1.5 text-slate-300 hover:text-orange-400">Daily Missions</a>
+        <a href="deal-doctor.html" class="block py-1.5 text-slate-300 hover:text-orange-400">Deal Doctor</a>
+        <a href="swipefile.html" class="block py-1.5 text-slate-300 hover:text-orange-400">Swipe File</a>
+        <button
+          type="button"
+          onclick="openTour(); toggleMobileNav(false);"
+          class="mt-1 inline-flex items-center gap-1 text-[11px] text-slate-300 hover:text-orange-400"
+        >
+          <i class="fa-regular fa-circle-question text-xs"></i>
+          <span>How it works</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -574,6 +621,24 @@ Answer in clear sections with bullet points and a short table example.`;
       document.getElementById("quick-output").textContent = text;
     }
 
+    // MOBILE NAV TOGGLE
+    function toggleMobileNav(forceClose) {
+      const menu = document.getElementById("mobile-nav");
+      const icon = document.getElementById("mobile-nav-icon");
+      if (!menu || !icon) return;
+
+      const shouldClose = forceClose === true || !menu.classList.contains("hidden");
+      if (shouldClose) {
+        menu.classList.add("hidden");
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      } else {
+        menu.classList.remove("hidden");
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+      }
+    }
+
     // TOUR MODAL LOGIC
     function openTour() {
       const backdrop = document.getElementById("tour-backdrop");
@@ -611,6 +676,7 @@ Answer in clear sections with bullet points and a short table example.`;
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
           closeTour();
+          toggleMobileNav(true);
         }
       });
     });
