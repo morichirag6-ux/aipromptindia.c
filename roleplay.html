@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Sales Role-Play Simulator | AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    .gradient-bg {
+      background: radial-gradient(circle at 0% 0%, #1f2937 0, #020617 35%, #0f172a 70%, #4c1d95 100%);
+    }
+    .card-glass {
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(18px);
+    }
+    #toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #020617;
+      color: #e5e7eb;
+      text-align: center;
+      border-radius: 999px;
+      padding: 0.8rem 1.5rem;
+      position: fixed;
+      z-index: 50;
+      left: 50%;
+      bottom: 1.5rem;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.6);
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .modal-overlay {
+      background: rgba(15, 23, 42, 0.9);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-50">
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-orange-500 to-pink-500 flex items-center justify-center">
+          <i class="fa-solid fa-robot text-white text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <p class="font-semibold text-sm md:text-base">AI Start <span class="text-emerald-400">India</span></p>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Sales prompts for Indian teams</p>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-5 text-sm">
+        <a href="index.html" class="text-slate-300 hover:text-white">Home</a>
+        <a href="b2b-leads.html" class="text-slate-300 hover:text-white">B2B Leads</a>
+        <a href="b2c.html" class="text-slate-300 hover:text-white">B2C Leads</a>
+        <a href="crm-notes.html" class="text-slate-300 hover:text-white">CRM Notes</a>
+        <a href="roleplay.html" class="text-emerald-400 font-semibold">Role-Play</a>
+        <a href="linkedin-builder.html" class="text-slate-300 hover:text-white">LinkedIn Builder</a>
+        <a href="daily-missions.html" class="text-slate-300 hover:text-white">Daily Missions</a>
+        <a href="deal-doctor.html" class="text-slate-300 hover:text-white">Deal Doctor</a>
+        <a href="swipefile.html" class="text-slate-300 hover:text-white">Swipe File</a>
+      </div>
+
+      <a href="mailto:hello@aistartindia.com"
+         class="hidden md:inline-flex items-center gap-2 text-xs bg-sky-500/10 border border-sky-500/60 text-sky-300 px-3 py-1.5 rounded-full hover:bg-sky-500/20">
+        <i class="fa-regular fa-envelope"></i> Email support
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="pt-24 pb-20 gradient-bg min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 space-y-10">
+
+      <!-- Hero -->
+      <section class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/70 border border-slate-700 text-[11px] uppercase tracking-wide mb-4">
+            <span class="text-pink-400"><i class="fa-solid fa-headset"></i></span>
+            <span>AI Sales Call Role-Play Simulator</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-50">
+            Practice tough
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-emerald-400 to-lime-400">
+              sales conversations
+            </span>
+            before you talk to real buyers.
+          </h1>
+          <p class="mt-4 text-sm md:text-base text-slate-300 max-w-xl">
+            Build a role-play scenario in one click. Paste the prompt into ChatGPT, Gemini, Claude or Perplexity and let AI act
+            as your buyer: founder, CTO, CFO, tenant, investor… even “very tough” modes.
+          </p>
+          <ul class="mt-4 text-xs md:text-sm text-slate-300 space-y-1.5">
+            <li>🎯 Choose industry, buyer role, and objective (book demo, close deal, renew, etc.)</li>
+            <li>😈 Pick difficulty: easy, realistic, or aggressive</li>
+            <li>🧠 Get a long, structured prompt + sample script</li>
+          </ul>
+          <p class="mt-4 text-[11px] text-slate-400 flex items-center gap-2">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/90 text-[10px]">
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+            </span>
+            Free practice gym for SDRs, AEs, founders, and sales coaches.
+          </p>
+        </div>
+
+        <div class="card-glass rounded-3xl p-6 border border-slate-800 shadow-2xl">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-sm font-semibold text-slate-100 flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-sky-400"></i>
+              Step 1 · Design your scenario
+            </h2>
+            <span class="text-[11px] text-slate-400">Takes ~20 seconds</span>
+          </div>
+
+          <div class="space-y-4 text-sm">
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Industry / use-case</label>
+              <select id="industry" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                <option value="IT services and consulting" selected>IT Services & Consulting</option>
+                <option value="SaaS product for B2B customers">B2B SaaS product</option>
+                <option value="manufacturing automation software">Manufacturing / Industrial</option>
+                <option value="real estate sales and leasing">Real Estate</option>
+                <option value="logistics and transportation solution">Logistics & Transportation</option>
+                <option value="financial services or fintech">Financial Services / Fintech</option>
+                <option value="coaching or training services for professionals">Coaching / Training</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Buyer role</label>
+                <select id="buyerRole" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                  <option value="founder or CEO" selected>Founder / CEO</option>
+                  <option value="CTO or head of technology">CTO / Tech head</option>
+                  <option value="CFO or head of finance">CFO / Finance head</option>
+                  <option value="operations head">Head of Operations</option>
+                  <option value="procurement manager">Procurement</option>
+                  <option value="real estate investor">Investor</option>
+                  <option value="tenant looking to rent or buy">Tenant / Buyer</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Difficulty</label>
+                <select id="difficulty" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                  <option value="friendly and curious" selected>Easy · Friendly</option>
+                  <option value="realistic and time-poor">Realistic · Busy</option>
+                  <option value="very tough, skeptical and price-sensitive">Very tough · Skeptical</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Objective of the call</label>
+              <select id="objective" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                <option value="book a first discovery call or demo" selected>Book discovery / demo</option>
+                <option value="move the deal from demo to proposal">Move from demo → proposal</option>
+                <option value="handle pricing and negotiate a win-win deal">Handle pricing / negotiate</option>
+                <option value="rescue a stalled deal and bring it back to life">Rescue stalled deal</option>
+                <option value="renew an existing contract and look for expansion">Renew & expand</option>
+                <option value="sell to an existing customer a second product or add-on">Upsell / cross-sell</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Channel</label>
+                <select id="channel" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                  <option value="phone call" selected>Phone call</option>
+                  <option value="Zoom or Google Meet video call">Video call</option>
+                  <option value="live chat or WhatsApp conversation">Live chat / WhatsApp</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Conversation length</label>
+                <select id="length" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                  <option value="6" selected>Short · 6 turns</option>
+                  <option value="10">Standard · 10 turns</option>
+                  <option value="14">Deep · 14 turns</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Extra notes (optional)</label>
+              <textarea id="extraNotes"
+                        rows="3"
+                        class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 text-xs"
+                        placeholder="Example: My product reduces manual reporting for IT teams. Buyer is in India, mid-market (200–500 employees). I am a new SDR with 3 months experience."></textarea>
+            </div>
+
+            <button
+              onclick="buildRoleplayPrompt()"
+              class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-400 via-emerald-400 to-lime-400 text-slate-950 font-semibold text-sm py-2.5 rounded-xl shadow-lg hover:brightness-110">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Generate role-play prompt
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Output + Sample -->
+      <section class="grid lg:grid-cols-2 gap-8">
+        <div class="card-glass rounded-3xl p-6 border border-slate-800">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold text-slate-100 flex items-center gap-2">
+              <i class="fa-solid fa-terminal text-sky-400"></i>
+              Step 2 · Paste this into your AI
+            </h2>
+            <button
+              onclick="copyPrompt()"
+              class="inline-flex items-center gap-2 text-xs bg-slate-900/80 border border-slate-700 px-3 py-1.5 rounded-full hover:bg-slate-800">
+              <i class="fa-regular fa-copy text-slate-300"></i>
+              <span>Copy prompt</span>
+            </button>
+          </div>
+          <textarea id="promptOutput"
+                    class="w-full bg-slate-900/70 border border-slate-700 rounded-xl px-3 py-3 text-xs md:text-[13px] text-slate-100 min-h-[230px]"
+                    placeholder="Your AI role-play prompt will appear here."
+                    readonly></textarea>
+          <p class="mt-2 text-[11px] text-slate-400">
+            Tip: Ask the AI to “repeat the exercise but harder” or “give me feedback on my answers” after the first run.
+          </p>
+        </div>
+
+        <div class="card-glass rounded-3xl p-6 border border-slate-800">
+          <h2 class="text-sm font-semibold text-slate-100 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-comments text-emerald-400"></i>
+            Sample script (what the AI might do)
+          </h2>
+          <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-4 text-xs space-y-3 text-slate-100">
+            <p class="text-[11px] uppercase tracking-wide text-slate-400">Scenario · B2B SaaS · Book a demo · Realistic difficulty</p>
+            <div class="space-y-2">
+              <p><span class="font-semibold text-sky-300">AI (CTO):</span> Hey, I’ve got about 8 minutes before my next call. What do you do, and why should I care right now?</p>
+              <p><span class="font-semibold text-emerald-300">You (SDR):</span> Totally get it, thanks for being direct. In one line: we help engineering teams like yours cut weekly status-report time by 50–60% without changing their current tools.</p>
+              <p><span class="font-semibold text-sky-300">AI (CTO):</span> Everyone says that. We already have Jira and some internal dashboards. Why would I add one more tool?</p>
+              <p><span class="font-semibold text-emerald-300">You (SDR):</span> That’s fair. Instead of replacing Jira, we sit on top of it and auto-generate the updates your PMs are manually compiling today. Can I quickly ask how your team shares sprint progress with non-technical stakeholders?</p>
+              <p><span class="font-semibold text-sky-300">AI (CTO):</span> Right now, PMs spend Friday afternoons making slides. They complain, but it works… more or less.</p>
+              <p class="text-slate-300 italic">
+                After the call, ask the AI: “Give me feedback on my answers and how I could improve my discovery questions.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Help floating button -->
+  <button
+    onclick="openHelp()"
+    class="fixed bottom-6 right-4 md:right-6 z-40 w-11 h-11 rounded-full bg-slate-900 border border-slate-700 shadow-2xl flex items-center justify-center text-slate-200 hover:bg-slate-800">
+    <i class="fa-solid fa-question"></i>
+  </button>
+
+  <!-- Help modal -->
+  <div id="helpModal" class="hidden fixed inset-0 z-50 flex items-center justify-center modal-overlay">
+    <div class="bg-slate-950 border border-slate-700 rounded-3xl max-w-md w-full mx-4 p-6 relative">
+      <button onclick="closeHelp()" class="absolute top-3 right-3 text-slate-500 hover:text-slate-200">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="text-lg font-semibold text-slate-50 mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-gamepad text-sky-400"></i>
+        How to use the simulator
+      </h3>
+      <ol class="list-decimal list-inside text-sm text-slate-200 space-y-2">
+        <li>Pick your industry, buyer role, difficulty and objective.</li>
+        <li>Add any extra notes (product, country, your experience).</li>
+        <li>Click <span class="font-semibold">Generate role-play prompt</span>.</li>
+        <li>Paste the prompt into ChatGPT / Gemini / Claude.</li>
+        <li>Type your answers as if it’s a real call. Ask for feedback at the end.</li>
+      </ol>
+      <p class="mt-3 text-xs text-slate-400">
+        Pro tip: Record your answers and build a “best answers” library for your team.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast">Copied!</div>
+
+  <script>
+    function buildRoleplayPrompt() {
+      const industry = document.getElementById('industry').value;
+      const buyerRole = document.getElementById('buyerRole').value;
+      const difficulty = document.getElementById('difficulty').value;
+      const objective = document.getElementById('objective').value;
+      const channel = document.getElementById('channel').value;
+      const length = document.getElementById('length').value;
+      const extraNotes = document.getElementById('extraNotes').value.trim();
+
+      const basePrompt = `
+Act as a ${difficulty} ${buyerRole} at a company in the ${industry} space.
+You are speaking with a sales rep from an Indian company over a ${channel}.
+
+Goal of this role-play:
+- Let the rep practice how to ${objective}.
+- Force them to ask good discovery questions, not just pitch features.
+- Challenge them in a realistic but safe environment.
+
+Instructions for you (the AI):
+- Stay in character as the ${buyerRole} the whole time.
+- Your personality: ${difficulty}.
+- Use short, natural spoken sentences (like a real call).
+- Occasionally interrupt, push back, or ask for clarification.
+- Reference India / APAC context where it makes sense (budgets, timelines, approvals).
+
+Conversation structure:
+- Simulate about ${length} back-and-forth turns.
+- Start by letting the rep open the call. Wait for their first message.
+- Then respond like a real buyer with your own questions and objections.
+- Use business language but keep it clear and simple.
+
+Key things you care about as the buyer:
+- Is this solving a real problem for me, in my role?
+- How much time/money can this realistically save?
+- How painful is implementation and change management?
+- Whether this is worth pushing internally right now.
+
+Extra background from the rep (use if helpful):
+"""
+${extraNotes || 'No extra notes provided.'}
+"""
+
+Your tasks:
+
+1) Start the simulation by briefly setting the scene in 1–2 lines,
+   then say your first buyer line and wait for the rep to reply.
+2) After each answer from the rep, respond as the buyer with questions,
+   doubts, or interest, based on their answer.
+3) After the final turn, stop the role-play and give structured feedback:
+
+[Feedback for the rep]
+- 3 things you did well
+- 3 things you can improve
+- 2 better discovery questions you could have asked
+- 1 suggested next line you could use to move the deal forward
+
+Important:
+- Do NOT write both sides of the conversation at once.
+- Only write your buyer lines, then wait for the rep's next message.
+`.trim();
+
+      document.getElementById('promptOutput').value = basePrompt;
+    }
+
+    function copyPrompt() {
+      const area = document.getElementById('promptOutput');
+      area.select();
+      area.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      showToast('Prompt copied to clipboard');
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    function openHelp() {
+      document.getElementById('helpModal').classList.remove('hidden');
+    }
+    function closeHelp() {
+      document.getElementById('helpModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

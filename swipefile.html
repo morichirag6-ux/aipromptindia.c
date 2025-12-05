@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Swipe File & Prompt Library | AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    .page-gradient {
+      background: radial-gradient(circle at 0% 0%, #111827 0, #020617 40%, #0f172a 70%, #4c1d95 100%);
+    }
+    .card-glass {
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(18px);
+    }
+    .badge-pill {
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-50">
+
+  <!-- NAV -->
+    <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-40 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-orange-500 to-pink-500 flex items-center justify-center">
+          <i class="fa-solid fa-robot text-white text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <p class="font-semibold text-sm md:text-base">
+            AI Start <span class="text-emerald-400">India</span>
+          </p>
+          <p class="text-[11px] text-slate-400 hidden sm:block">
+            Sales prompts & playbooks
+          </p>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-5 text-sm">
+        <a href="index.html" class="text-slate-300 hover:text-white">Index</a>
+        <a href="b2b-leads.html" class="text-slate-300 hover:text-white">B2B</a>
+        <a href="b2c.html" class="text-slate-300 hover:text-white">B2C</a>
+        <a href="crm-notes.html" class="text-slate-300 hover:text-white">CRM Notes</a>
+        <a href="roleplay.html" class="text-slate-300 hover:text-white">Role-Play</a>
+        <a href="linkedin-builder.html" class="text-slate-300 hover:text-white">LinkedIn Builder</a>
+        <a href="daily-missions.html" class="text-slate-300 hover:text-white">Daily Missions</a>
+        <a href="deal-doctor.html" class="text-slate-300 hover:text-white">Deal Doctor</a>
+        <a href="swipefile.html" class="text-emerald-400 font-semibold">Swipe File</a>
+      </div>
+
+      <a href="mailto:you@example.com"
+         class="hidden md:inline-flex items-center gap-2 text-xs bg-sky-500/10 border border-sky-500/70 text-sky-300 px-3 py-1.5 rounded-full hover:bg-sky-500/20">
+        <i class="fa-regular fa-envelope"></i>
+        Send feedback
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="pt-24 pb-20 page-gradient min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 space-y-12">
+
+      <!-- Hero -->
+      <section class="space-y-6">
+        <div class="inline-flex items-center gap-2 badge-pill px-3 py-1 bg-slate-900/70 text-slate-200 border border-slate-700">
+          <span class="text-emerald-400 text-xs">
+            <i class="fa-solid fa-bolt"></i>
+          </span>
+          <span class="uppercase text-[11px]">Swipe File · Prompt Library</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-50 leading-tight">
+              Your free
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-pink-400 to-emerald-400">
+                AI sales toolkit
+              </span>
+              in one place.
+            </h1>
+            <p class="mt-3 text-sm md:text-base text-slate-300 max-w-xl">
+              One hub to launch every tool: B2B lead builder, B2C prompts, LinkedIn search strings,
+              Deal Doctor, CRM note generator and Role-Play simulator. Bookmark this page — this is your
+              new “Sales OS” home.
+            </p>
+
+            <ul class="mt-4 text-xs md:text-sm text-slate-300 space-y-1.5">
+              <li>✅ Works with ChatGPT, Gemini, Claude, Perplexity</li>
+              <li>✅ No login, no credit card, built for Indian markets</li>
+              <li>✅ B2B + B2C, outbound + inbound, new business + renewals</li>
+            </ul>
+          </div>
+
+          <div class="card-glass rounded-3xl p-5 border border-slate-800 shadow-2xl">
+            <h2 class="text-sm font-semibold text-slate-100 mb-2">
+              Quick start · What do you want to do?
+            </h2>
+            <div class="grid gap-3 text-xs">
+              <a href="b2b-leads.html" class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-400/70">
+                <div>
+                  <p class="font-semibold text-slate-50 flex items-center gap-2">
+                    <span class="w-5 h-5 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300">
+                      <i class="fa-solid fa-building"></i>
+                    </span>
+                    Find B2B companies & decision makers
+                  </p>
+                  <p class="mt-1 text-[11px] text-slate-400">
+                    Generate company lists + ICP prompts for IT services, SaaS and product companies.
+                  </p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-500"></i>
+              </a>
+
+              <a href="b2c.html" class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-pink-400/70">
+                <div>
+                  <p class="font-semibold text-slate-50 flex items-center gap-2">
+                    <span class="w-5 h-5 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-300">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </span>
+                    Get B2C WhatsApp & ad copy
+                  </p>
+                  <p class="mt-1 text-[11px] text-slate-400">
+                    Manufacturing, real estate, finance, logistics, oil & energy and more.
+                  </p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-500"></i>
+              </a>
+
+              <a href="crm-notes.html" class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-400/70">
+                <div>
+                  <p class="font-semibold text-slate-50 flex items-center gap-2">
+                    <span class="w-5 h-5 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300">
+                      <i class="fa-solid fa-note-sticky"></i>
+                    </span>
+                    Turn raw notes into CRM updates
+                  </p>
+                  <p class="mt-1 text-[11px] text-slate-400">
+                    Get reply + CRM summary + follow-up task from one prompt.
+                  </p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-500"></i>
+              </a>
+
+              <a href="roleplay.html" class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-violet-400/70">
+                <div>
+                  <p class="font-semibold text-slate-50 flex items-center gap-2">
+                    <span class="w-5 h-5 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-300">
+                      <i class="fa-solid fa-headset"></i>
+                    </span>
+                    Practice a tough sales call
+                  </p>
+                  <p class="mt-1 text-[11px] text-slate-400">
+                    AI plays the founder, CTO, CFO or tenant – you practice your lines.
+                  </p>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-500"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- B2B section -->
+      <section id="b2b" class="card-glass rounded-3xl p-6 border border-slate-800">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-50">B2B Playbooks · IT services, SaaS, product</h2>
+            <p class="text-xs md:text-sm text-slate-400">
+              Use these micro playbooks as flows: copy → tweak → paste into your AI → ship.
+            </p>
+          </div>
+          <span class="badge-pill bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 px-3 py-1 text-[11px]">
+            New · Optimised for India + global buyers
+          </span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 text-xs md:text-sm">
+          <!-- Card 1 -->
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col gap-3">
+            <div>
+              <p class="text-[11px] uppercase tracking-wide text-emerald-300 font-semibold mb-1">
+                Cold outbound · IT Services
+              </p>
+              <h3 class="font-semibold text-slate-50">
+                “From generic vendor to specialist partner”
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Reposition your services from “we do everything” to “we solve one painful problem”.
+              </p>
+            </div>
+            <div class="mt-auto flex items-center justify-between gap-2">
+              <button
+                onclick="fillPrompt(`You are an IT services company helping US/Europe clients with dedicated engineers. Create a cold email + LinkedIn message combo for founders of 50–500 employee SaaS companies who currently feel their engineering team is overloaded. Focus on turning ‘generic vendor’ positioning into ‘specialist partner’ with 1 strong pain point and 1 clear outcome.`)"
+                class="text-[11px] px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700">
+                Send to Prompt box
+              </button>
+              <a href="b2b-leads.html" class="text-[11px] text-emerald-300 underline underline-offset-2">
+                Open B2B builder
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col gap-3">
+            <div>
+              <p class="text-[11px] uppercase tracking-wide text-sky-300 font-semibold mb-1">
+                Pipeline revive · SaaS
+              </p>
+              <h3 class="font-semibold text-slate-50">
+                “Demo done, then silence”
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Follow-up sequence when the buyer liked the demo but never replied to pricing.
+              </p>
+            </div>
+            <div class="mt-auto flex items-center justify-between gap-2">
+              <button
+                onclick="fillPrompt(`Create 3 follow-up emails for a SaaS founder who saw a good demo but went silent after pricing. Each email should be short, respectful and add new value (case study, loom video, ROI calculator) instead of ‘just checking in’.`) "
+                class="text-[11px] px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700">
+                Send to Prompt box
+              </button>
+              <a href="deal-doctor.html" class="text-[11px] text-sky-300 underline underline-offset-2">
+                Use Deal Doctor
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col gap-3">
+            <div>
+              <p class="text-[11px] uppercase tracking-wide text-amber-300 font-semibold mb-1">
+                LinkedIn outbound · Product companies
+              </p>
+              <h3 class="font-semibold text-slate-50">
+                “Pain-first profile visit → DM”
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                2–step play: profile visit + personalised DM for founders on LinkedIn.
+              </p>
+            </div>
+            <div class="mt-auto flex items-center justify-between gap-2">
+              <button
+                onclick="fillPrompt(`Give me a 2-step LinkedIn play for Indian product companies selling globally: (1) a short profile headline that is pain-first, (2) a personalised DM template that references the buyer’s role and 1 specific metric like churn or engineering cost.`)"
+                class="text-[11px] px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700">
+                Send to Prompt box
+              </button>
+              <a href="linkedin-boolean.html" class="text-[11px] text-amber-300 underline underline-offset-2">
+                Build Boolean
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- B2C section -->
+      <section id="b2c" class="card-glass rounded-3xl p-6 border border-slate-800">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-50">B2C Playbooks · Manufacturing, Real Estate, Finance, Logistics</h2>
+            <p class="text-xs md:text-sm text-slate-400">
+              Use these flows for WhatsApp, ads and follow-up messages with leads who filled forms.
+            </p>
+          </div>
+          <span class="badge-pill bg-pink-500/10 text-pink-300 border border-pink-500/40 px-3 py-1 text-[11px]">
+            Great for small teams & solo founders
+          </span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 text-xs md:text-sm">
+          <!-- Card 1 -->
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col gap-3">
+            <div>
+              <p class="text-[11px] uppercase tracking-wide text-pink-300 font-semibold mb-1">
+                Real Estate / Housing
+              </p>
+              <h3 class="font-semibold text-slate-50">
+                Form fill → WhatsApp nurturing
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Turn cold portal leads into site visits with 4 friendly messages.
+              </p>
+            </div>
+            <div class="mt-auto flex items-center justify-between gap-2">
+              <button
+                onclick="fillPrompt(`Create a 4-message WhatsApp nurture sequence for Indian real estate leads who filled a form but are not responding to calls. Tone: friendly, helpful, low pressure. Goal: confirm budget + timeline and book a site visit.`)"
+                class="text-[11px] px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700">
+                Send to Prompt box
+              </button>
+              <a href="b2c.html" class="text-[11px] text-pink-300 underline underline-offset-2">
+                Open B2C builder
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col gap-3">
+            <div>
+              <p class="text-[11px] uppercase tracking-wide text-sky-300 font-semibold mb-1">
+                Manufacturing / Logistics
+              </p>
+              <h3 class="font-semibold text-slate-50">
+                Distributor & dealer activation
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Message sequence to re-activate distributors who went quiet.
+              </p>
+            </div>
+            <div class="mt-auto flex items-center justify-between gap-2">
+              <button
+                onclick="fillPrompt(`Write 3 SMS/WhatsApp messages to re-activate old distributors in Indian manufacturing/logistics. Tone: respectful, helpful, offer one quick win or scheme. Avoid sounding desperate.`)"
+                class="text-[11px] px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700">
+                Send to Prompt box
+              </button>
+              <a href="b2c.html" class="text-[11px] text-sky-300 underline underline-offset-2">
+                Use B2C builder
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col gap-3">
+            <div>
+              <p class="text-[11px] uppercase tracking-wide text-emerald-300 font-semibold mb-1">
+                Finance / Loans / Insurance
+              </p>
+              <h3 class="font-semibold text-slate-50">
+                Compliance-friendly follow-ups
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Scripts that stay compliant but still move people to a call.
+              </p>
+            </div>
+            <div class="mt-auto flex items-center justify-between gap-2">
+              <button
+                onclick="fillPrompt(`Generate compliant WhatsApp + email follow-up templates for Indian personal loan or insurance leads. Avoid promising guaranteed approvals. Focus on clarifying documents, eligibility and next steps.`)"
+                class="text-[11px] px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700">
+                Send to Prompt box
+              </button>
+              <a href="b2c.html" class="text-[11px] text-emerald-300 underline underline-offset-2">
+                Open B2C builder
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Revive / universal -->
+      <section id="revive" class="card-glass rounded-3xl p-6 border border-slate-800">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-50">Universal flows · Revive cold deals</h2>
+            <p class="text-xs md:text-sm text-slate-400">
+              Works for B2B + B2C. Use with Deal Doctor or CRM Note Generator.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-4 text-xs md:text-sm">
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4">
+            <h3 class="font-semibold text-slate-50 mb-1">Prompt box</h3>
+            <p class="text-[11px] text-slate-400 mb-2">
+              Paste this into ChatGPT / Gemini / Claude · or edit before sending.
+            </p>
+            <textarea
+              id="promptBox"
+              rows="8"
+              class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100"
+              placeholder="Click any 'Send to Prompt box' button above, or type your own idea here.">
+            </textarea>
+          </div>
+
+          <div class="space-y-3">
+            <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4">
+              <p class="text-[11px] uppercase tracking-wide text-sky-300 font-semibold mb-1">
+                Example · Old lead revive
+              </p>
+              <p class="text-xs text-slate-300">
+                “Take this old conversation from my CRM notes and write a respectful follow-up email + WhatsApp message
+                to check if the timing has improved and whether they still have the same problem.”
+              </p>
+              <a href="deal-doctor.html"
+                 class="inline-flex items-center gap-2 mt-3 text-[11px] text-sky-300 underline underline-offset-2">
+                <i class="fa-solid fa-stethoscope"></i> Use Deal Doctor for this
+              </a>
+            </div>
+
+            <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4">
+              <p class="text-[11px] uppercase tracking-wide text-emerald-300 font-semibold mb-1">
+                Tip · Combine with CRM Note Generator
+              </p>
+              <p class="text-xs text-slate-300">
+                After AI writes replies, paste the conversation into
+                <span class="font-semibold">Prompt + CRM Note</span> to get a clean one-line summary and follow-up task
+                you can save in HubSpot, Zoho or Pipedrive.
+              </p>
+              <a href="crm-notes.html"
+                 class="inline-flex items-center gap-2 mt-3 text-[11px] text-emerald-300 underline underline-offset-2">
+                <i class="fa-solid fa-note-sticky"></i> Open CRM Notes tool
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-10 border-t border-slate-900 bg-slate-950/80">
+      <div class="max-w-6xl mx-auto px-4 py-5 flex flex-wrap items-center justify-between gap-3 text-[11px] md:text-xs text-slate-400">
+        <p>© 2025 AI Start India · Swipe File</p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="index.html" class="hover:text-slate-200 flex items-center gap-1">
+            <i class="fa-solid fa-house"></i> Home
+          </a>
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="hover:text-emerald-300 flex items-center gap-1">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:you@example.com" class="hover:text-sky-300 flex items-center gap-1">
+            <i class="fa-regular fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // helper to quickly drop a playbook into the prompt box
+    function fillPrompt(text) {
+      const box = document.getElementById('promptBox');
+      box.value = text.trim();
+      box.focus();
+    }
+  </script>
+</body>
+</html>

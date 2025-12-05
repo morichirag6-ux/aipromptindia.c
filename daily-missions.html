@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daily AI Missions – AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    :root {
+      --brand-bg: #020617;
+      --brand-card: rgba(15, 23, 42, 0.9);
+      --brand-border: rgba(148, 163, 184, 0.35);
+      --brand-gradient: linear-gradient(135deg, #f97316, #a855f7);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(248, 113, 113, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.22), transparent 55%),
+        var(--brand-bg);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+
+    .gradient-text {
+      background-image: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass {
+      background: var(--brand-card);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-shell {
+      position: relative;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1.75rem;
+      padding: 1px;
+      background-image: var(--brand-gradient);
+      opacity: 0.5;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .badge-pill {
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="text-slate-100">
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/40"
+          >
+            <i class="fa-solid fa-robot text-sm text-white"></i>
+          </div>
+          <div class="leading-tight">
+            <p class="font-bold text-sm sm:text-base">
+              AI Start <span class="text-emerald-400">India</span>
+            </p>
+            <p class="text-[11px] text-slate-400 hidden sm:block">
+              Daily AI Sales Missions
+            </p>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="text-slate-300 hover:text-orange-400 transition">Home</a>
+          <a href="b2b-leads.html" class="text-slate-300 hover:text-orange-400 transition">B2B Leads</a>
+          <a href="b2c.html" class="text-slate-300 hover:text-orange-400 transition">B2C Leads</a>
+          <a href="crm-notes.html" class="text-slate-300 hover:text-orange-400 transition">CRM Notes</a>
+          <a href="roleplay.html" class="text-slate-300 hover:text-orange-400 transition">Role-Play</a>
+          <a href="linkedin-builder.html" class="text-slate-300 hover:text-orange-400 transition">LinkedIn Builder</a>
+          <a href="daily-missions.html" class="text-orange-400 font-semibold">Daily Missions</a>
+          <a href="deal-doctor.html" class="text-slate-300 hover:text-orange-400 transition">Deal Doctor</a>
+          <a href="swipefile.html" class="text-slate-300 hover:text-orange-400 transition">Swipe File</a>
+          <button
+            type="button"
+            onclick="openTour()"
+            class="text-slate-300 hover:text-orange-400 transition flex items-center gap-1 text-xs"
+          >
+            <i class="fa-regular fa-circle-question text-xs"></i>
+            <span>How it works</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="pt-24 pb-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- HERO -->
+    <section class="hero-shell glass rounded-3xl border border-slate-800 px-5 sm:px-8 py-7 sm:py-10 shadow-2xl shadow-slate-950/70 mb-8">
+      <div class="grid lg:grid-cols-[3fr,2fr] gap-8 items-start">
+        <div>
+          <p class="inline-flex items-center gap-2 badge-pill text-xs px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 mb-3">
+            <i class="fa-solid fa-calendar-day"></i>
+            Prompt of the Day – AI Sales Missions
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Train your sales brain<br />
+            with a <span class="gradient-text">daily AI mission.</span>
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mb-4">
+            Come back every day, grab a fresh B2B or B2C mission, paste the prompt
+            into your favourite AI, and practice turning research into real outreach.
+          </p>
+          <ul class="text-[12px] text-slate-400 space-y-1.5 mb-3">
+            <li>• Missions for <span class="text-emerald-300">B2B</span> (IT services, SaaS, product) and <span class="text-orange-300">B2C</span> (Manufacturing, Real estate, Finance, etc.).</li>
+            <li>• Mix of lead generation, research, copywriting, and positioning tasks.</li>
+            <li>• Use with your B2B/B2C builders and LinkedIn Boolean search.</li>
+          </ul>
+        </div>
+
+        <!-- Current mission card -->
+        <div class="rounded-3xl bg-slate-950/70 border border-slate-800 p-5 sm:p-6 shadow-xl text-xs">
+          <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-wide mb-2">
+            Today’s mission
+          </p>
+          <div id="mission-card" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3.5 text-slate-200">
+            <!-- JS will fill -->
+          </div>
+          <button
+            type="button"
+            onclick="nextMission()"
+            class="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 hover:border-orange-400 text-[11px] text-slate-100 transition"
+          >
+            <i class="fa-solid fa-shuffle text-[10px]"></i>
+            New mission
+          </button>
+          <p class="mt-2 text-[11px] text-slate-400">
+            Copy the prompt and paste into ChatGPT / Gemini / Claude / Perplexity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION LISTS -->
+    <section class="grid lg:grid-cols-2 gap-8">
+      <!-- B2B -->
+      <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold flex items-center gap-2">
+            <span class="text-emerald-300 text-lg">🏢</span>
+            B2B missions
+          </h2>
+          <span class="text-[11px] text-slate-400">Use with B2B Lead & LinkedIn Builders.</span>
+        </div>
+        <ul class="space-y-3 text-xs text-slate-300">
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2B-01 – ICP clarity</span>
+            <p class="text-slate-400">
+              Ask AI to create 3 clearer versions of your ICP for IT Services / SaaS
+              – one for founders, one for CTOs, one for Heads of Ops. Each with
+              concrete pain points and measurable outcomes.
+            </p>
+          </li>
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2B-02 – New segment discovery</span>
+            <p class="text-slate-400">
+              Use AI to suggest 5 new micro-segments (by industry, tech stack,
+              geography, company size) where your current offer would be an “easy win”.
+            </p>
+          </li>
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2B-03 – Multi-step outreach</span>
+            <p class="text-slate-400">
+              Ask AI for a 3-step outbound sequence (LinkedIn DM + email + WhatsApp)
+              tailored to one segment from your B2B Lead Builder.
+            </p>
+          </li>
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2B-04 – Decision-maker mapping</span>
+            <p class="text-slate-400">
+              Pick any company list from your B2B builder and ask AI, “Who are the 3
+              most likely roles to own this problem inside each company?”
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- B2C -->
+      <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold flex items-center gap-2">
+            <span class="text-orange-300 text-lg">🛒</span>
+            B2C missions
+          </h2>
+          <span class="text-[11px] text-slate-400">Use with B2C Lead Builder.</span>
+        </div>
+        <ul class="space-y-3 text-xs text-slate-300">
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2C-01 – Brand mapping</span>
+            <p class="text-slate-400">
+              Ask AI to list 20 real estate / financial services / logistics brands
+              in your city and summarise their positioning in one line each.
+            </p>
+          </li>
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2C-02 – Consumer journey audit</span>
+            <p class="text-slate-400">
+              Pick 3 brands and ask AI to map their buyer journey (ad → landing page
+              → follow-up) and highlight 3 places your offer could plug in.
+            </p>
+          </li>
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2C-03 – WhatsApp funnel ideas</span>
+            <p class="text-slate-400">
+              Use AI to create a simple WhatsApp funnel (entry hooks, follow-ups, final CTA)
+              for leads from portals or social campaigns.
+            </p>
+          </li>
+          <li>
+            <span class="font-semibold text-slate-100">Mission B2C-04 – “Mini campaign” pitch</span>
+            <p class="text-slate-400">
+              Ask AI to design a 7-day mini campaign you could propose to one B2C brand
+              as a test project (channels, creatives, KPIs).
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOUR MODAL -->
+  <div
+    id="tour-backdrop"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4"
+  >
+    <div class="max-w-md w-full glass rounded-3xl border border-slate-700 shadow-2xl relative p-5 sm:p-6">
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="absolute top-3 right-3 text-slate-400 hover:text-slate-100 text-xs"
+        aria-label="Close tour"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 text-[11px] text-slate-300 flex items-center gap-2 mb-3">
+        <i class="fa-regular fa-circle-question text-xs text-emerald-300"></i>
+        30-second tour
+      </div>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">
+        How to use <span class="gradient-text">Daily Missions</span>
+      </h2>
+      <ol class="space-y-3 text-sm">
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            1
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Grab a mission</p>
+            <p class="text-xs text-slate-400">
+              Use the “Today’s mission” card or scroll B2B/B2C missions and pick one
+              that matches your current offer.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            2
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Paste into your AI tool</p>
+            <p class="text-xs text-slate-400">
+              Copy the mission prompt and paste into ChatGPT / Gemini / Claude /
+              Perplexity. Use your real offer and ICP inside the prompt.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            3
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Connect with your builders</p>
+            <p class="text-xs text-slate-400">
+              Use outputs together with the B2B/B2C lead builders and LinkedIn
+              Boolean builder to actually find leads and start conversations.
+            </p>
+          </div>
+        </li>
+      </ol>
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+      >
+        Got it, show me a mission
+      </button>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-800 mt-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2024 AI Start India – Daily Missions by <span class="text-slate-300 font-semibold">Chiragkumar Mori</span>.</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:contact@aistartindia.com" class="hover:text-orange-400 flex items-center gap-1">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          contact@aistartindia.com
+        </a>
+        <a href="https://wa.me/910000000000" target="_blank" class="hover:text-emerald-400 flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const missions = [
+      {
+        title: "B2B – New micro-ICP",
+        prompt: `Act as a B2B sales strategist.
+
+1) Ask me 5 questions about my current offer and ideal client.
+2) Based on my answers, suggest 3 new micro-ICPs for IT Services / SaaS / product companies:
+   - A short name for the segment
+   - Typical job titles to target
+   - 3 pain points
+   - Why they are easier to close than my current segment
+3) For the best micro-ICP, write a short paragraph I can paste into my B2B Lead Builder.
+
+Answer in clear sections and bullets.`
+      },
+      {
+        title: "B2C – City brand radar",
+        prompt: `You are a B2C brand research assistant.
+
+Task:
+1) Ask me which city and which industries I care about (real estate, financial services, logistics & transportation, manufacturing, etc.).
+2) Suggest at least 15 local or regional B2C brands that match.
+3) Group them by industry and give:
+   - 1-line summary of their positioning
+   - What kind of campaigns they seem to run (brand, performance, offline, digital)
+4) Suggest 3 brands where my offer is most likely to get a fast “yes” for a small pilot.
+
+Keep it practical, not academic.`
+      },
+      {
+        title: "B2B – Deal warm-up sequences",
+        prompt: `Act as an SDR team lead.
+
+Given my offer and target segment:
+1) Ask me who I'm targeting (titles + company type) and what problem I solve.
+2) Create a 3-touch sequence for each channel:
+   - LinkedIn DM (3 messages)
+   - Email (3 emails)
+   - WhatsApp (3 texts)
+3) Each message should:
+   - Be short and specific
+   - Refer to 1 believable trigger or pain
+   - Include a simple CTA (15–20 minutes call, quick Loom, etc.)
+
+Format output as bullet points I can copy into my tools.`
+      },
+      {
+        title: "B2C – WhatsApp follow-up lab",
+        prompt: `You are helping me design a WhatsApp follow-up flow for B2C leads.
+
+1) Ask me which industry I’m targeting (real estate, finance, logistics, etc.) and what the lead form looks like.
+2) Create a 5-message sequence over 3 days:
+   - Message 1: instant confirmation + micro value
+   - Message 2–4: mix of education, social proof, urgency
+   - Message 5: polite “last call” and exit option
+3) For each message, include:
+   - The actual text (in WhatsApp style)
+   - Where I should personalise with name / project / city.
+
+Return the answer in a clean numbered list.`
+      }
+    ];
+
+    let missionIndex = 0;
+
+    function renderMission() {
+      const card = document.getElementById("mission-card");
+      const m = missions[missionIndex];
+      card.innerHTML =
+        '<p class="font-semibold text-slate-100 mb-1">' +
+        m.title +
+        "</p><pre class='mt-1 text-[11px] text-slate-200 font-mono whitespace-pre-wrap'>" +
+        m.prompt +
+        "</pre>";
+    }
+
+    function nextMission() {
+      missionIndex = (missionIndex + 1) % missions.length;
+      renderMission();
+    }
+
+    // TOUR
+    function openTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("flex");
+    }
+    function closeTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.add("hidden");
+      backdrop.classList.remove("flex");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMission();
+
+      try {
+        if (!localStorage.getItem("aiStartTourSeenV1")) {
+          openTour();
+          localStorage.setItem("aiStartTourSeenV1", "1");
+        }
+      } catch (e) {}
+
+      const backdrop = document.getElementById("tour-backdrop");
+      if (backdrop) {
+        backdrop.addEventListener("click", function (e) {
+          if (e.target === backdrop) closeTour();
+        });
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeTour();
+      });
+    });
+  </script>
+</body>
+</html>

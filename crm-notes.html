@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prompt + CRM Note Generator | AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    .gradient-bg {
+      background: radial-gradient(circle at 10% 20%, #ffedd5 0, #fed7aa 15%, #fdba74 30%, #fb7185 65%, #4c1d95 100%);
+    }
+    .card-glass {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(16px);
+    }
+    .badge-pill {
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+    }
+    /* toast */
+    #toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #0f172a;
+      color: #e5e7eb;
+      text-align: center;
+      border-radius: 999px;
+      padding: 0.8rem 1.5rem;
+      position: fixed;
+      z-index: 50;
+      left: 50%;
+      bottom: 1.5rem;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.6);
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    /* simple modal */
+    .modal-overlay {
+      background: rgba(15, 23, 42, 0.9);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-50">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-orange-500 to-pink-500 flex items-center justify-center">
+          <i class="fa-solid fa-robot text-white text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <p class="font-semibold text-sm md:text-base">AI Start <span class="text-emerald-400">India</span></p>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Sales prompts for Indian teams</p>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-5 text-sm">
+        <a href="index.html" class="text-slate-300 hover:text-white">Home</a>
+        <a href="b2b-leads.html" class="text-slate-300 hover:text-white">B2B Leads</a>
+        <a href="b2c.html" class="text-slate-300 hover:text-white">B2C Leads</a>
+        <a href="crm-notes.html" class="text-emerald-400 font-semibold">CRM Notes</a>
+        <a href="roleplay.html" class="text-slate-300 hover:text-white">Role-Play</a>
+        <a href="linkedin-builder.html" class="text-slate-300 hover:text-white">LinkedIn Builder</a>
+        <a href="daily-missions.html" class="text-slate-300 hover:text-white">Daily Missions</a>
+        <a href="deal-doctor.html" class="text-slate-300 hover:text-white">Deal Doctor</a>
+        <a href="swipefile.html" class="text-slate-300 hover:text-white">Swipe File</a>
+      </div>
+
+      <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
+         class="hidden md:inline-flex items-center gap-2 text-xs bg-emerald-500/10 border border-emerald-500/60 text-emerald-300 px-3 py-1.5 rounded-full hover:bg-emerald-500/20">
+        <i class="fa-brands fa-whatsapp"></i> Get help on WhatsApp
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="pt-24 pb-20 gradient-bg min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 space-y-12">
+
+      <!-- Hero -->
+      <section class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 badge-pill px-3 py-1 bg-slate-900/60 text-slate-200 border border-slate-700 mb-4">
+            <span class="text-emerald-400 text-xs"><i class="fa-solid fa-bolt"></i></span>
+            <span class="uppercase">Prompt + CRM Note Generator</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 drop-shadow-sm">
+            Turn messy deal notes into
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-pink-500 to-emerald-400">
+              sales-ready prompts
+            </span>
+            in 30 seconds.
+          </h1>
+          <p class="mt-4 text-sm md:text-base text-slate-800 max-w-xl">
+            For founders, SDRs and account managers who live in HubSpot, Zoho, and Pipedrive.
+            Describe what just happened in the deal, and get:
+          </p>
+          <ul class="mt-4 text-sm text-slate-800 space-y-1.5">
+            <li>✅ A reply you can paste into email / LinkedIn / WhatsApp</li>
+            <li>✅ A clean CRM note in 2–3 lines</li>
+            <li>✅ A clear follow-up task with date & reason</li>
+          </ul>
+          <p class="mt-4 text-[13px] text-slate-900/80 font-medium flex items-center gap-2">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/90 text-[10px]">
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+            </span>
+            100% free · Works with ChatGPT, Gemini, Claude, Perplexity
+          </p>
+        </div>
+
+        <div class="card-glass rounded-3xl p-6 border border-slate-800 shadow-2xl">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-base font-semibold text-slate-100">Step 1 · Deal context</h2>
+            <span class="badge-pill px-2 py-1 bg-slate-800/70 text-[11px] text-slate-300">
+              Under 60 seconds
+            </span>
+          </div>
+
+          <div class="space-y-4 text-sm">
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Deal stage</label>
+              <select id="dealStage" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-slate-100">
+                <option value="new lead" selected>New lead</option>
+                <option value="discovery / first call">Discovery / first call</option>
+                <option value="proposal sent">Proposal sent</option>
+                <option value="negotiation">Negotiation</option>
+                <option value="renewal / upsell">Renewal / upsell</option>
+                <option value="churn risk">Churn risk</option>
+                <option value="lost">Lost</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">Outcome / mood</label>
+              <select id="outcome" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-slate-100">
+                <option value="positive" selected>Positive / encouraging</option>
+                <option value="neutral">Neutral / mixed</option>
+                <option value="negative">Negative / pushback</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Channel</label>
+                <select id="channel" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                  <option value="email" selected>Email</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="phone call">Phone call</option>
+                  <option value="video call">Video call</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Tone for AI</label>
+                <select id="tone" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                  <option value="warm and consultative" selected>Warm & consultative</option>
+                  <option value="direct and ROI-focused">Direct & ROI-focused</option>
+                  <option value="very formal and corporate">Very formal</option>
+                  <option value="short, casual and friendly">Short & casual</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-slate-300 mb-1">What happened last? <span class="text-slate-500">(paste your raw notes)</span></label>
+              <textarea id="lastEvent"
+                        rows="4"
+                        class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 text-xs resize-y"
+                        placeholder="Example: Spoke with Priya (CTO) at a 200-person SaaS company. She liked our demo but said budget is frozen till April. Asked me to send a summary and ROI calculation."></textarea>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Optional · next follow-up date</label>
+                <input id="followDate"
+                       type="text"
+                       class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 text-xs"
+                       placeholder="Example: next Tuesday, 11 AM IST" />
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Your role</label>
+                <select id="senderRole" class="w-full bg-slate-900/60 border border-slate-700 rounded-lg px-3 py-2 text-slate-100">
+                  <option value="founder" selected>Founder</option>
+                  <option value="account executive">Account executive</option>
+                  <option value="sales development rep">SDR</option>
+                  <option value="customer success manager">CS Manager</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              onclick="buildCrmPrompt()"
+              class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-400 to-lime-400 text-slate-950 font-semibold text-sm py-2.5 rounded-xl shadow-lg hover:brightness-110">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Generate AI prompt
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Output -->
+      <section class="grid lg:grid-cols-2 gap-8">
+        <div class="card-glass rounded-3xl p-6 border border-slate-800">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-semibold text-slate-100 flex items-center gap-2">
+              <i class="fa-solid fa-terminal text-emerald-400"></i>
+              Step 2 · Paste this into your AI
+            </h2>
+            <button
+              onclick="copyPrompt()"
+              class="inline-flex items-center gap-2 text-xs bg-slate-900/80 border border-slate-700 px-3 py-1.5 rounded-full hover:bg-slate-800">
+              <i class="fa-regular fa-copy text-slate-300"></i>
+              <span>Copy prompt</span>
+            </button>
+          </div>
+          <textarea id="promptOutput"
+                    class="w-full bg-slate-900/70 border border-slate-700 rounded-xl px-3 py-3 text-xs md:text-[13px] text-slate-100 min-h-[220px]"
+                    placeholder="Your AI prompt will appear here. Fill the form on the left and click “Generate AI prompt”."
+                    readonly></textarea>
+          <p class="mt-2 text-[11px] text-slate-400">
+            Works with ChatGPT, Gemini, Claude, Perplexity, etc.  
+            Tip: save your favourite prompts in a “Sales OS” doc or Notion page.
+          </p>
+        </div>
+
+        <div class="card-glass rounded-3xl p-6 border border-slate-800">
+          <h2 class="text-sm font-semibold text-slate-100 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-message text-orange-400"></i>
+            Sample AI output (what “good” looks like)
+          </h2>
+          <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-4 text-xs space-y-3 text-slate-100">
+            <div>
+              <p class="font-semibold text-emerald-300 mb-1">1) Reply to prospect (email)</p>
+              <p>Hi Priya,</p>
+              <p class="mt-1">
+                Thanks again for taking the time today. I completely understand that budgets are frozen until April.
+                To make that conversation easier when budgets reopen, I’ve attached a one-page summary of how our
+                platform can remove manual reporting for your team and free up ~15–20 hours/month.
+              </p>
+              <p class="mt-1">
+                Would it be helpful if I also prepared a version you can share internally with finance?
+              </p>
+              <p class="mt-1">Best,<br />Rohan</p>
+            </div>
+
+            <div>
+              <p class="font-semibold text-sky-300 mb-1">2) CRM note</p>
+              <p>
+                30-min discovery with Priya (CTO, 200-person SaaS). Strong product fit; main blocker is budget freeze
+                until April. Agreed to send 1-page ROI summary and finance-friendly version for internal sharing.
+              </p>
+            </div>
+
+            <div>
+              <p class="font-semibold text-pink-300 mb-1">3) Follow-up task</p>
+              <p>
+                “On Mon 8th April, follow up with Priya to confirm if budget discussion is scheduled. Reference ROI
+                summary and ask if finance needs any additional numbers.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Help floating button -->
+  <button
+    onclick="openHelp()"
+    class="fixed bottom-6 right-4 md:right-6 z-40 w-11 h-11 rounded-full bg-slate-900 border border-slate-700 shadow-2xl flex items-center justify-center text-slate-200 hover:bg-slate-800">
+    <i class="fa-solid fa-question"></i>
+  </button>
+
+  <!-- Help modal -->
+  <div id="helpModal" class="hidden fixed inset-0 z-50 flex items-center justify-center modal-overlay">
+    <div class="bg-slate-950 border border-slate-700 rounded-3xl max-w-md w-full mx-4 p-6 relative">
+      <button onclick="closeHelp()" class="absolute top-3 right-3 text-slate-500 hover:text-slate-200">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 class="text-lg font-semibold text-slate-50 mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-route text-emerald-400"></i>
+        How to use this page
+      </h3>
+      <ol class="list-decimal list-inside text-sm text-slate-200 space-y-2">
+        <li>Select the deal stage, outcome and tone.</li>
+        <li>Paste your raw notes in “What happened last?”.</li>
+        <li>(Optionally) add follow-up date.</li>
+        <li>Click <span class="font-semibold">Generate AI prompt</span> and paste it into ChatGPT / Gemini.</li>
+        <li>Copy the reply, CRM note and follow-up task back into your tools.</li>
+      </ol>
+      <p class="mt-3 text-xs text-slate-400">
+        Pro tip: Save your best prompts as a personal “Playbook” so your future teammates can use them too.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast">Copied!</div>
+
+  <script>
+    function buildCrmPrompt() {
+      const stage = document.getElementById('dealStage').value;
+      const outcome = document.getElementById('outcome').value;
+      const channel = document.getElementById('channel').value;
+      const tone = document.getElementById('tone').value;
+      const lastEvent = document.getElementById('lastEvent').value.trim();
+      const followDate = document.getElementById('followDate').value.trim();
+      const senderRole = document.getElementById('senderRole').value;
+
+      const followText = followDate
+        ? `\n- I would love the follow-up task to include an approximate date in human language, based on: “${followDate}”.`
+        : '';
+
+      const basePrompt = `
+Act as an expert ${senderRole} coach and CRM assistant for an Indian B2B/B2C sales team.
+
+Context about the deal:
+- Current stage: ${stage}
+- Recent outcome/mood: ${outcome}
+- Primary channel: ${channel}
+- Desired tone of voice: ${tone}
+
+Raw notes about what happened last (this is messy, please clean it up and infer what's important):
+"""
+${lastEvent || '[I forgot to add notes – ask me clarifying questions first.]'}
+"""
+
+Your tasks:
+
+1) ${channel === 'phone call' || channel === 'video call'
+        ? `Draft a short follow-up message I can send after this call via email or WhatsApp.`
+        : `Draft a ${channel} message I can send as the next step.`
+      }
+   - Make it ${tone}.
+   - Keep it concise but specific to this situation.
+   - Use simple, global business English.
+
+2) Write a clean CRM note (2–3 lines max) that:
+   - Summarises what happened.
+   - Captures key blockers, timing and stakeholders.
+   - Is easy for my manager to skim later.
+
+3) Suggest a clear follow-up task text I can paste into my CRM, including:
+   - What exactly I should do next.
+   - What I should reference from the last interaction.
+   - Why the timing matters.${followText}
+
+Output format (use these headings exactly):
+
+[Reply to prospect]
+<your message>
+
+[CRM note]
+<your note>
+
+[Follow-up task]
+<your task text>
+`.trim();
+
+      document.getElementById('promptOutput').value = basePrompt;
+    }
+
+    function copyPrompt() {
+      const area = document.getElementById('promptOutput');
+      area.select();
+      area.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      showToast('Prompt copied to clipboard');
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    function openHelp() {
+      document.getElementById('helpModal').classList.remove('hidden');
+    }
+    function closeHelp() {
+      document.getElementById('helpModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

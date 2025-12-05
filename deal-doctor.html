@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deal Doctor – AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    :root {
+      --brand-bg: #020617;
+      --brand-card: rgba(15, 23, 42, 0.9);
+      --brand-border: rgba(148, 163, 184, 0.35);
+      --brand-gradient: linear-gradient(135deg, #f97316, #a855f7);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(248, 113, 113, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.22), transparent 55%),
+        var(--brand-bg);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+
+    .gradient-text {
+      background-image: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass {
+      background: var(--brand-card);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-shell {
+      position: relative;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1.75rem;
+      padding: 1px;
+      background-image: var(--brand-gradient);
+      opacity: 0.5;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .badge-pill {
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="text-slate-100">
+  <!-- NAVBAR -->
+    <!-- NAVBAR -->
+  <nav class="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/40"
+          >
+            <i class="fa-solid fa-robot text-sm text-white"></i>
+          </div>
+          <div class="leading-tight">
+            <p class="font-bold text-sm sm:text-base">
+              AI Start <span class="text-emerald-400">India</span>
+            </p>
+            <p class="text-[11px] text-slate-400 hidden sm:block">
+              Deal Doctor – Sales Therapy with AI
+            </p>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="text-slate-300 hover:text-orange-400 transition">Index</a>
+          <a href="b2b-leads.html" class="text-slate-300 hover:text-orange-400 transition">B2B</a>
+          <a href="b2c.html" class="text-slate-300 hover:text-orange-400 transition">B2C</a>
+          <a href="crm-notes.html" class="text-slate-300 hover:text-orange-400 transition">CRM Notes</a>
+          <a href="roleplay.html" class="text-slate-300 hover:text-orange-400 transition">Role-Play</a>
+          <a href="linkedin-builder.html" class="text-slate-300 hover:text-orange-400 transition">LinkedIn Builder</a>
+          <a href="daily-missions.html" class="text-slate-300 hover:text-orange-400 transition">Daily Missions</a>
+          <a href="deal-doctor.html" class="text-orange-400 font-semibold">Deal Doctor</a>
+          <a href="swipefile.html" class="text-slate-300 hover:text-orange-400 transition">Swipe File</a>
+
+          <button
+            type="button"
+            onclick="openTour()"
+            class="text-slate-300 hover:text-orange-400 transition flex items-center gap-1 text-xs"
+          >
+            <i class="fa-regular fa-circle-question text-xs"></i>
+            <span>How it works</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- MAIN -->
+  <main class="pt-24 pb-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- HERO -->
+    <section class="hero-shell glass rounded-3xl border border-slate-800 px-5 sm:px-8 py-7 sm:py-10 shadow-2xl shadow-slate-950/70 mb-8">
+      <div class="grid lg:grid-cols-[3fr,2fr] gap-8 items-start">
+        <div>
+          <p class="inline-flex items-center gap-2 badge-pill text-xs px-3 py-1 bg-rose-500/10 text-rose-300 border border-rose-500/40 mb-3">
+            <i class="fa-solid fa-user-md"></i>
+            Deal Doctor – Fix stuck deals with AI
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Turn “stuck” deals<br />
+            into <span class="gradient-text">clear next steps.</span>
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mb-4">
+            Instead of asking “write me a follow-up email”, give AI a full case on
+            your deal. The Deal Doctor builder creates a diagnostic prompt that acts
+            like a sales therapist.
+          </p>
+          <ul class="text-[12px] text-slate-400 space-y-1.5 mb-3">
+            <li>• Works for B2B (IT services, SaaS, product) and B2C (real estate, finance, etc.).</li>
+            <li>• Focus on pipeline clarity: risks, stakeholders, messaging, next steps.</li>
+            <li>• Use together with your B2B/B2C lead builders & LinkedIn builder.</li>
+          </ul>
+        </div>
+
+        <!-- Example “diagnosis” card -->
+        <div class="rounded-3xl bg-slate-950/70 border border-slate-800 p-5 sm:p-6 shadow-xl text-xs">
+          <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-wide mb-2">
+            Sample AI diagnosis (summary)
+          </p>
+          <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 text-[11px] text-slate-200 font-mono leading-relaxed">
+**Likely problem:** You are champion-led, but the economic buyer hasn’t felt the pain strongly enough.
+
+**Risks:**
+- No clear “go-live” date tied to a business event.
+- Procurement was mentioned but not confirmed.
+- Your champion is over-selling internally without your help.
+
+**Next moves (7 days):**
+- Book a 20-minute “risk mapping” call with your champion.
+- Co-create a short deck for the economic buyer (3 slides).
+- Ask explicitly: “What happens if you do nothing for 6 months?”.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDER -->
+    <section class="grid lg:grid-cols-[3fr,2fr] gap-8">
+      <!-- Form -->
+      <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold">1. Tell the Deal Doctor about your deal</h2>
+          <span class="text-[11px] text-slate-400">Then paste the prompt into AI.</span>
+        </div>
+
+        <form id="deal-form" class="space-y-4" onsubmit="event.preventDefault(); buildDealPrompt();">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Your name / brand
+              </label>
+              <input
+                id="deal-name"
+                type="text"
+                placeholder="Example: AI Start India / Chirag"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                B2B or B2C?
+              </label>
+              <select
+                id="deal-type"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="B2B">B2B</option>
+                <option value="B2C">B2C</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              What do you sell in this deal?
+            </label>
+            <input
+              id="deal-offer"
+              type="text"
+              placeholder="Example: CRM implementation, WhatsApp marketing, SaaS subscription..."
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              Target company / brand (describe)
+            </label>
+            <textarea
+              id="deal-company"
+              rows="2"
+              placeholder="Example: Mid-sized SaaS company in US with 50–100 employees, raised Series A last year, using outdated CRM..."
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70 resize-none"
+            ></textarea>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Who is your main contact?
+              </label>
+              <input
+                id="deal-champion"
+                type="text"
+                placeholder="Example: Head of Product, Branch Manager, VP Sales..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Deal stage
+              </label>
+              <select
+                id="deal-stage"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="early discovery">Early discovery</option>
+                <option value="proposal sent">Proposal sent</option>
+                <option value="verbal yes, waiting">Verbal yes, waiting</option>
+                <option value="stalled / ghosted">Stalled / ghosted</option>
+                <option value="renewal at risk">Renewal at risk</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Deal size (approx)
+              </label>
+              <input
+                id="deal-size"
+                type="text"
+                placeholder="Example: $2k MRR, $10k project..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Timeline / urgency
+              </label>
+              <input
+                id="deal-timeline"
+                type="text"
+                placeholder="Example: needs decision in 3 weeks, renewal next month..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Attempts so far (emails / calls)
+              </label>
+              <input
+                id="deal-attempts"
+                type="text"
+                placeholder="Example: 3 emails, 1 call, 2 LinkedIn DMs"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              What do you think is blocking the deal?
+            </label>
+            <textarea
+              id="deal-blockers"
+              rows="3"
+              placeholder="Example: No budget owner identified, they are comparing vendors, champion is busy, they think it’s ‘nice to have’..."
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70 resize-none"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              What kind of help do you want from AI?
+            </label>
+            <input
+              id="deal-help"
+              type="text"
+              placeholder="Example: risk analysis, next 3 steps, new angle for proposal, email ideas..."
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+            />
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Generate Deal Doctor prompt
+            </button>
+            <button
+              type="button"
+              onclick="document.getElementById('deal-form').reset();"
+              class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-700 text-slate-200 text-xs hover:bg-slate-900/70 transition"
+            >
+              <i class="fa-solid fa-rotate-left"></i>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Output -->
+      <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center justify-between mb-2">
+          <div>
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+              2. Paste this into ChatGPT / Gemini / Claude
+            </p>
+            <h2 class="text-lg font-semibold">Your Deal Doctor prompt</h2>
+          </div>
+          <button
+            type="button"
+            onclick="copyDeal()"
+            class="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-full bg-slate-950 border border-slate-700 hover:border-emerald-400 text-slate-100 transition"
+          >
+            <i class="fa-regular fa-copy text-[11px]"></i>
+            Copy prompt
+          </button>
+        </div>
+        <div
+          id="deal-output"
+          class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3.5 text-[11px] sm:text-xs font-mono text-slate-200 min-h-[160px] whitespace-pre-wrap"
+        >
+Fill the form on the left and click “Generate Deal Doctor prompt” to get a ready-to-use diagnostic prompt.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOUR MODAL -->
+  <div
+    id="tour-backdrop"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4"
+  >
+    <div class="max-w-md w-full glass rounded-3xl border border-slate-700 shadow-2xl relative p-5 sm:p-6">
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="absolute top-3 right-3 text-slate-400 hover:text-slate-100 text-xs"
+        aria-label="Close tour"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 text-[11px] text-slate-300 flex items-center gap-2 mb-3">
+        <i class="fa-regular fa-circle-question text-xs text-rose-300"></i>
+        30-second tour
+      </div>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">
+        How to use <span class="gradient-text">Deal Doctor</span>
+      </h2>
+      <ol class="space-y-3 text-sm">
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            1
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Describe the deal honestly</p>
+            <p class="text-xs text-slate-400">
+              Fill in what you sell, the company, your champion, stage, attempts,
+              and what you think is blocking the deal. Be specific.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            2
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Generate the diagnostic prompt</p>
+            <p class="text-xs text-slate-400">
+              Click “Generate Deal Doctor prompt” and copy it. This prompt tells AI
+              to behave like a sales therapist, not just an email writer.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            3
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Paste into ChatGPT / Gemini / Claude</p>
+            <p class="text-xs text-slate-400">
+              Paste the prompt, read the diagnosis, and decide what next step you’ll
+              actually take in real life (call, email, Loom, deal review, etc.).
+            </p>
+          </div>
+        </li>
+      </ol>
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+      >
+        Got it, diagnose my deal
+      </button>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-800 mt-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2024 AI Start India – Deal Doctor by <span class="text-slate-300 font-semibold">Chiragkumar Mori</span>.</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:contact@aistartindia.com" class="hover:text-orange-400 flex items-center gap-1">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          contact@aistartindia.com
+        </a>
+        <a href="https://wa.me/910000000000" target="_blank" class="hover:text-emerald-400 flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function buildDealPrompt() {
+      const name = document.getElementById("deal-name").value.trim() || "a salesperson";
+      const type = document.getElementById("deal-type").value;
+      const offer = document.getElementById("deal-offer").value.trim() || "[my offer]";
+      const company = document.getElementById("deal-company").value.trim() || "[target company description]";
+      const champion = document.getElementById("deal-champion").value.trim() || "[my main contact]";
+      const stage = document.getElementById("deal-stage").value;
+      const size = document.getElementById("deal-size").value.trim() || "[approx size]";
+      const timeline = document.getElementById("deal-timeline").value.trim() || "[timeline / urgency]";
+      const attempts = document.getElementById("deal-attempts").value.trim() || "[attempts so far]";
+      const blockers = document.getElementById("deal-blockers").value.trim() || "[what I think is blocking the deal]";
+      const help = document.getElementById("deal-help").value.trim() || "risk analysis and next 3 concrete actions";
+
+      const text = `Act as a senior ${type} deal coach and sales therapist.
+
+I am ${name}. I am stuck on a ${type} deal and want you to help me see it clearly and plan my next moves.
+
+Context:
+- What I sell in this deal: ${offer}
+- Target company / brand: ${company}
+- Main contact / champion: ${champion}
+- Deal stage: ${stage}
+- Approx deal size: ${size}
+- Timeline / urgency: ${timeline}
+- Attempts so far: ${attempts}
+- What I THINK is blocking the deal: ${blockers}
+
+Your job:
+1) Ask me 3–5 clarifying questions (in one message) that will help you diagnose the deal properly.
+2) Then, based on everything you know, give me:
+   a) A short “diagnosis” of what is REALLY going on in this deal (in simple language, not jargon).
+   b) The top 3 risks to closing (each with 1–2 lines).
+   c) The top 3 opportunities I am not using yet.
+3) Finally, give me a clear action plan for the next 7 days:
+   - What to say to my champion.
+   - Whether I should involve new stakeholders (who?).
+   - If I should slow down, speed up, or reframe the offer.
+
+Focus of your help: ${help}.
+
+Tone: direct but encouraging, like a mentor who has closed hundreds of similar deals. Avoid vague advice – be specific and practical.`;
+
+      document.getElementById("deal-output").textContent = text;
+    }
+
+    function copyDeal() {
+      const text = document.getElementById("deal-output").textContent;
+      if (!text || text.startsWith("Fill the form")) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+        alert("Deal Doctor prompt copied!");
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        alert("Deal Doctor prompt copied!");
+      }
+    }
+
+    // TOUR
+    function openTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("flex");
+    }
+    function closeTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.add("hidden");
+      backdrop.classList.remove("flex");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (!localStorage.getItem("aiStartTourSeenV1")) {
+          openTour();
+          localStorage.setItem("aiStartTourSeenV1", "1");
+        }
+      } catch (e) {}
+
+      const backdrop = document.getElementById("tour-backdrop");
+      if (backdrop) {
+        backdrop.addEventListener("click", function (e) {
+          if (e.target === backdrop) closeTour();
+        });
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeTour();
+      });
+    });
+  </script>
+</body>
+</html>

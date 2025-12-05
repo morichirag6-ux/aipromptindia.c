@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>B2C Lead Prompt Builder – AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    :root {
+      --brand-bg: #020617;
+      --brand-card: rgba(15, 23, 42, 0.9);
+      --brand-border: rgba(148, 163, 184, 0.35);
+      --brand-gradient: linear-gradient(135deg, #f97316, #a855f7);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(248, 113, 113, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.22), transparent 55%),
+        var(--brand-bg);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+
+    .gradient-text {
+      background-image: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass {
+      background: var(--brand-card);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-shell {
+      position: relative;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1.75rem;
+      padding: 1px;
+      background-image: var(--brand-gradient);
+      opacity: 0.5;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .badge-pill {
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="text-slate-100">
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/40"
+          >
+            <i class="fa-solid fa-robot text-sm text-white"></i>
+          </div>
+          <div class="leading-tight">
+            <p class="font-bold text-sm sm:text-base">
+              AI Start <span class="text-emerald-400">India</span>
+            </p>
+            <p class="text-[11px] text-slate-400 hidden sm:block">
+              B2C Lead Prompt Builder
+            </p>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="text-slate-300 hover:text-orange-400 transition">Home</a>
+          <a href="b2b-leads.html" class="text-slate-300 hover:text-orange-400 transition">B2B Leads</a>
+          <a href="b2c.html" class="text-orange-400 font-semibold">B2C Leads</a>
+          <a href="crm-notes.html" class="text-slate-300 hover:text-orange-400 transition">CRM Notes</a>
+          <a href="roleplay.html" class="text-slate-300 hover:text-orange-400 transition">Role-Play</a>
+          <a href="linkedin-builder.html" class="text-slate-300 hover:text-orange-400 transition">LinkedIn Builder</a>
+          <a href="daily-missions.html" class="text-slate-300 hover:text-orange-400 transition">Daily Missions</a>
+          <a href="deal-doctor.html" class="text-slate-300 hover:text-orange-400 transition">Deal Doctor</a>
+          <a href="swipefile.html" class="text-slate-300 hover:text-orange-400 transition">Swipe File</a>
+          <button
+            type="button"
+            onclick="openTour()"
+            class="text-slate-300 hover:text-orange-400 transition flex items-center gap-1 text-xs"
+          >
+            <i class="fa-regular fa-circle-question text-xs"></i>
+            <span>How it works</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="pt-24 pb-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- HERO -->
+    <section class="hero-shell glass rounded-3xl border border-slate-800 px-5 sm:px-8 py-7 sm:py-10 shadow-2xl shadow-slate-950/70 mb-8">
+      <div class="grid lg:grid-cols-[3fr,2fr] gap-8 items-start">
+        <div>
+          <p class="inline-flex items-center gap-2 badge-pill text-xs px-3 py-1 bg-orange-500/10 text-orange-300 border border-orange-500/40 mb-3">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Get a sales-ready B2C lead prompt in 30 seconds
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Find B2C brands &amp;<br />
+            <span class="gradient-text">key decision makers</span> with one prompt.
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mb-4">
+            This builder is focused on B2C / consumer-facing companies – find the
+            right brands and the right person for partnerships, campaigns, or sales.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 text-[11px] text-slate-400">
+            <div class="bg-slate-950/80 border border-slate-800 rounded-2xl px-3 py-2.5">
+              <p class="text-xs font-semibold text-slate-200 mb-1">B2C industries covered</p>
+              <ul class="space-y-1">
+                <li>• Manufacturing</li>
+                <li>• Oil &amp; Energy</li>
+                <li>• Logistics &amp; Transportation</li>
+                <li>• Real Estate</li>
+                <li>• Financial Services</li>
+              </ul>
+            </div>
+            <div class="bg-slate-950/80 border border-slate-800 rounded-2xl px-3 py-2.5">
+              <p class="text-xs font-semibold text-slate-200 mb-1">Use cases</p>
+              <ul class="space-y-1">
+                <li>• Find brand marketing heads</li>
+                <li>• Find regional managers / CXOs</li>
+                <li>• Map franchises &amp; channel partners</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="rounded-3xl bg-slate-950/70 border border-slate-800 p-5 sm:p-6 shadow-xl">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">
+            Choose a B2C preset
+          </p>
+          <p class="text-[11px] text-slate-400 mb-3">
+            Pick the closest product type, then personalise the fields.
+          </p>
+          <div class="space-y-3 text-xs">
+            <button
+              type="button"
+              onclick="applyB2CPreset('realestate')"
+              class="w-full text-left bg-slate-950 border border-slate-800 hover:border-orange-400 rounded-2xl px-3 py-2.5 flex justify-between items-start gap-2 transition"
+            >
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">Real estate leads</p>
+                <p class="text-slate-400 text-[11px]">
+                  Find developers &amp; sales heads running active projects in your city.
+                </p>
+              </div>
+              <span class="badge-pill px-2 py-0.5 bg-orange-500/15 text-orange-300 text-[10px]">
+                Real Estate
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onclick="applyB2CPreset('finance')"
+              class="w-full text-left bg-slate-950 border border-slate-800 hover:border-emerald-400 rounded-2xl px-3 py-2.5 flex justify-between items-start gap-2 transition"
+            >
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">Financial services</p>
+                <p class="text-slate-400 text-[11px]">
+                  Target banks, NBFCs, and fintech brands for partnerships or lead gen.
+                </p>
+              </div>
+              <span class="badge-pill px-2 py-0.5 bg-emerald-500/15 text-emerald-300 text-[10px]">
+                Financial Services
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onclick="applyB2CPreset('logistics')"
+              class="w-full text-left bg-slate-950 border border-slate-800 hover:border-sky-400 rounded-2xl px-3 py-2.5 flex justify-between items-start gap-2 transition"
+            >
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">Logistics &amp; Transportation</p>
+                <p class="text-slate-400 text-[11px]">
+                  Discover courier, fleet, and transport brands with consumer touchpoints.
+                </p>
+              </div>
+              <span class="badge-pill px-2 py-0.5 bg-sky-500/15 text-sky-300 text-[10px]">
+                Logistics
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDER + SAMPLE -->
+    <section class="grid lg:grid-cols-[3fr,2fr] gap-8">
+      <!-- Builder -->
+      <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold">1. Fill your B2C lead brief</h2>
+          <span class="text-[11px] text-slate-400">Focused on company + key person find.</span>
+        </div>
+
+        <form id="b2c-form" class="space-y-4" onsubmit="event.preventDefault(); buildB2CPrompt();">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Your name / brand
+              </label>
+              <input
+                id="b2c-name"
+                type="text"
+                placeholder="Example: AI Start India / Chirag"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                What is your B2C offer?
+              </label>
+              <input
+                id="b2c-offer"
+                type="text"
+                placeholder="Example: WhatsApp marketing service for real estate, influencer campaigns, payment app..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              Target B2C industries (click to add)
+            </label>
+            <div class="flex flex-wrap gap-2 text-[11px] mb-2">
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-orange-400 text-slate-200 transition"
+                onclick="appendToInput('b2c-industries','Manufacturing')"
+              >
+                Manufacturing
+              </button>
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-orange-400 text-slate-200 transition"
+                onclick="appendToInput('b2c-industries','Oil & Energy')"
+              >
+                Oil &amp; Energy
+              </button>
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-orange-400 text-slate-200 transition"
+                onclick="appendToInput('b2c-industries','Logistics & Transportation')"
+              >
+                Logistics &amp; Transportation
+              </button>
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-orange-400 text-slate-200 transition"
+                onclick="appendToInput('b2c-industries','Real Estate')"
+              >
+                Real Estate
+              </button>
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-orange-400 text-slate-200 transition"
+                onclick="appendToInput('b2c-industries','Financial Services')"
+              >
+                Financial Services
+              </button>
+            </div>
+            <input
+              id="b2c-industries"
+              type="text"
+              placeholder="Example: real estate developers, NBFCs, logistics brands..."
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+            />
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Geography / cities
+              </label>
+              <input
+                id="b2c-geo"
+                type="text"
+                placeholder="Example: India, Mumbai, Delhi NCR, tier-2 cities..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Key roles / people you want to find
+              </label>
+              <input
+                id="b2c-roles"
+                type="text"
+                placeholder="Example: Head of Marketing, Branch Manager, VP Sales, Partnerships head..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Company size
+              </label>
+              <select
+                id="b2c-size"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="">Any size</option>
+                <option value="local small brands">Local small brands</option>
+                <option value="regional players">Regional players</option>
+                <option value="national brands">National brands</option>
+                <option value="large enterprises / MNCs">Large enterprises / MNCs</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Revenue / ticket-size focus
+              </label>
+              <input
+                id="b2c-revenue"
+                type="text"
+                placeholder="Example: mid-ticket, premium, mass-market..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                How many companies?
+              </label>
+              <input
+                id="b2c-count"
+                type="number"
+                min="5"
+                max="500"
+                value="30"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Prompt tone for AI
+              </label>
+              <select
+                id="b2c-tone"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="creative but practical">Creative but practical</option>
+                <option value="direct and action-focused">Direct and action-focused</option>
+                <option value="friendly and idea-heavy">Friendly and idea-heavy</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Research depth
+              </label>
+              <select
+                id="b2c-depth"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="light overview with key bullet points">
+                  Light overview
+                </option>
+                <option value="balanced details for each brand">
+                  Balanced details
+                </option>
+                <option value="deep breakdown of campaigns and positioning">
+                  Deep breakdown
+                </option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Extra filters / notes
+              </label>
+              <input
+                id="b2c-extra"
+                type="text"
+                placeholder="Example: running digital ads, strong Instagram, etc."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Generate B2C lead prompt
+            </button>
+            <button
+              type="button"
+              onclick="document.getElementById('b2c-form').reset();"
+              class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-700 text-slate-200 text-xs hover:bg-slate-900/70 transition"
+            >
+              <i class="fa-solid fa-rotate-left"></i>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Output + Sample -->
+      <div class="space-y-5">
+        <!-- Prompt output -->
+        <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                2. Paste this into ChatGPT / Gemini / Claude / Perplexity
+              </p>
+              <h2 class="text-lg font-semibold">Your B2C lead prompt</h2>
+            </div>
+            <button
+              type="button"
+              onclick="copyB2C()"
+              class="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-full bg-slate-950 border border-slate-700 hover:border-emerald-400 text-slate-100 transition"
+            >
+              <i class="fa-regular fa-copy text-[11px]"></i>
+              Copy prompt
+            </button>
+          </div>
+          <div
+            id="b2c-output"
+            class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3.5 text-[11px] sm:text-xs font-mono text-slate-200 min-h-[120px] whitespace-pre-wrap"
+          >
+Fill the form on the left and click “Generate B2C lead prompt” to get a ready-to-use prompt.
+          </div>
+        </div>
+
+        <!-- Sample AI response -->
+        <div class="glass rounded-3xl border border-slate-800 p-5 sm:p-6 shadow-xl">
+          <div class="flex items-center justify-between mb-2">
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+              Sample output – what a good AI response looks like
+            </p>
+            <span class="badge-pill px-2.5 py-1 text-[10px] bg-slate-950 border border-slate-700 text-slate-300">
+              Example for Real Estate in Mumbai
+            </span>
+          </div>
+          <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 text-[11px] text-slate-200 font-mono leading-relaxed">
+**1. Ideal brand profile**
+
+You are targeting mid-to-large real estate developers in Mumbai and nearby regions running active residential or mixed-use projects. You want marketing and sales decision makers who care about digital lead generation and WhatsApp follow-ups.
+
+**2. Sample leads (3 of 25)**
+
+| Brand / Developer  | City   | Size        | Likely key person                         | Why they fit                            |
+|--------------------|--------|------------|-------------------------------------------|-----------------------------------------|
+| CitySky Developers | Mumbai | Regional   | Head of Marketing / Digital Marketing Mgr | Multiple projects, running Meta ads     |
+| OceanView Realty   | Navi M | Mid-sized  | Sales Head / CRM Lead                     | Website with enquiry forms & WhatsApp   |
+| MetroNest Homes    | Thane  | Regional   | VP Sales & Marketing                      | Active on Instagram & property portals  |
+
+**3. Suggested outreach angle**
+
+- Lead with improving speed-to-lead on WhatsApp for new enquiries.
+- Share 1 concrete case study idea (“we improved lead-to-visit rate by X%”).
+- Offer a micro-audit of their current digital journey as the first step.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOUR MODAL -->
+  <div
+    id="tour-backdrop"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4"
+  >
+    <div class="max-w-md w-full glass rounded-3xl border border-slate-700 shadow-2xl relative p-5 sm:p-6">
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="absolute top-3 right-3 text-slate-400 hover:text-slate-100 text-xs"
+        aria-label="Close tour"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 text-[11px] text-slate-300 flex items-center gap-2 mb-3">
+        <i class="fa-regular fa-circle-question text-xs text-orange-300"></i>
+        30-second tour
+      </div>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">
+        How to use the <span class="gradient-text">B2C Lead Builder</span>
+      </h2>
+      <p class="text-xs text-slate-400 mb-3">
+        You’re on the B2C side – focused on consumer-facing brands and key people.
+      </p>
+      <ol class="space-y-3 text-sm">
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            1
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Choose a preset close to your offer</p>
+            <p class="text-xs text-slate-400">
+              Real Estate, Financial Services, Logistics – pick one or type your
+              own industries. Add the cities and roles you want (Head of Marketing,
+              VP Sales, etc.).
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            2
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Control brand size and depth</p>
+            <p class="text-xs text-slate-400">
+              Tell the AI if you want local brands, regional players, or national
+              names, and how deep you want the research (light overview vs deep
+              breakdown).
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            3
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Copy your B2C prompt → paste into AI</p>
+            <p class="text-xs text-slate-400">
+              Generate the prompt, copy it, and paste into ChatGPT / Gemini /
+              Claude / Perplexity. Use the output to find brands and key people,
+              then build your outreach or campaign ideas.
+            </p>
+          </div>
+        </li>
+      </ol>
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+      >
+        Got it, build my B2C prompt
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 mt-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2024 AI Start India – B2C Lead Builder by <span class="text-slate-300 font-semibold">Chiragkumar Mori</span>.</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:contact@aistartindia.com" class="hover:text-orange-400 flex items-center gap-1">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          contact@aistartindia.com
+        </a>
+        <a href="https://wa.me/910000000000" target="_blank" class="hover:text-emerald-400 flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function appendToInput(id, value) {
+      const input = document.getElementById(id);
+      const current = input.value.trim();
+      if (!current) {
+        input.value = value;
+      } else if (!current.toLowerCase().includes(value.toLowerCase())) {
+        input.value = current + ", " + value;
+      }
+      input.focus();
+    }
+
+    function applyB2CPreset(type) {
+      const name = document.getElementById("b2c-name");
+      const offer = document.getElementById("b2c-offer");
+      const industries = document.getElementById("b2c-industries");
+      const geo = document.getElementById("b2c-geo");
+      const roles = document.getElementById("b2c-roles");
+      const size = document.getElementById("b2c-size");
+      const revenue = document.getElementById("b2c-revenue");
+      const count = document.getElementById("b2c-count");
+      const extra = document.getElementById("b2c-extra");
+
+      if (type === "realestate") {
+        name.value = "AI Start India";
+        offer.value = "WhatsApp + digital marketing service for real estate leads";
+        industries.value = "Real Estate";
+        geo.value = "Mumbai, Navi Mumbai, Thane, Pune";
+        roles.value = "Head of Marketing, VP Sales, Channel Partner Manager, CRM Head";
+        size.value = "regional players";
+        revenue.value = "mid to premium housing projects";
+        count.value = 30;
+        extra.value = "Actively advertising on portals (99acres, Magicbricks), Instagram or Google Ads.";
+      } else if (type === "finance") {
+        offer.value = "performance marketing and funnel optimisation for financial services";
+        industries.value = "Financial Services";
+        geo.value = "India (tier-1 and tier-2 cities)";
+        roles.value = "Head of Marketing, Digital Marketing Lead, VP Growth, Product Head";
+        size.value = "national brands";
+        revenue.value = "mid-ticket to premium financial products (loans, cards, investments)";
+        count.value = 30;
+        extra.value = "Focus on brands with apps / strong digital onboarding.";
+      } else if (type === "logistics") {
+        offer.value = "workflow automation and tracking solutions for logistics brands";
+        industries.value = "Logistics & Transportation, Manufacturing";
+        geo.value = "India (metros + major logistics hubs)";
+        roles.value = "Operations Head, Logistics Head, CTO, VP Supply Chain";
+        size.value = "regional players";
+        revenue.value = "mid-sized logistics companies with multiple branches";
+        count.value = 25;
+        extra.value = "Prefer companies with their own branded tracking portal.";
+      }
+    }
+
+    function buildB2CPrompt() {
+      const brand = document.getElementById("b2c-name").value.trim() || "my brand";
+      const offer = document.getElementById("b2c-offer").value.trim() || "[describe my B2C offer]";
+      const industries = document.getElementById("b2c-industries").value.trim() || "[B2C industries]";
+      const geo = document.getElementById("b2c-geo").value.trim() || "[cities / regions]";
+      const roles = document.getElementById("b2c-roles").value.trim() || "[roles / key people]";
+      const size = document.getElementById("b2c-size").value || "any size";
+      const revenue = document.getElementById("b2c-revenue").value.trim() || "any ticket size";
+      const count = document.getElementById("b2c-count").value || "30";
+      const tone = document.getElementById("b2c-tone").value;
+      const depth = document.getElementById("b2c-depth").value;
+      const extra = document.getElementById("b2c-extra").value.trim() || "no extra filters";
+
+      const prompt = `Act as a B2C market and brand research assistant.
+
+I am ${brand}, and I sell:
+${offer}
+
+I want to build a list of approximately ${count} B2C brands / companies with this profile:
+
+- Industries: ${industries}
+- Geography / cities: ${geo}
+- Brand / company size: ${size}
+- Consumer or ticket-size focus: ${revenue}
+- Key roles I want to find: ${roles}
+- Extra filters / signals: ${extra}
+
+Your job:
+1. Design a research workflow using tools like Google, Perplexity, brand websites, Instagram, YouTube, and LinkedIn to find ${count} relevant B2C brands.
+2. Write a clear, reusable prompt I can paste into Perplexity / Gemini to generate the list of companies.
+3. Write a second prompt I can paste into ChatGPT / Claude that takes one company at a time and returns:
+   - 1–2 likely decision makers (role + how to search for them on LinkedIn).
+   - A quick description of the brand’s positioning and main consumer offer.
+   - 1 suggested angle for outreach (partnership, campaign, lead gen offer, etc.).
+4. Format your answer with headings and bullet points so I can copy-paste easily.
+
+Tone for your answer: ${tone}.
+Research depth: ${depth}.
+
+Please make reasonable assumptions where my input is vague and tell me those assumptions up front.`;
+
+      document.getElementById("b2c-output").textContent = prompt;
+    }
+
+    function copyB2C() {
+      const text = document.getElementById("b2c-output").textContent;
+      if (!text || text.startsWith("Fill the form")) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+        alert("B2C prompt copied!");
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        alert("B2C prompt copied!");
+      }
+    }
+
+    // TOUR MODAL LOGIC
+    function openTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("flex");
+    }
+
+    function closeTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.add("hidden");
+      backdrop.classList.remove("flex");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (!localStorage.getItem("aiStartTourSeenV1")) {
+          openTour();
+          localStorage.setItem("aiStartTourSeenV1", "1");
+        }
+      } catch (e) {
+        // ignore if localStorage blocked
+      }
+
+      const backdrop = document.getElementById("tour-backdrop");
+      if (backdrop) {
+        backdrop.addEventListener("click", function (e) {
+          if (e.target === backdrop) {
+            closeTour();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeTour();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>B2B Lead Prompt Builder – AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    :root {
+      --brand-bg: #020617;
+      --brand-card: rgba(15, 23, 42, 0.9);
+      --brand-border: rgba(148, 163, 184, 0.35);
+      --brand-gradient: linear-gradient(135deg, #f97316, #a855f7);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(248, 113, 113, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.22), transparent 55%),
+        var(--brand-bg);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+
+    .gradient-text {
+      background-image: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass {
+      background: var(--brand-card);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-shell {
+      position: relative;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1.75rem;
+      padding: 1px;
+      background-image: var(--brand-gradient);
+      opacity: 0.5;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .badge-pill {
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="text-slate-100">
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/40"
+          >
+            <i class="fa-solid fa-robot text-sm text-white"></i>
+          </div>
+          <div class="leading-tight">
+            <p class="font-bold text-sm sm:text-base">
+              AI Start <span class="text-emerald-400">India</span>
+            </p>
+            <p class="text-[11px] text-slate-400 hidden sm:block">
+              B2B Lead Prompt Builder
+            </p>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="text-slate-300 hover:text-orange-400 transition">Home</a>
+          <a href="b2b-leads.html" class="text-orange-400 font-semibold">B2B Leads</a>
+          <a href="b2c.html" class="text-slate-300 hover:text-orange-400 transition">B2C Leads</a>
+          <a href="crm-notes.html" class="text-slate-300 hover:text-orange-400 transition">CRM Notes</a>
+          <a href="roleplay.html" class="text-slate-300 hover:text-orange-400 transition">Role-Play</a>
+          <a href="linkedin-builder.html" class="text-slate-300 hover:text-orange-400 transition">LinkedIn Builder</a>
+          <a href="daily-missions.html" class="text-slate-300 hover:text-orange-400 transition">Daily Missions</a>
+          <a href="deal-doctor.html" class="text-slate-300 hover:text-orange-400 transition">Deal Doctor</a>
+          <a href="swipefile.html" class="text-slate-300 hover:text-orange-400 transition">Swipe File</a>
+          <button
+            type="button"
+            onclick="openTour()"
+            class="text-slate-300 hover:text-orange-400 transition flex items-center gap-1 text-xs"
+          >
+            <i class="fa-regular fa-circle-question text-xs"></i>
+            <span>How it works</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="pt-24 pb-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- HERO -->
+    <section class="hero-shell glass rounded-3xl border border-slate-800 px-5 sm:px-8 py-7 sm:py-10 shadow-2xl shadow-slate-950/70 mb-8">
+      <div class="grid lg:grid-cols-[3fr,2fr] gap-8 items-start">
+        <div>
+          <p class="inline-flex items-center gap-2 badge-pill text-xs px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 mb-3">
+            <i class="fa-solid fa-building"></i>
+            Get a sales-ready B2B lead prompt in 30 seconds
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Build prompts that find<br />
+            <span class="gradient-text">sales-ready B2B leads.</span>
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mb-4">
+            Perfect for agencies, SaaS, IT services, consultants, and SDR teams.
+            Fill these fields and paste the prompt into ChatGPT, Gemini, Claude,
+            Perplexity, etc.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 text-[11px] text-slate-400">
+            <div class="bg-slate-950/80 border border-slate-800 rounded-2xl px-3 py-2.5">
+              <p class="text-xs font-semibold text-slate-200 mb-1">B2B industries covered</p>
+              <ul class="space-y-1">
+                <li>• IT Services and IT Consulting</li>
+                <li>• Software Development &amp; Services</li>
+                <li>• Product companies</li>
+              </ul>
+            </div>
+            <div class="bg-slate-950/80 border border-slate-800 rounded-2xl px-3 py-2.5">
+              <p class="text-xs font-semibold text-slate-200 mb-1">Extra filters</p>
+              <ul class="space-y-1">
+                <li>• Revenue band &amp; company size</li>
+                <li>• How many leads you want</li>
+                <li>• Prompt tone &amp; research depth</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="rounded-3xl bg-slate-950/70 border border-slate-800 p-5 sm:p-6 shadow-xl">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">
+            Choose a B2B preset
+          </p>
+          <p class="text-[11px] text-slate-400 mb-3">
+            Pick the closest scenario, then personalise the fields.
+          </p>
+          <div class="space-y-3 text-xs">
+            <button
+              type="button"
+              onclick="applyPreset('it')"
+              class="w-full text-left bg-slate-950 border border-slate-800 hover:border-emerald-400 rounded-2xl px-3 py-2.5 flex justify-between items-start gap-2 transition"
+            >
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">IT services to US / UK startups</p>
+                <p class="text-slate-400 text-[11px]">
+                  Find 30–40 startup CTO/Founders who can outsource dev work to India.
+                </p>
+              </div>
+              <span class="badge-pill px-2 py-0.5 bg-emerald-500/15 text-emerald-300 text-[10px]">
+                IT Services
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onclick="applyPreset('saas')"
+              class="w-full text-left bg-slate-950 border border-slate-800 hover:border-orange-400 rounded-2xl px-3 py-2.5 flex justify-between items-start gap-2 transition"
+            >
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">SaaS product for HR teams</p>
+                <p class="text-slate-400 text-[11px]">
+                  Target mid-market SaaS or IT companies using manual HR / onboarding.
+                </p>
+              </div>
+              <span class="badge-pill px-2 py-0.5 bg-orange-500/15 text-orange-300 text-[10px]">
+                SaaS
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onclick="applyPreset('agency')"
+              class="w-full text-left bg-slate-950 border border-slate-800 hover:border-sky-400 rounded-2xl px-3 py-2.5 flex justify-between items-start gap-2 transition"
+            >
+              <div>
+                <p class="font-semibold text-slate-100 mb-1">Agency offering performance marketing</p>
+                <p class="text-slate-400 text-[11px]">
+                  Focus on product companies and B2B brands already running paid ads.
+                </p>
+              </div>
+              <span class="badge-pill px-2 py-0.5 bg-sky-500/15 text-sky-300 text-[10px]">
+                Agency
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDER + SAMPLE -->
+    <section class="grid lg:grid-cols-[3fr,2fr] gap-8">
+      <!-- Builder -->
+      <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold">1. Fill your B2B lead brief</h2>
+          <span class="text-[11px] text-slate-400">Then click “Generate B2B lead prompt”.</span>
+        </div>
+
+        <form id="b2b-form" class="space-y-4" onsubmit="event.preventDefault(); buildB2BPrompt();">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Your name / brand
+              </label>
+              <input
+                id="b2b-name"
+                type="text"
+                placeholder="Example: AI Start India / Chirag"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                What do you sell?
+              </label>
+              <input
+                id="b2b-offer"
+                type="text"
+                placeholder="Example: custom software development, DevOps, PPC, CRM setup..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              Target B2B industries (click to add)
+            </label>
+            <div class="flex flex-wrap gap-2 text-[11px] mb-2">
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-emerald-400 text-slate-200 transition"
+                onclick="appendToInput('b2b-industries','IT Services and IT Consulting')"
+              >
+                IT Services and IT Consulting
+              </button>
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-emerald-400 text-slate-200 transition"
+                onclick="appendToInput('b2b-industries','Software Development & Services')"
+              >
+                Software Development &amp; Services
+              </button>
+              <button
+                type="button"
+                class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 hover:border-emerald-400 text-slate-200 transition"
+                onclick="appendToInput('b2b-industries','Product company')"
+              >
+                Product company
+              </button>
+            </div>
+            <input
+              id="b2b-industries"
+              type="text"
+              placeholder="Example: IT services, SaaS product, FinTech platform..."
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+            />
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Geography / region
+              </label>
+              <input
+                id="b2b-geo"
+                type="text"
+                placeholder="Example: India, US, UK, Middle East, APAC..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Decision-maker titles to target
+              </label>
+              <input
+                id="b2b-titles"
+                type="text"
+                placeholder="Example: Founder, CEO, CTO, VP Engineering, Head of Operations..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Company size (employees)
+              </label>
+              <select
+                id="b2b-size"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="">Any size</option>
+                <option value="1–10 employees">1–10 employees</option>
+                <option value="11–50 employees">11–50 employees</option>
+                <option value="51–200 employees">51–200 employees</option>
+                <option value="201–1000 employees">201–1000 employees</option>
+                <option value="1000+ employees">1000+ employees</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Revenue band
+              </label>
+              <input
+                id="b2b-revenue"
+                type="text"
+                placeholder="Example: $1–10M, $10–50M, enterprise..."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                How many leads?
+              </label>
+              <input
+                id="b2b-count"
+                type="number"
+                min="5"
+                max="500"
+                value="30"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Prompt tone for AI
+              </label>
+              <select
+                id="b2b-tone"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="practical and to the point">Practical &amp; to the point</option>
+                <option value="friendly but expert">Friendly but expert</option>
+                <option value="very detailed and analytical">Very detailed &amp; analytical</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Research depth
+              </label>
+              <select
+                id="b2b-depth"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="light bullets with a short table">Light bullets</option>
+                <option value="balanced detail with 1–2 lines per company">Balanced detail</option>
+                <option value="deep research with 3–4 lines per company">Deep research</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Extra filters / signals
+              </label>
+              <input
+                id="b2b-extra"
+                type="text"
+                placeholder="Funding stage, tech stack, hiring, etc."
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Generate B2B lead prompt
+            </button>
+            <button
+              type="button"
+              onclick="document.getElementById('b2b-form').reset();"
+              class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-700 text-slate-200 text-xs hover:bg-slate-900/70 transition"
+            >
+              <i class="fa-solid fa-rotate-left"></i>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Output + Sample -->
+      <div class="space-y-5">
+        <!-- Prompt output -->
+        <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                2. Paste this into ChatGPT / Gemini / Claude / Perplexity
+              </p>
+              <h2 class="text-lg font-semibold">Your B2B lead prompt</h2>
+            </div>
+            <button
+              type="button"
+              onclick="copyB2B()"
+              class="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-full bg-slate-950 border border-slate-700 hover:border-emerald-400 text-slate-100 transition"
+            >
+              <i class="fa-regular fa-copy text-[11px]"></i>
+              Copy prompt
+            </button>
+          </div>
+          <div
+            id="b2b-output"
+            class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3.5 text-[11px] sm:text-xs font-mono text-slate-200 min-h-[120px] whitespace-pre-wrap"
+          >
+Fill the form on the left and click “Generate B2B lead prompt” to get a ready-to-use prompt.
+          </div>
+        </div>
+
+        <!-- Sample AI response -->
+        <div class="glass rounded-3xl border border-slate-800 p-5 sm:p-6 shadow-xl">
+          <div class="flex items-center justify-between mb-2">
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+              Sample output – what a good AI response looks like
+            </p>
+            <span class="badge-pill px-2.5 py-1 text-[10px] bg-slate-950 border border-slate-700 text-slate-300">
+              Example for IT Services → SaaS founders
+            </span>
+          </div>
+          <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 text-[11px] text-slate-200 font-mono leading-relaxed">
+**1. Ideal lead summary**
+
+You are targeting B2B SaaS and product companies in India and the US, typically 11–200 employees, where the founder / CTO still controls most technology decisions. Your offer is custom software development and DevOps services focused on faster shipping and reducing outages.
+
+**2. Company short-list (example 3 of 30)**
+
+| Company           | Country | Approx size | Why they fit                                  | Likely title to target      |
+|-------------------|---------|-------------|-----------------------------------------------|-----------------------------|
+| CloudStaff CRM    | India   | 50–80       | B2B SaaS, multiple dev roles on LinkedIn.     | CTO / Head of Engineering   |
+| FleetOps AI       | US      | 20–40       | Early-stage logistics SaaS, hiring backend.   | Founder / VP Engineering    |
+| HRFlow Systems    | India   | 80–120      | HR SaaS; high uptime needs and many releases. | VP Product / CTO            |
+
+**3. Suggested next actions**
+
+- Start by validating decision-makers using LinkedIn (Founder, CTO, VP Eng).
+- Use your LinkedIn Boolean Builder to refine searches for each company.
+- For outreach, lead with a specific “DevOps health check” rather than generic development services.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOUR MODAL -->
+  <div
+    id="tour-backdrop"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4"
+  >
+    <div class="max-w-md w-full glass rounded-3xl border border-slate-700 shadow-2xl relative p-5 sm:p-6">
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="absolute top-3 right-3 text-slate-400 hover:text-slate-100 text-xs"
+        aria-label="Close tour"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 text-[11px] text-slate-300 flex items-center gap-2 mb-3">
+        <i class="fa-regular fa-circle-question text-xs text-orange-300"></i>
+        30-second tour
+      </div>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">
+        How to use the <span class="gradient-text">B2B Lead Builder</span>
+      </h2>
+      <p class="text-xs text-slate-400 mb-3">
+        You’re on the B2B side – focused on IT Services, SaaS, and product companies.
+      </p>
+      <ol class="space-y-3 text-sm">
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            1
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Pick a preset or start from blank</p>
+            <p class="text-xs text-slate-400">
+              Use the IT / SaaS / Agency presets on the right or type your own
+              offer, industries, titles and geography in the form.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            2
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Set company size, revenue and depth</p>
+            <p class="text-xs text-slate-400">
+              Choose how many leads, what company size, revenue band, and how deep
+              you want the research so the AI doesn’t stay generic.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            3
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Copy the prompt → paste into AI</p>
+            <p class="text-xs text-slate-400">
+              Click “Generate B2B lead prompt”, copy it, and paste into ChatGPT /
+              Gemini / Claude / Perplexity. Use LinkedIn Boolean Builder to
+              actually find people behind each company.
+            </p>
+          </div>
+        </li>
+      </ol>
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+      >
+        Got it, build my B2B prompt
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 mt-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2024 AI Start India – B2B Lead Builder by <span class="text-slate-300 font-semibold">Chiragkumar Mori</span>.</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:contact@aistartindia.com" class="hover:text-orange-400 flex items-center gap-1">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          contact@aistartindia.com
+        </a>
+        <a href="https://wa.me/910000000000" target="_blank" class="hover:text-emerald-400 flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function appendToInput(id, value) {
+      const input = document.getElementById(id);
+      const current = input.value.trim();
+      if (!current) {
+        input.value = value;
+      } else if (!current.toLowerCase().includes(value.toLowerCase())) {
+        input.value = current + ", " + value;
+      }
+      input.focus();
+    }
+
+    function applyPreset(type) {
+      const name = document.getElementById("b2b-name");
+      const offer = document.getElementById("b2b-offer");
+      const industries = document.getElementById("b2b-industries");
+      const geo = document.getElementById("b2b-geo");
+      const titles = document.getElementById("b2b-titles");
+      const size = document.getElementById("b2b-size");
+      const revenue = document.getElementById("b2b-revenue");
+      const count = document.getElementById("b2b-count");
+      const extra = document.getElementById("b2b-extra");
+
+      if (type === "it") {
+        name.value = "AI Start India";
+        offer.value = "full-stack development and DevOps services";
+        industries.value = "IT Services and IT Consulting, Software Development & Services, Product company";
+        geo.value = "US, UK, Europe (remote-friendly)";
+        titles.value = "Founder, Co-founder, CTO, VP Engineering, Head of Product";
+        size.value = "11–50 employees";
+        revenue.value = "$1–20M ARR (estimate)";
+        count.value = 40;
+        extra.value = "Prior experience outsourcing to India, using modern tech stack (Node, React, cloud-native).";
+      } else if (type === "saas") {
+        offer.value = "HR automation SaaS for tech companies";
+        industries.value = "Software Development & Services, Product company";
+        geo.value = "India, Middle East";
+        titles.value = "HR Head, CHRO, People Lead, Founder";
+        size.value = "51–200 employees";
+        revenue.value = "$2–50M ARR";
+        count.value = 30;
+        extra.value = "Actively hiring, growing headcount, presence on LinkedIn.";
+      } else if (type === "agency") {
+        offer.value = "performance marketing and paid ads management";
+        industries.value = "Product company, SaaS, IT Services and IT Consulting";
+        geo.value = "India, US, UK";
+        titles.value = "Founder, CMO, VP Marketing, Head of Growth";
+        size.value = "11–200 employees";
+        revenue.value = "$1–30M";
+        count.value = 25;
+        extra.value = "Already running Google / Meta ads, at least 1 marketing hire.";
+      }
+    }
+
+    function buildB2BPrompt() {
+      const brand = document.getElementById("b2b-name").value.trim() || "my brand";
+      const offer = document.getElementById("b2b-offer").value.trim() || "[describe my B2B offer]";
+      const industries = document.getElementById("b2b-industries").value.trim() || "[industries]";
+      const geo = document.getElementById("b2b-geo").value.trim() || "[regions / countries]";
+      const titles = document.getElementById("b2b-titles").value.trim() || "[titles]";
+      const size = document.getElementById("b2b-size").value || "any size";
+      const revenue = document.getElementById("b2b-revenue").value.trim() || "any revenue";
+      const count = document.getElementById("b2b-count").value || "30";
+      const tone = document.getElementById("b2b-tone").value;
+      const depth = document.getElementById("b2b-depth").value;
+      const extra = document.getElementById("b2b-extra").value.trim() || "no extra filters";
+
+      const prompt = `Act as a senior B2B lead research specialist who understands SaaS, IT Services and product companies.
+
+I am ${brand}, and I sell:
+${offer}
+
+I want to build a list of approximately ${count} high-probability B2B leads with the following profile:
+
+- Industries: ${industries}
+- Geography / region: ${geo}
+- Company size (employees): ${size}
+- Revenue band: ${revenue}
+- Primary decision-maker titles: ${titles}
+- Extra filters or signals: ${extra}
+
+Your task:
+1. Suggest the best research workflow using tools like LinkedIn, Sales Navigator, Crunchbase, company websites, and review platforms.
+2. Create a clear, reusable prompt I can paste into Perplexity / Gemini to find ${count} relevant companies.
+3. Create a second prompt I can paste into ChatGPT / Claude for analysing each company to find:
+   - the most likely decision maker (name + title if possible),
+   - 1–2 key insights about why they might need my offer now,
+   - a suggested angle or hook for a personalised outbound message.
+4. Return both prompts in separate code blocks I can copy-paste.
+
+Tone for your answer: ${tone}.
+Research depth: ${depth}.
+
+IMPORTANT:
+- Make assumptions where my input is vague, but clearly explain those assumptions.
+- Use concise bullet points and tables wherever it helps.`;
+
+      document.getElementById("b2b-output").textContent = prompt;
+    }
+
+    function copyB2B() {
+      const text = document.getElementById("b2b-output").textContent;
+      if (!text || text.startsWith("Fill the form")) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+        alert("B2B prompt copied!");
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        alert("B2B prompt copied!");
+      }
+    }
+
+    // TOUR MODAL LOGIC
+    function openTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("flex");
+    }
+
+    function closeTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.add("hidden");
+      backdrop.classList.remove("flex");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (!localStorage.getItem("aiStartTourSeenV1")) {
+          openTour();
+          localStorage.setItem("aiStartTourSeenV1", "1");
+        }
+      } catch (e) {
+        // ignore if localStorage blocked
+      }
+
+      const backdrop = document.getElementById("tour-backdrop");
+      if (backdrop) {
+        backdrop.addEventListener("click", function (e) {
+          if (e.target === backdrop) {
+            closeTour();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeTour();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

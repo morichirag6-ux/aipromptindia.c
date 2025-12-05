@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LinkedIn Boolean Search Builder – AI Start India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    :root {
+      --brand-bg: #020617;
+      --brand-card: rgba(15, 23, 42, 0.9);
+      --brand-border: rgba(148, 163, 184, 0.35);
+      --brand-gradient: linear-gradient(135deg, #f97316, #a855f7);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(248, 113, 113, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.22), transparent 55%),
+        var(--brand-bg);
+      color: #e5e7eb;
+      min-height: 100vh;
+    }
+
+    .gradient-text {
+      background-image: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass {
+      background: var(--brand-card);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-shell {
+      position: relative;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1.75rem;
+      padding: 1px;
+      background-image: var(--brand-gradient);
+      opacity: 0.5;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .badge-pill {
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="text-slate-100">
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/40"
+          >
+            <i class="fa-solid fa-robot text-sm text-white"></i>
+          </div>
+          <div class="leading-tight">
+            <p class="font-bold text-sm sm:text-base">
+              AI Start <span class="text-emerald-400">India</span>
+            </p>
+            <p class="text-[11px] text-slate-400 hidden sm:block">
+              LinkedIn Boolean Search Builder
+            </p>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="text-slate-300 hover:text-orange-400 transition">Home</a>
+          <a href="b2b-leads.html" class="text-slate-300 hover:text-orange-400 transition">B2B Leads</a>
+          <a href="b2c.html" class="text-slate-300 hover:text-orange-400 transition">B2C Leads</a>
+          <a href="crm-notes.html" class="text-slate-300 hover:text-orange-400 transition">CRM Notes</a>
+          <a href="roleplay.html" class="text-slate-300 hover:text-orange-400 transition">Role-Play</a>
+          <a href="linkedin-builder.html" class="text-orange-400 font-semibold">LinkedIn Builder</a>
+          <a href="daily-missions.html" class="text-slate-300 hover:text-orange-400 transition">Daily Missions</a>
+          <a href="deal-doctor.html" class="text-slate-300 hover:text-orange-400 transition">Deal Doctor</a>
+          <a href="swipefile.html" class="text-slate-300 hover:text-orange-400 transition">Swipe File</a>
+          <button
+            type="button"
+            onclick="openTour()"
+            class="text-slate-300 hover:text-orange-400 transition flex items-center gap-1 text-xs"
+          >
+            <i class="fa-regular fa-circle-question text-xs"></i>
+            <span>How it works</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="pt-24 pb-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- HERO -->
+    <section class="hero-shell glass rounded-3xl border border-slate-800 px-5 sm:px-8 py-7 sm:py-10 shadow-2xl shadow-slate-950/70 mb-8">
+      <div class="grid lg:grid-cols-[3fr,2fr] gap-8 items-start">
+        <div>
+          <p class="inline-flex items-center gap-2 badge-pill text-xs px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/40 mb-3">
+            <i class="fa-brands fa-linkedin"></i>
+            LinkedIn Boolean Search Builder
+          </p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Build perfect LinkedIn<br />
+            <span class="gradient-text">Boolean searches</span> in 30 seconds.
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mb-4">
+            Turn your ICP into clean Boolean strings for LinkedIn search and Sales Navigator.
+            No more guessing brackets, AND / OR, or endless filters.
+          </p>
+          <ul class="text-[12px] text-slate-400 space-y-1.5 mb-3">
+            <li>• Works for B2B &amp; B2C roles, founders, CXOs, marketing heads, and more.</li>
+            <li>• Create search strings for <span class="text-sky-300">People</span> or <span class="text-sky-300">Companies</span>.</li>
+            <li>• Copy–paste directly into LinkedIn search bar.</li>
+          </ul>
+        </div>
+
+        <!-- Quick tips -->
+        <div class="rounded-3xl bg-slate-950/70 border border-slate-800 p-5 sm:p-6 shadow-xl text-xs">
+          <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-wide mb-2">
+            Quick tips
+          </p>
+          <div class="space-y-2.5 text-slate-300">
+            <div class="flex gap-2">
+              <span class="mt-0.5 text-[10px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+                1
+              </span>
+              <p><strong>Use OR</strong> between similar titles or industries.</p>
+            </div>
+            <div class="flex gap-2">
+              <span class="mt-0.5 text-[10px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+                2
+              </span>
+              <p><strong>Use AND</strong> to combine: role + industry + geography.</p>
+            </div>
+            <div class="flex gap-2">
+              <span class="mt-0.5 text-[10px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+                3
+              </span>
+              <p><strong>Use NOT</strong> to remove wrong profiles (student, intern, etc.).</p>
+            </div>
+            <p class="mt-3 text-[11px] text-slate-400">
+              This builder will do the formatting for you and keep everything
+              wrapped in quotes &amp; brackets correctly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDER -->
+    <section class="grid lg:grid-cols-[3fr,2fr] gap-8">
+      <!-- Form -->
+      <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg sm:text-xl font-semibold">1. Describe who you want on LinkedIn</h2>
+          <span class="text-[11px] text-slate-400">Then click “Generate Boolean string”.</span>
+        </div>
+
+        <form id="li-form" class="space-y-4" onsubmit="event.preventDefault(); buildLinkedIn();">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Search type
+              </label>
+              <select
+                id="li-type"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              >
+                <option value="people">People</option>
+                <option value="companies">Companies</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Geography keywords
+              </label>
+              <input
+                id="li-geo"
+                type="text"
+                placeholder='Example: "India" OR "United States" OR "UK"'
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              Role / title keywords (separate by comma)
+            </label>
+            <input
+              id="li-titles"
+              type="text"
+              placeholder="Example: Founder, Co-founder, CEO, CTO, Head of Marketing"
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              Industry / company keywords (separate by comma)
+            </label>
+            <input
+              id="li-industries"
+              type="text"
+              placeholder="Example: SaaS, IT Services, Product company, Real estate, NBFC"
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+            />
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Seniority keywords
+              </label>
+              <input
+                id="li-seniority"
+                type="text"
+                placeholder="Example: Senior, Lead, Head, VP, Director, CXO"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">
+                Exclude keywords (NOT)
+              </label>
+              <input
+                id="li-exclude"
+                type="text"
+                placeholder="Example: intern, trainee, student, hiring, recruiter"
+                class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">
+              Company size / context (optional comment for yourself)
+            </label>
+            <input
+              id="li-notes"
+              type="text"
+              placeholder="Example: 11–200 employees, funded startups, using modern tech stack"
+              class="w-full text-sm rounded-xl bg-slate-950 border border-slate-700 px-3 py-2.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70"
+            />
+            <p class="text-[11px] text-slate-500 mt-1">
+              (This will not go into the Boolean string, just a reminder about who you’re targeting.)
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Generate Boolean string
+            </button>
+            <button
+              type="button"
+              onclick="document.getElementById('li-form').reset();"
+              class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-700 text-slate-200 text-xs hover:bg-slate-900/70 transition"
+            >
+              <i class="fa-solid fa-rotate-left"></i>
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Output + Example -->
+      <div class="space-y-5">
+        <div class="glass rounded-3xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                2. Paste this into LinkedIn / Sales Navigator
+              </p>
+              <h2 class="text-lg font-semibold">Your Boolean string</h2>
+            </div>
+            <button
+              type="button"
+              onclick="copyBoolean()"
+              class="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-full bg-slate-950 border border-slate-700 hover:border-emerald-400 text-slate-100 transition"
+            >
+              <i class="fa-regular fa-copy text-[11px]"></i>
+              Copy string
+            </button>
+          </div>
+          <div
+            id="li-output"
+            class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3.5 text-[11px] sm:text-xs font-mono text-slate-200 min-h-[120px] whitespace-pre-wrap"
+          >
+Fill the form on the left and click “Generate Boolean string”.
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl border border-slate-800 p-5 sm:p-6 shadow-xl">
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">
+            Sample: founders in SaaS / IT services in India or US
+          </p>
+          <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-3 text-[11px] text-slate-200 font-mono">
+("Founder" OR "Co-founder" OR "CEO")
+AND
+("SaaS" OR "Software" OR "IT Services")
+AND
+("India" OR "United States" OR "USA")
+NOT
+("intern" OR "trainee" OR "student" OR "recruiter")
+          </div>
+          <p class="mt-2 text-[11px] text-slate-400">
+            Paste this into the LinkedIn search bar, then refine using filters (Location, Industry, Company headcount, etc.).
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOUR MODAL -->
+  <div
+    id="tour-backdrop"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4"
+  >
+    <div class="max-w-md w-full glass rounded-3xl border border-slate-700 shadow-2xl relative p-5 sm:p-6">
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="absolute top-3 right-3 text-slate-400 hover:text-slate-100 text-xs"
+        aria-label="Close tour"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="badge-pill px-3 py-1 bg-slate-950 border border-slate-700 text-[11px] text-slate-300 flex items-center gap-2 mb-3">
+        <i class="fa-regular fa-circle-question text-xs text-sky-300"></i>
+        30-second tour
+      </div>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">
+        How to use the <span class="gradient-text">LinkedIn Builder</span>
+      </h2>
+      <ol class="space-y-3 text-sm">
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            1
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Describe who you want</p>
+            <p class="text-xs text-slate-400">
+              Fill in titles, industries, geography, seniority, and exclusions
+              (intern, student, recruiter, etc.).
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            2
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Generate your Boolean search</p>
+            <p class="text-xs text-slate-400">
+              Click “Generate Boolean string” and copy the output. The builder will
+              create clean AND / OR / NOT logic with proper quotes and brackets.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-3">
+          <span class="mt-0.5 text-[11px] px-2 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            3
+          </span>
+          <div>
+            <p class="font-semibold text-slate-100">Paste into LinkedIn or Sales Navigator</p>
+            <p class="text-xs text-slate-400">
+              Paste into the search bar and then use standard filters (Locations, Industry,
+              Company size, etc.) to narrow the results even further.
+            </p>
+          </div>
+        </li>
+      </ol>
+      <button
+        type="button"
+        onclick="closeTour()"
+        class="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 hover:from-orange-400 hover:to-violet-400 text-slate-950 text-xs sm:text-sm font-semibold shadow-lg shadow-orange-500/30 transition"
+      >
+        Got it, build my search
+      </button>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-800 mt-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>© 2024 AI Start India – LinkedIn Boolean Builder by <span class="text-slate-300 font-semibold">Chiragkumar Mori</span>.</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:contact@aistartindia.com" class="hover:text-orange-400 flex items-center gap-1">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          contact@aistartindia.com
+        </a>
+        <a href="https://wa.me/910000000000" target="_blank" class="hover:text-emerald-400 flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toOrBlock(raw) {
+      if (!raw.trim()) return "";
+      const parts = raw.split(",").map(p => p.trim()).filter(Boolean);
+      if (!parts.length) return "";
+      if (parts.length === 1) return `"${parts[0]}"`;
+      return "(" + parts.map(p => `"${p}"`).join(" OR ") + ")";
+    }
+
+    function toNotBlock(raw) {
+      if (!raw.trim()) return "";
+      const parts = raw.split(",").map(p => p.trim()).filter(Boolean);
+      if (!parts.length) return "";
+      return "NOT (" + parts.map(p => `"${p}"`).join(" OR ") + ")";
+    }
+
+    function buildLinkedIn() {
+      const type = document.getElementById("li-type").value;
+      const geo = document.getElementById("li-geo").value.trim();
+      const titles = document.getElementById("li-titles").value.trim();
+      const industries = document.getElementById("li-industries").value.trim();
+      const seniority = document.getElementById("li-seniority").value.trim();
+      const exclude = document.getElementById("li-exclude").value.trim();
+
+      const geoBlock = geo ? geo : "";
+      const titleBlock = toOrBlock(titles);
+      const industryBlock = toOrBlock(industries);
+      const seniorityBlock = toOrBlock(seniority);
+      const notBlock = toNotBlock(exclude);
+
+      const blocks = [];
+      if (titleBlock) blocks.push(titleBlock);
+      if (industryBlock) blocks.push(industryBlock);
+      if (geoBlock) blocks.push(geoBlock);
+      if (seniorityBlock) blocks.push(seniorityBlock);
+
+      let result = "";
+      if (blocks.length) {
+        result = blocks.join("\nAND\n");
+      }
+      if (notBlock) {
+        result += (result ? "\n" : "") + notBlock;
+      }
+
+      if (!result) {
+        result = 'Add some titles / industries first 🙂';
+      }
+
+      const prefix =
+        type === "people"
+          ? "# People search\nPaste into LinkedIn search bar, then apply filters.\n\n"
+          : "# Company search\nPaste into Keywords / Company field, then filter by Industry / Size.\n\n";
+
+      document.getElementById("li-output").textContent = prefix + result;
+    }
+
+    function copyBoolean() {
+      const text = document.getElementById("li-output").textContent;
+      if (!text || text.startsWith("Fill the form")) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+        alert("Boolean string copied!");
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        alert("Boolean string copied!");
+      }
+    }
+
+    // TOUR
+    function openTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("flex");
+    }
+    function closeTour() {
+      const backdrop = document.getElementById("tour-backdrop");
+      if (!backdrop) return;
+      backdrop.classList.add("hidden");
+      backdrop.classList.remove("flex");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (!localStorage.getItem("aiStartTourSeenV1")) {
+          openTour();
+          localStorage.setItem("aiStartTourSeenV1", "1");
+        }
+      } catch (e) {}
+
+      const backdrop = document.getElementById("tour-backdrop");
+      if (backdrop) {
+        backdrop.addEventListener("click", function (e) {
+          if (e.target === backdrop) closeTour();
+        });
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeTour();
+      });
+    });
+  </script>
+</body>
+</html>
