@@ -28,36 +28,72 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-  </style>
+  
+    .nav-link-active { color: #fb923c !important; font-weight: 600; }
+    .footer-link-active { color: #e2e8f0 !important; }
+    @media (max-width: 767px) {
+      .mobile-safe-card { padding-left: 1rem; padding-right: 1rem; }
+      .mobile-stack-gap > * + * { margin-top: .75rem; }
+    }
+</style>
 </head>
 <body class="text-slate-100">
-  <nav class="fixed top-0 inset-x-0 z-40 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <!-- NAVBAR -->
+  <nav class="fixed top-0 inset-x-0 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <a href="../index.html" class="flex items-center gap-2">
-          <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/40">
+      <div class="flex h-16 items-center justify-between gap-3">
+        <a href="index.html" class="flex min-w-0 items-center gap-2">
+          <div class="w-9 h-9 shrink-0 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/40">
             <i class="fa-solid fa-robot text-sm text-white"></i>
           </div>
-          <div class="leading-tight">
-            <p class="font-bold text-sm sm:text-base">
-              AI Start <span class="text-emerald-400">India</span>
-            </p>
-            <p class="text-[11px] text-slate-400 hidden sm:block">
-              Sales-ready B2B &amp; B2C AI Lead Tools
-            </p>
+          <div class="leading-tight min-w-0">
+            <p class="font-bold text-sm sm:text-base truncate">AI Start <span class="text-emerald-400">India</span></p>
+            <p class="text-[11px] text-slate-400 hidden sm:block truncate">Sales-ready B2B &amp; B2C AI Lead Tools</p>
           </div>
         </a>
 
-        <div class="hidden md:flex items-center gap-5 text-sm">
-          <a href="../index.html" class="text-slate-300 hover:text-orange-400 transition">Home</a>
-          <a href="../b2b-leads.html" class="text-slate-300 hover:text-orange-400 transition">B2B Leads</a>
-          <a href="../b2c.html" class="text-slate-300 hover:text-orange-400 transition">B2C Leads</a>
-          <a href="../crm-notes.html" class="text-slate-300 hover:text-orange-400 transition">CRM Notes</a>
-          <a href="../roleplay.html" class="text-slate-300 hover:text-orange-400 transition">Role-Play</a>
-          <a href="../linkedin-builder.html" class="text-slate-300 hover:text-orange-400 transition">LinkedIn Builder</a>
-          <a href="../daily-missions.html" class="text-slate-300 hover:text-orange-400 transition">Daily Missions</a>
-          <a href="../deal-doctor.html" class="text-slate-300 hover:text-orange-400 transition">Deal Doctor</a>
-          <a href="../swipefile.html" class="text-slate-300 hover:text-orange-400 transition">Swipe File</a>
+        <div class="hidden lg:flex items-center gap-4 text-sm">
+          <a href="index.html" class="text-slate-300 hover:text-orange-400 transition">Home</a>
+          <a href="b2b-leads.html" class="text-slate-300 hover:text-orange-400 transition">B2B Leads</a>
+          <a href="b2c.html" class="text-slate-300 hover:text-orange-400 transition">B2C Leads</a>
+          <a href="crm-notes.html" class="text-slate-300 hover:text-orange-400 transition">CRM Notes</a>
+          <a href="roleplay.html" class="text-slate-300 hover:text-orange-400 transition">Role-Play</a>
+          <a href="linkedin-builder.html" class="text-slate-300 hover:text-orange-400 transition">LinkedIn Builder</a>
+          <a href="daily-missions.html" class="text-slate-300 hover:text-orange-400 transition">Daily Missions</a>
+          <a href="deal-doctor.html" class="text-slate-300 hover:text-orange-400 transition">Deal Doctor</a>
+          <a href="swipefile.html" class="text-slate-300 hover:text-orange-400 transition">Swipe File</a>
+          <a href="blog.html" class="text-orange-400 font-semibold">Blog</a>
+          <a href="about.html" class="text-slate-300 hover:text-orange-400 transition">About</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold border border-slate-700 text-slate-100 px-3 py-2 rounded-full hover:bg-slate-900/70 transition">
+            <i class="fa-regular fa-envelope"></i>
+            Contact
+          </a>
+          <button type="button" class="lg:hidden p-2 rounded-lg border border-slate-700 text-slate-200 hover:bg-slate-800 transition" onclick="toggleMobileNav()" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars" id="mobile-nav-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="lg:hidden hidden bg-slate-950/95 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 py-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
+          <a href="index.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>Home</a>
+          <a href="b2b-leads.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>B2B Leads</a>
+          <a href="b2c.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>B2C Leads</a>
+          <a href="crm-notes.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>CRM Notes</a>
+          <a href="roleplay.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>Role-Play</a>
+          <a href="linkedin-builder.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>LinkedIn Builder</a>
+          <a href="daily-missions.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>Daily Missions</a>
+          <a href="deal-doctor.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>Deal Doctor</a>
+          <a href="swipefile.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>Swipe File</a>
+          <a href="blog.html" class="block py-2 text-orange-400 font-semibold" data-mobile-link>Blog</a>
+          <a href="about.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>About</a>
+          <a href="contact.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>Contact</a>
+          <a href="privacy.html" class="block py-2 text-slate-300 hover:text-orange-400 transition" data-mobile-link>Privacy</a>
         </div>
       </div>
     </div>
@@ -144,7 +180,7 @@
 
         <div class="pt-4">
           <a
-            href="../blog.html"
+            href="blog.html"
             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-violet-500 text-slate-950 font-semibold hover:from-orange-400 hover:to-violet-400 transition"
           >
             <i class="fa-solid fa-arrow-left"></i>
@@ -154,5 +190,106 @@
       </div>
     </section>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 mt-10 bg-slate-950/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-4 text-sm">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-3">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-orange-500 to-violet-500 flex items-center justify-center shadow-lg shadow-orange-500/30">
+              <i class="fa-solid fa-robot text-white"></i>
+            </div>
+            <div>
+              <p class="font-bold text-slate-100">AI Start <span class="text-emerald-400">India</span></p>
+              <p class="text-[12px] text-slate-400">Simple AI sales tools for Indian teams.</p>
+            </div>
+          </a>
+          <p class="text-slate-400 text-[13px] leading-6">Prompt builders for lead generation, CRM notes, role-play practice, swipe files and day-to-day sales work.</p>
+        </div>
+
+        <div>
+          <p class="text-slate-100 font-semibold mb-3">Quick links</p>
+          <div class="grid gap-2 text-slate-400">
+            <a href="index.html" class="hover:text-slate-200 ">Home</a>
+            <a href="about.html" class="hover:text-slate-200 ">About</a>
+            <a href="blog.html" class="hover:text-slate-200 footer-link-active">Blog</a>
+            <a href="contact.html" class="hover:text-slate-200 ">Contact</a>
+            <a href="privacy.html" class="hover:text-slate-200 ">Privacy Policy</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-slate-100 font-semibold mb-3">Popular tools</p>
+          <div class="grid gap-2 text-slate-400">
+            <a href="b2b-leads.html" class="hover:text-slate-200 ">B2B Leads</a>
+            <a href="b2c.html" class="hover:text-slate-200 ">B2C Leads</a>
+            <a href="crm-notes.html" class="hover:text-slate-200 ">CRM Notes</a>
+            <a href="roleplay.html" class="hover:text-slate-200 ">Role-Play</a>
+            <a href="deal-doctor.html" class="hover:text-slate-200 ">Deal Doctor</a>
+            <a href="swipefile.html" class="hover:text-slate-200 ">Swipe File</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-slate-100 font-semibold mb-3">Get in touch</p>
+          <div class="grid gap-3 text-slate-400">
+            <a href="contact.html" class="inline-flex items-center gap-2 hover:text-slate-200"><i class="fa-regular fa-envelope"></i> Contact page</a>
+            <a href="mailto:abchirag4@gmail.com" class="inline-flex items-center gap-2 hover:text-slate-200"><i class="fa-solid fa-paper-plane"></i> abchirag4@gmail.com</a>
+            <p class="text-[13px] leading-6">Built to be simple, mobile-friendly and easy to use across every page.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[12px] text-slate-500">
+        <p>© 2026 AI Start India. All rights reserved.</p>
+        <p>Optimized for mobile navigation, cleaner footer layout and consistent page links.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileNav(forceClose) {
+      const menu = document.getElementById("mobile-nav");
+      const icon = document.getElementById("mobile-nav-icon");
+      if (!menu) return;
+      const shouldClose = forceClose === true || (forceClose !== false && !menu.classList.contains("hidden"));
+      if (shouldClose) {
+        menu.classList.add("hidden");
+        if (icon) icon.className = "fa-solid fa-bars";
+        return;
+      }
+      menu.classList.remove("hidden");
+      if (icon) icon.className = "fa-solid fa-xmark";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("[data-mobile-link]").forEach(function (link) {
+        link.addEventListener("click", function () { toggleMobileNav(true); });
+      });
+
+      document.addEventListener("click", function (e) {
+        const nav = document.querySelector("nav");
+        const menu = document.getElementById("mobile-nav");
+        if (!nav || !menu || menu.classList.contains("hidden")) return;
+        if (!nav.contains(e.target)) toggleMobileNav(true);
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 1024) toggleMobileNav(true);
+      });
+
+      const current = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('a[href]').forEach(function (a) {
+        const href = a.getAttribute('href');
+        if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('#')) return;
+        const normalized = href.replace('./','').toLowerCase();
+        if (normalized === current) {
+          if (a.closest('nav')) a.classList.add('nav-link-active');
+          if (a.closest('footer')) a.classList.add('footer-link-active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
