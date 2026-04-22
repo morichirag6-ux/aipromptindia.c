@@ -145,25 +145,44 @@
       <label class="fl">Message</label>
       <textarea class="ft" id="c_message" placeholder="Tell us what's on your mind..."></textarea>
     </div>
-    <button class="btn" onclick="submitContact()" style="width:100%;justify-content:center;">Send Message →</button>
-    <div id="c_success" style="display:none;margin-top:16px;padding:14px;background:var(--teal-light);border-radius:var(--radius-sm);font-size:.88rem;color:#006b58;font-weight:500;">✅ Message prepared! Please email it to abchirag4@gmail.com</div>
+    <button class="btn" id="c_btn" onclick="submitContact()" style="width:100%;justify-content:center;">Send Message →</button>
   </div>
+  <div id="c_success" style="display:none;margin-top:20px;padding:16px;background:#ecfdf5;border:1px solid #6ee7b7;border-radius:var(--radius-sm);font-size:.92rem;color:#065f46;font-weight:600;">&#x2705; Message sent! We will reply within 24&#x2013;48 hours.</div>
+  <div id="c_error" style="display:none;margin-top:20px;padding:16px;background:#fef2f2;border:1px solid #fca5a5;border-radius:var(--radius-sm);font-size:.92rem;color:#991b1b;font-weight:600;">&#x274C; Something went wrong. Please email abchirag4@gmail.com directly.</div>
   <div style="margin-top:40px;text-align:center;color:var(--ink3);font-size:.85rem;">
-    We typically respond within 24–48 hours. For urgent matters, email directly at <a href="mailto:abchirag4@gmail.com" style="color:var(--accent);">abchirag4@gmail.com</a>
+    We typically respond within 24&#x2013;48 hours. For urgent matters, email directly at <a href="mailto:abchirag4@gmail.com" style="color:var(--accent);">abchirag4@gmail.com</a>
   </div>
 </div>
 <script>
-function submitContact(){
-  const n=document.getElementById('c_name').value;
-  const e=document.getElementById('c_email').value;
-  const s=document.getElementById('c_subject').value;
-  const m=document.getElementById('c_message').value;
-  if(!n||!e||!m){alert('Please fill in all fields.');return;}
-  document.getElementById('c_success').style.display='block';
-  window.location.href='mailto:abchirag4@gmail.com?subject='+encodeURIComponent(s+' — from '+n)+'&body='+encodeURIComponent('Name: '+n+'
-Email: '+e+'
-
-'+m);
+async function submitContact(){
+  var n=document.getElementById('c_name').value.trim();
+  var e=document.getElementById('c_email').value.trim();
+  var s=document.getElementById('c_subject').value;
+  var m=document.getElementById('c_message').value.trim();
+  document.getElementById('c_success').style.display='none';
+  document.getElementById('c_error').style.display='none';
+  if(!n||!e||!m){alert('Please fill in your name, email and message.');return;}
+  var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  if(!emailOk){alert('Please enter a valid email address.');return;}
+  var btn=document.getElementById('c_btn');
+  btn.textContent='Sending...';btn.disabled=true;
+  fetch('https://formspree.io/f/xpwzgojp',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({name:n,email:e,subject:s,message:m})
+  }).then(function(res){
+    if(res.ok){
+      document.getElementById('c_success').style.display='block';
+      document.getElementById('c_name').value='';
+      document.getElementById('c_email').value='';
+      document.getElementById('c_message').value='';
+      btn.textContent='Sent!';
+      setTimeout(function(){btn.textContent='Send Message →';btn.disabled=false;},4000);
+    }else{throw new Error('fail');}
+  }).catch(function(){
+    document.getElementById('c_error').style.display='block';
+    btn.textContent='Send Message →';btn.disabled=false;
+  });
 }
 </script></div>
 </main>
